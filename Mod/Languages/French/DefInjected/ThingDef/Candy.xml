@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: bloodshot cake pops -->
+  <HMM_BloodshotCakePops.label>cake pops injectés de sang</HMM_BloodshotCakePops.label>
+  <HMM_BloodshotCakePops.description>Des cake pops dont le glaçage imite un œil injecté de sang. À base de sucre et d'œufs. Ils comblent une bonne part du besoin de loisir, mais ne nourrissent presque pas.</HMM_BloodshotCakePops.description>
+
+  <!-- EN: coffin bars -->
+  <HMM_CoffinBars.label>barres cercueil</HMM_CoffinBars.label>
+  <HMM_CoffinBars.description>Une barre chocolatée au nougat, au beurre de cacahuète et au caramel. À base de sucre et de chocolat. Elle comble une énorme part du besoin de loisir, mais ne nourrit presque pas.</HMM_CoffinBars.description>
+
+  <!-- EN: spider bites -->
+  <HMM_SpiderBites.label>morsures d'araignée</HMM_SpiderBites.label>
+  <HMM_SpiderBites.description>Une poignée de bonbons gélifiés en forme d'araignées. À base de sucre et de fruits. Ils comblent une bonne part du besoin de loisir, mais ne nourrissent presque pas.</HMM_SpiderBites.description>
+
+  <!-- EN: brain cakes -->
+  <HMM_BrainCakes.label>gâteaux cervelle</HMM_BrainCakes.label>
+  <HMM_BrainCakes.description>Un petit gâteau surmonté d'un glaçage en forme de cervelle. À base de sucre et de lait. Ils comblent une bonne part du besoin de loisir, mais ne nourrissent presque pas.</HMM_BrainCakes.description>
+
+  <!-- EN: murder buns -->
+  <HMM_MurderBuns.label>brioches sanglantes</HMM_MurderBuns.label>
+  <HMM_MurderBuns.description>Une brioche nappée d'un glaçage rouge sang. À base de sucre et de farine. Elles comblent une bonne part du besoin de loisir, mais ne nourrissent presque pas.</HMM_MurderBuns.description>
+
+  <!-- EN: candy corn -->
+  <HMM_CandyCorn.label>grains de maïs sucrés</HMM_CandyCorn.label>
+  <HMM_CandyCorn.description>Un délicieux apprêt de maïs cuit au sucre. Il comble une petite part du besoin de loisir, mais ne nourrit presque pas.</HMM_CandyCorn.description>
+
+</LanguageData>

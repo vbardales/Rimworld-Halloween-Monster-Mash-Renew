@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    Six Halloween sweets from [KD] Halloween Monster Mash, carried to 1.6.
+
+    Their recipes are in Defs/RecipeDefs/Recipes_Candy.xml and call for Vanilla Cooking Expanded's
+    sugar, flour and fruit. VCE is a declared dependency of this mod, so those defs are always
+    present - see About.xml.
+
+    Upstream declared three dependencies: Vanilla Cooking Expanded, Vanilla Plants Expanded and
+    the Vanilla Expanded Framework. Only the first is used anywhere in its defs; the other two
+    were declared in error and are not carried over.
+
+    The author's balance is untouched. These are Chocolate with a different sprite: same 60 hit
+    points, same market value of 3, same mass, same deterioration, same 0.1 nutrition, same
+    DesperateOnly preferability, same Gluttonous joy kind. Only the joy differs between them, and
+    that is the only reason to eat one.
+
+    Changed against the 1.2 originals, all recorded in ATTRIBUTION.md:
+    - the six-fold copy-paste is folded into HMM_CandyBase; every value is the author's
+    - labels lower-cased to the vanilla convention
+    - two typos in the descriptions
+
+    Left alone deliberately: no tradeTags, so no trader will ever carry these. That is the
+    author's choice and it is defensible - they are a thing you make for a season, not a
+    commodity - but it does mean a colony without Vanilla Cooking Expanded will never see one.
+  -->
+
+  <ThingDef Name="HMM_CandyBase" ParentName="ResourceBase" Abstract="True">
+    <soundInteract>Standard_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <MarketValue>3</MarketValue>
+      <Mass>0.075</Mass>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>8</DeteriorationRate>
+      <Nutrition>0.1</Nutrition>
+    </statBases>
+    <thingCategories>
+      <li>Foods</li>
+    </thingCategories>
+    <ingestible>
+      <preferability>DesperateOnly</preferability>
+      <foodType>Processed</foodType>
+      <joyKind>Gluttonous</joyKind>
+      <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_CandyBase">
+    <defName>HMM_BloodshotCakePops</defName>
+    <label>bloodshot cake pops</label>
+    <description>Cake pops with icing that makes them look like bloodshot eyes. Made from sugar and eggs. It fulfills a large amount of need for recreation, but it is not very nutritious.</description>
+    <graphicData>
+      <texPath>Candy/BloodshotCakePops</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.88</drawSize>
+    </graphicData>
+    <ingestible>
+      <joy>0.15</joy>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_CandyBase">
+    <defName>HMM_CoffinBars</defName>
+    <label>coffin bars</label>
+    <description>A chocolate bar made with nougat, peanut butter, and caramel. Made from sugar and chocolate. It fulfills a massive amount of need for recreation, but it is not very nutritious.</description>
+    <graphicData>
+      <texPath>Candy/CoffinBars</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.88</drawSize>
+    </graphicData>
+    <ingestible>
+      <joy>0.25</joy>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_CandyBase">
+    <defName>HMM_SpiderBites</defName>
+    <label>spider bites</label>
+    <description>A bunch of sweet gummies in the shape of spiders. Made from sugar and fruit. It fulfills a large amount of need for recreation, but it is not very nutritious.</description>
+    <graphicData>
+      <texPath>Candy/SpiderBites</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.88</drawSize>
+    </graphicData>
+    <ingestible>
+      <joy>0.15</joy>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_CandyBase">
+    <defName>HMM_BrainCakes</defName>
+    <label>brain cakes</label>
+    <description>A cup cake with brain icing on top. Made from sugar and milk. It fulfills a large amount of need for recreation, but it is not very nutritious.</description>
+    <graphicData>
+      <texPath>Candy/BrainCakes</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.88</drawSize>
+    </graphicData>
+    <ingestible>
+      <joy>0.15</joy>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_CandyBase">
+    <defName>HMM_MurderBuns</defName>
+    <label>murder buns</label>
+    <description>A bun cake coated with bloody red icing. Made from sugar and flour. It fulfills a large amount of need for recreation, but it is not very nutritious.</description>
+    <graphicData>
+      <texPath>Candy/MurderBuns</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.88</drawSize>
+    </graphicData>
+    <ingestible>
+      <joy>0.15</joy>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_CandyBase">
+    <defName>HMM_CandyCorn</defName>
+    <label>candy corn</label>
+    <description>A delicious preparation of corn cooked with sugar. It fulfills a small amount of recreation, but it is not very nutritious.</description>
+    <graphicData>
+      <texPath>Candy/CandyCorn</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.88</drawSize>
+    </graphicData>
+    <ingestible>
+      <joy>0.05</joy>
+    </ingestible>
+  </ThingDef>
+
+</Defs>

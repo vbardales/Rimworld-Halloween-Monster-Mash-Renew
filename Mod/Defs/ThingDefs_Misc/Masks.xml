@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    Eleven masks from [KD] Halloween Monster Mash, carried to 1.6 on their own.
+
+    Two things were corrected against the 1.2 originals, both recorded in ATTRIBUTION.md:
+
+    - The originals declared costStuffCount and three StuffEffectMultiplier stats without ever
+      declaring stuffCategories. Nothing in the ancestry declares any either, so the masks are not
+      made from stuff and all four lines were inert: the "mediocre protection" the descriptions
+      promise was exactly zero. The multipliers are replaced by the flat values they would have
+      produced on cloth (Cloth: Sharp 0.36, Heat 0.18, Insulation 18/18), which is plainly what the
+      author meant - the multipliers are the vanilla hat block, copied.
+    - developmentalStageFilter, which every vanilla hat carries and none of these did.
+
+    Everything else is the author's, balance included: 30 cloth flat, 1400 work, generateCommonality
+    of 1, and the four apparel tags that let raiders and visitors spawn wearing them all year round.
+  -->
+
+  <ThingDef Name="HMM_MaskBase" ParentName="HatMakeableBase" Abstract="True">
+    <techLevel>Neolithic</techLevel>
+    <tradeability>Sellable</tradeability>
+    <generateCommonality>1</generateCommonality>
+    <costList>
+      <Cloth>30</Cloth>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToMake>1400</WorkToMake>
+      <Mass>0.1</Mass>
+      <EquipDelay>1.4</EquipDelay>
+      <ArmorRating_Sharp>0.072</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.036</ArmorRating_Heat>
+      <Insulation_Cold>1.8</Insulation_Cold>
+      <Insulation_Heat>0.9</Insulation_Heat>
+    </statBases>
+    <apparel>
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Neolithic</li>
+        <li>MedievalMilitary</li>
+        <li>IndustrialBasic</li>
+        <li>IndustrialMilitary</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <recipeMaker>
+      <recipeUsers Inherit="False">
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+        <li>CraftingSpot</li>
+      </recipeUsers>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Devil</defName>
+    <label>devil mask</label>
+    <description>A mask made out of cloth that makes you look like the Devil. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Devil/Devil</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Devil/Devil</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Clown</defName>
+    <label>clown mask</label>
+    <description>A mask made out of cloth that makes you look like a clown... a really creepy clown. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Clown/Clown</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Clown/Clown</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Witch</defName>
+    <label>witch mask</label>
+    <description>A mask made out of cloth that makes you look like a witch with a pointy nose and even pointier hat. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Witch/Witch</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Witch/Witch</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Frankenstein</defName>
+    <label>Frankenstein mask</label>
+    <description>A mask made out of cloth that makes you look like Frankenstein's Monster. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Frankenstein/Frankenstein</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Frankenstein/Frankenstein</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Mummy</defName>
+    <label>mummy mask</label>
+    <description>A mask made out of cloth that makes you look like a raggedy old mummy. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Mummy/Mummy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Mummy/Mummy</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Wolfman</defName>
+    <label>wolfman mask</label>
+    <description>A mask made out of cloth that makes you look like a werewolf. Tonight's not a full moon, right? Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Wolfman/Wolfman</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Wolfman/Wolfman</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Hockey</defName>
+    <label>hockey mask</label>
+    <description>A menacing hockey mask made out of cloth. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Hockey/Hockey</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Hockey/Hockey</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Skull</defName>
+    <label>skull mask</label>
+    <description>A skull mask made out of cloth. Commonly worn during Dia de los Muertos. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Skull/Skull</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Skull/Skull</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Zombie</defName>
+    <label>zombie mask</label>
+    <description>A mask made out of cloth that makes you look like a zombie. BRAAAAAAINSSS. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Zombie/Zombie</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Zombie/Zombie</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Cat</defName>
+    <label>cat mask</label>
+    <description>A mask made out of cloth that makes you look like a cat. Meow. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Cat/Cat</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Cat/Cat</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_MaskBase">
+    <defName>HMM_Mask_Pirate</defName>
+    <label>pirate hat</label>
+    <description>A hat made out of cloth that makes you look like a Pirate. Provides mediocre protection against cold and damage.</description>
+    <graphicData>
+      <texPath>Masks/Pirate/Pirate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Masks/Pirate/Pirate</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+</Defs>

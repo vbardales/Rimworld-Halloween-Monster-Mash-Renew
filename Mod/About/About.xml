@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Nelim's Halloween Monster Mash</name>
+  <author>[KD] Killer_Diller - 1.6 port: nelim</author>
+  <packageId>nelim.halloweenmonstermash</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <url>https://github.com/vbardales/Rimworld-Halloween-Monster-Mash</url>
+  <description>Killer_Diller's "[KD] Halloween Monster Mash" carried to RimWorld 1.6 - eleven masks, seven decorations, six Halloween sweets - and freed of the three Vanilla Expanded mods the original required.
+
+I am not the author of this mod. The artwork and the original idea are entirely Killer_Diller's; all I did was the work needed to make them run on 1.6. Credit goes to them; mistakes in the port are mine. If the original author comes back to it, or asks me to take this down, I will.
+
+Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2257175849
+
+Why this exists
+
+The original stops at 1.2, and it stops in a way that is worth explaining, because it is the whole reason this port exists. It declares no LoadFolders.xml and keeps every def in a folder named 1.2/. RimWorld 1.6 reads only the root, so not one of its defs loads. The mod is not merely out of date: in 1.6 it is inert, and it has been since 2021.
+
+What it adds
+
+Eleven headpieces - devil, clown, witch, Frankenstein, mummy, wolfman, hockey, skull, zombie, cat, and a pirate hat. Each costs 30 cloth, takes no research, and is made at a hand or electric tailoring bench, or at a crafting spot. They sit on the overhead layer over the upper head, so they compete with hats rather than with helmets, and each one is drawn on the pawn from all four sides.
+
+Seven decorations - a fake spider, ghosts cut from bedsheets, hanging bats, a skeleton on a stand, a reaper, a haunted tree, and an unlit carved pumpkin. Five wood each, built from the Misc tab, no research, no power, no material choice. They are pure props: they exist to be looked at.
+
+Six Halloween sweets - bloodshot cake pops, coffin bars, spider bites, brain cakes, murder buns and candy corn. They are chocolate with a different sprite and a different amount of recreation, cooked ten at a time at a stove.
+
+Requires Vanilla Cooking Expanded
+
+The six sweet recipes call for Vanilla Cooking Expanded's raw sugar, and three also want its flour or its fruit category, so it is a required dependency. Nothing else in the mod needs it: the masks and the decorations are plain vanilla content.
+
+The original declared three dependencies - Vanilla Cooking Expanded, Vanilla Plants Expanded and the Vanilla Expanded Framework. Only the first is used anywhere in its defs; the other two were declared in error, and are gone.
+
+What changed in the 1.6 port
+
+- The masks now actually protect. The originals declared a stuff cost and three stuff-effect multipliers without ever declaring what stuff they were made of, so all four lines did nothing and the "mediocre protection against cold and damage" in every description was exactly zero. The multipliers are the vanilla hat block, copied, so they are replaced here by the flat values they were meant to produce on cloth.
+- Every mask carries the child-and-adult filter that vanilla headgear has and these did not.
+- One recipe was labelled "make Bloodshot Brain Cakes", a copy-paste from the recipe above it. It makes brain cakes.
+- Labels follow the vanilla lower-case convention, and a handful of typos in the descriptions are fixed.
+
+Four decorations are missing on purpose
+
+The gargoyle, the lit jack-o-lantern, the cauldron and the candle are not here as buildings. They ship instead as vanilla styles in Props as Style, which dresses a small sculpture, a torch lamp, a campfire and a brazier in them - so they keep the behaviour a decoration cannot have. Their textures are in this mod, and that is where Props as Style reads them from.
+
+The trade is worth stating: upstream, the lit jack-o-lantern and the candle were real buildings, refuellable, lighting a radius of ten, pushing heat, and serving as a flame meditation focus. As styles that behaviour comes from the vanilla torch and brazier underneath, not from the pumpkin.
+
+Everything keeps its original defNames, so a save that already used Halloween Monster Mash keeps its things. For the same reason, do not run both mods at once.
+
+The balance is untouched, including the author's choice to let raiders and visitors spawn wearing the masks all year round, and their choice not to give the sweets any trade tags - no trader will ever carry them.
+
+No DLC required. No Harmony required. Available in English and French.
+
+Requires Vanilla Cooking Expanded: https://steamcommunity.com/sharedfiles/filedetails/?id=2134308519
+
+Content mod: removing it mid-game destroys anything already built or crafted from it.
+
+Source, changelog and the full list of what the port changed: https://github.com/vbardales/Rimworld-Halloween-Monster-Mash
+
+The port work was done with the help of an AI assistant (Claude, by Anthropic). Thanks to Killer_Diller for the masks, the decorations and the sweets.
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.</description>
+  <modDependencies>
+    <li>
+      <packageId>VanillaExpanded.VCookE</packageId>
+      <displayName>Vanilla Cooking Expanded</displayName>
+      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2134308519</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>Ludeon.RimWorld.Anomaly</li>
+    <li>Ludeon.RimWorld.Odyssey</li>
+    <li>VanillaExpanded.VCookE</li>
+  </loadAfter>
+</ModMetaData>

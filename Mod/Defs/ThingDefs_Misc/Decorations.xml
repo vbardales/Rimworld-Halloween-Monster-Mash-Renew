@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    Seven decorations from [KD] Halloween Monster Mash, carried to 1.6.
+
+    FOUR OF THE ELEVEN ARE DELIBERATELY MISSING, and this is the one thing to understand before
+    editing this file. The gargoyle, the lit jack-o-lantern, the cauldron and the candle are not
+    rebuilt here as buildings: they are shipped as vanilla styles by Props as Style, which dresses
+    a small sculpture, a torch lamp, a campfire and a brazier in them. Their TEXTURES still ship
+    with this mod - Textures/Decorations/Gargoyle, JackolanternL, Cauldron, Candle - because that
+    is where Props as Style now reads them from. Do not add ThingDefs for those four: two mods
+    would then offer the same four objects, and the styled vanilla ones are the better half of the
+    bargain, since a torch lamp already knows how to be refuelled and to light a room.
+
+    What that trade costs, stated plainly: upstream, the lit jack-o-lantern and the candle were
+    real buildings - Refuelable, a Glower of radius 10, a HeatPusher, and a meditation focus. As
+    styles that behaviour is gone; it is the vanilla torch and brazier underneath that provide it.
+    Anyone wanting those two as buildings again has to extract them, not style them.
+
+    The seven kept here are the pure props: Beauty 1, five wood, no material, no component, no
+    comp of any kind. Nothing in them was broken by 1.6 - they only ever failed because the whole
+    mod lived in a 1.2/ folder that 1.6 does not read.
+
+    Changed against the 1.2 originals, all recorded in ATTRIBUTION.md:
+    - the nine-fold copy-paste is folded into HMM_PropBase; every value is the author's
+    - labels lower-cased to the vanilla convention, and "Jackolantern" spelled jack-o-lantern
+    - two descriptions given the full stop they were missing
+
+    Kept as the author wrote it, including where it looks inconsistent: the ghosts, the bats and
+    the skeleton suppress their drop shadow, the spider, the tree, the reaper and the unlit
+    jack-o-lantern keep theirs. That reads like an oversight, but it is a visual choice and not a
+    1.6 fault, so it is not ours to settle.
+  -->
+
+  <ThingDef Name="HMM_PropBase" ParentName="BuildingBase" Abstract="True">
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.3</fillPercent>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>40</MaxHitPoints>
+      <WorkToBuild>50</WorkToBuild>
+      <Mass>5</Mass>
+      <Beauty>1</Beauty>
+      <Flammability>1</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>5</WoodLog>
+    </costList>
+    <building>
+      <isInert>true</isInert>
+    </building>
+    <designationCategory>Misc</designationCategory>
+    <uiIconScale>0.5</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Spider</defName>
+    <label>fake spider</label>
+    <description>A life sized stuffed tarantula.</description>
+    <graphicData>
+      <texPath>Decorations/Spider/Spider</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Ghosts</defName>
+    <label>ghosts</label>
+    <description>Ghost decorations made from white sheets.</description>
+    <graphicData>
+      <texPath>Decorations/Ghosts/Ghosts</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(0, 0, 0)</volume>
+      </shadowData>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Bats</defName>
+    <label>bats</label>
+    <description>Fake bat decorations strung together with string.</description>
+    <graphicData>
+      <texPath>Decorations/Bats/Bats</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(0, 0, 0)</volume>
+      </shadowData>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Skeleton</defName>
+    <label>skeleton</label>
+    <description>A full human skeleton held up by a stand.</description>
+    <graphicData>
+      <texPath>Decorations/Skeleton/Skeleton</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(0, 0, 0)</volume>
+      </shadowData>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Reaper</defName>
+    <label>reaper</label>
+    <description>He has come for your mortal soul.</description>
+    <graphicData>
+      <texPath>Decorations/Reaper/Reaper</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Tree</defName>
+    <label>haunted tree</label>
+    <description>A menacing looking tree.</description>
+    <graphicData>
+      <texPath>Decorations/Tree/Tree</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <!-- The unlit one. Its lit twin is a Props as Style style on the vanilla torch lamp, which is
+       why the description points at a candle this object will never have.
+
+       FOR ANYONE PICKING FROM THIS MOD: the two are one letter apart and easy to confuse. The
+       author kept them in separate texture folders - `Decorations/Jackolantern` here, unlit, and
+       `Decorations/JackolanternL` for the lit one, which ships in this mod as a texture but has
+       no ThingDef. `HMM_Jackolantern` is the dark one. There is no defName for the lit pumpkin. -->
+
+  <ThingDef ParentName="HMM_PropBase">
+    <defName>HMM_Jackolantern</defName>
+    <label>jack-o-lantern</label>
+    <description>A carved pumpkin in the shape of a menacing face. Doesn't have a candle so it won't light up.</description>
+    <graphicData>
+      <texPath>Decorations/Jackolantern/Jackolantern</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+  </ThingDef>
+
+</Defs>

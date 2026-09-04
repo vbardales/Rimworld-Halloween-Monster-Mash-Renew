@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: devil mask -->
+  <HMM_Mask_Devil.label>masque de diable</HMM_Mask_Devil.label>
+  <HMM_Mask_Devil.description>Un masque de tissu qui vous donne l'air du Diable en personne. Protège médiocrement du froid et des coups.</HMM_Mask_Devil.description>
+
+  <!-- EN: clown mask -->
+  <HMM_Mask_Clown.label>masque de clown</HMM_Mask_Clown.label>
+  <HMM_Mask_Clown.description>Un masque de tissu qui vous donne l'air d'un clown... d'un clown vraiment inquiétant. Protège médiocrement du froid et des coups.</HMM_Mask_Clown.description>
+
+  <!-- EN: witch mask -->
+  <HMM_Mask_Witch.label>masque de sorcière</HMM_Mask_Witch.label>
+  <HMM_Mask_Witch.description>Un masque de tissu qui vous donne l'air d'une sorcière, nez pointu et chapeau plus pointu encore. Protège médiocrement du froid et des coups.</HMM_Mask_Witch.description>
+
+  <!-- EN: Frankenstein mask -->
+  <HMM_Mask_Frankenstein.label>masque de Frankenstein</HMM_Mask_Frankenstein.label>
+  <HMM_Mask_Frankenstein.description>Un masque de tissu qui vous donne l'air de la créature de Frankenstein. Protège médiocrement du froid et des coups.</HMM_Mask_Frankenstein.description>
+
+  <!-- EN: mummy mask -->
+  <HMM_Mask_Mummy.label>masque de momie</HMM_Mask_Mummy.label>
+  <HMM_Mask_Mummy.description>Un masque de tissu qui vous donne l'air d'une vieille momie en lambeaux. Protège médiocrement du froid et des coups.</HMM_Mask_Mummy.description>
+
+  <!-- EN: wolfman mask -->
+  <HMM_Mask_Wolfman.label>masque de loup-garou</HMM_Mask_Wolfman.label>
+  <HMM_Mask_Wolfman.description>Un masque de tissu qui vous donne l'air d'un loup-garou. Ce n'est pas la pleine lune ce soir, si ? Protège médiocrement du froid et des coups.</HMM_Mask_Wolfman.description>
+
+  <!-- EN: hockey mask -->
+  <HMM_Mask_Hockey.label>masque de hockey</HMM_Mask_Hockey.label>
+  <HMM_Mask_Hockey.description>Un menaçant masque de hockey en tissu. Protège médiocrement du froid et des coups.</HMM_Mask_Hockey.description>
+
+  <!-- EN: skull mask -->
+  <HMM_Mask_Skull.label>masque de crâne</HMM_Mask_Skull.label>
+  <HMM_Mask_Skull.description>Un masque de crâne en tissu, comme on en porte pour le Dia de los Muertos. Protège médiocrement du froid et des coups.</HMM_Mask_Skull.description>
+
+  <!-- EN: zombie mask -->
+  <HMM_Mask_Zombie.label>masque de zombie</HMM_Mask_Zombie.label>
+  <HMM_Mask_Zombie.description>Un masque de tissu qui vous donne l'air d'un zombie. CERRRVELLLLLE. Protège médiocrement du froid et des coups.</HMM_Mask_Zombie.description>
+
+  <!-- EN: cat mask -->
+  <HMM_Mask_Cat.label>masque de chat</HMM_Mask_Cat.label>
+  <HMM_Mask_Cat.description>Un masque de tissu qui vous donne l'air d'un chat. Miaou. Protège médiocrement du froid et des coups.</HMM_Mask_Cat.description>
+
+  <!-- EN: pirate hat -->
+  <HMM_Mask_Pirate.label>chapeau de pirate</HMM_Mask_Pirate.label>
+  <HMM_Mask_Pirate.description>Un chapeau de tissu qui vous donne l'air d'un pirate. Protège médiocrement du froid et des coups.</HMM_Mask_Pirate.description>
+
+</LanguageData>

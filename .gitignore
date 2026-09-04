@@ -1,0 +1,11 @@
+# Development environments
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# System
+Thumbs.db
+desktop.ini
+.DS_Store

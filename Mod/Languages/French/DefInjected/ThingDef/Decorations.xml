@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: fake spider -->
+  <HMM_Spider.label>fausse araignée</HMM_Spider.label>
+  <HMM_Spider.description>Une mygale empaillée, grandeur nature.</HMM_Spider.description>
+
+  <!-- EN: ghosts -->
+  <HMM_Ghosts.label>fantômes</HMM_Ghosts.label>
+  <HMM_Ghosts.description>Des fantômes de décoration, taillés dans de vieux draps blancs.</HMM_Ghosts.description>
+
+  <!-- EN: bats -->
+  <HMM_Bats.label>chauves-souris</HMM_Bats.label>
+  <HMM_Bats.description>Des chauves-souris factices, enfilées les unes derrière les autres sur une ficelle.</HMM_Bats.description>
+
+  <!-- EN: skeleton -->
+  <HMM_Skeleton.label>squelette</HMM_Skeleton.label>
+  <HMM_Skeleton.description>Un squelette humain complet, tenu debout par un pied.</HMM_Skeleton.description>
+
+  <!-- EN: reaper -->
+  <HMM_Reaper.label>faucheuse</HMM_Reaper.label>
+  <HMM_Reaper.description>Elle est venue chercher votre âme.</HMM_Reaper.description>
+
+  <!-- EN: haunted tree -->
+  <HMM_Tree.label>arbre hanté</HMM_Tree.label>
+  <HMM_Tree.description>Un arbre à l'air menaçant.</HMM_Tree.description>
+
+  <!-- EN: jack-o-lantern -->
+  <HMM_Jackolantern.label>citrouille sculptée</HMM_Jackolantern.label>
+  <HMM_Jackolantern.description>Une citrouille creusée en forme de visage menaçant. Faute de bougie, elle ne s'allume pas.</HMM_Jackolantern.description>
+
+</LanguageData>

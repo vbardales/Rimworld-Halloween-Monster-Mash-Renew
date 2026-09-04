@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    The six sweet recipes.
+
+    THEY NAME VCE_ DEFS WITHOUT A GUARD, and that is correct here: Vanilla Cooking Expanded is a
+    declared dependency of this mod, so its defs are always present. All six call for
+    VCE_RawSugar; three also want VCE_Flour or the VCE_Fruit category.
+
+    This was once isolated in a VCE/ folder rooted by LoadFolders.xml, so the mod would run
+    without Vanilla Cooking Expanded and merely lose the recipes. That was dropped in favour of a
+    plain dependency. If it is ever reinstated, the reason it was a folder and not a per-def
+    MayRequire still holds: a RecipeDef whose ingredient filter names a thing that does not exist
+    does not degrade quietly, it throws, and it takes its whole file with it.
+
+    Changed against the 1.2 originals, all recorded in ATTRIBUTION.md:
+    - the six-fold copy-paste is folded into HMM_MakeCandyBase; every value is the author's
+    - labels lower-cased to the vanilla convention
+    - HMM_Make_BrainCakes was labelled "make Bloodshot Brain Cakes", a copy-paste from the cake
+      pops above it in the source file. It makes brain cakes.
+
+    Balance untouched: 450 work, cooking skill, ten sweets per batch, and the author's ingredient
+    counts - which are wildly uneven between recipes (4 eggs against 40 corn) and left that way,
+    because IngredientValueGetter_Nutrition means the counts are nutrition units, not item counts.
+  -->
+
+  <RecipeDef Name="HMM_MakeCandyBase" Abstract="True">
+    <workAmount>450</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <workSkill>Cooking</workSkill>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <recipeUsers>
+      <li>ElectricStove</li>
+      <li>FueledStove</li>
+    </recipeUsers>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Foods</li>
+      </categories>
+    </defaultIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="HMM_MakeCandyBase">
+    <defName>HMM_Make_BloodshotCakePops</defName>
+    <label>make bloodshot cake pops</label>
+    <description>Make cake pops out of sugar and eggs.</description>
+    <jobString>Making cake pops.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>EggsUnfertilized</li>
+          </categories>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_RawSugar</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>EggsUnfertilized</li>
+      </categories>
+      <thingDefs>
+        <li>VCE_RawSugar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMM_BloodshotCakePops>10</HMM_BloodshotCakePops>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="HMM_MakeCandyBase">
+    <defName>HMM_Make_CoffinBars</defName>
+    <label>make coffin bars</label>
+    <description>Make coffin bars out of sugar and chocolate.</description>
+    <jobString>Making coffin bars.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chocolate</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_RawSugar</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VCE_RawSugar</li>
+        <li>Chocolate</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMM_CoffinBars>10</HMM_CoffinBars>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="HMM_MakeCandyBase">
+    <defName>HMM_Make_SpiderBites</defName>
+    <label>make spider bites</label>
+    <description>Make spider bites out of sugar and fruit.</description>
+    <jobString>Making spider bites.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>VCE_Fruit</li>
+          </categories>
+        </filter>
+        <count>25</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_RawSugar</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>VCE_Fruit</li>
+      </categories>
+      <thingDefs>
+        <li>VCE_RawSugar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMM_SpiderBites>10</HMM_SpiderBites>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="HMM_MakeCandyBase">
+    <defName>HMM_Make_BrainCakes</defName>
+    <label>make brain cakes</label>
+    <description>Make brain cakes out of sugar and milk.</description>
+    <jobString>Making brain cakes.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>AnimalProductRaw</li>
+          </categories>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_RawSugar</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>AnimalProductRaw</li>
+      </categories>
+      <thingDefs>
+        <li>VCE_RawSugar</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMM_BrainCakes>10</HMM_BrainCakes>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="HMM_MakeCandyBase">
+    <defName>HMM_Make_MurderBuns</defName>
+    <label>make murder buns</label>
+    <description>Make murder buns out of sugar and flour.</description>
+    <jobString>Making murder buns.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_Flour</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_RawSugar</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VCE_RawSugar</li>
+        <li>VCE_Flour</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMM_MurderBuns>10</HMM_MurderBuns>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="HMM_MakeCandyBase">
+    <defName>HMM_Make_CandyCorn</defName>
+    <label>make candy corn</label>
+    <description>Make candy corn out of sugar and corn.</description>
+    <jobString>Making candy corn.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RawCorn</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCE_RawSugar</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VCE_RawSugar</li>
+        <li>RawCorn</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMM_CandyCorn>10</HMM_CandyCorn>
+    </products>
+  </RecipeDef>
+
+</Defs>

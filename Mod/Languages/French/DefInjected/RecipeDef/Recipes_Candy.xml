@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- These keys live under VCE/ with the recipes they translate. A DefInjected key whose def
+       does not exist is a warning in the log, and the recipes only exist when Vanilla Cooking
+       Expanded is active. -->
+
+  <!-- EN: make bloodshot cake pops -->
+  <HMM_Make_BloodshotCakePops.label>faire des cake pops injectés de sang</HMM_Make_BloodshotCakePops.label>
+  <HMM_Make_BloodshotCakePops.description>Faire des cake pops à partir de sucre et d'œufs.</HMM_Make_BloodshotCakePops.description>
+  <HMM_Make_BloodshotCakePops.jobString>Confection de cake pops.</HMM_Make_BloodshotCakePops.jobString>
+
+  <!-- EN: make coffin bars -->
+  <HMM_Make_CoffinBars.label>faire des barres cercueil</HMM_Make_CoffinBars.label>
+  <HMM_Make_CoffinBars.description>Faire des barres cercueil à partir de sucre et de chocolat.</HMM_Make_CoffinBars.description>
+  <HMM_Make_CoffinBars.jobString>Confection de barres cercueil.</HMM_Make_CoffinBars.jobString>
+
+  <!-- EN: make spider bites -->
+  <HMM_Make_SpiderBites.label>faire des morsures d'araignée</HMM_Make_SpiderBites.label>
+  <HMM_Make_SpiderBites.description>Faire des morsures d'araignée à partir de sucre et de fruits.</HMM_Make_SpiderBites.description>
+  <HMM_Make_SpiderBites.jobString>Confection de morsures d'araignée.</HMM_Make_SpiderBites.jobString>
+
+  <!-- EN: make brain cakes -->
+  <HMM_Make_BrainCakes.label>faire des gâteaux cervelle</HMM_Make_BrainCakes.label>
+  <HMM_Make_BrainCakes.description>Faire des gâteaux cervelle à partir de sucre et de lait.</HMM_Make_BrainCakes.description>
+  <HMM_Make_BrainCakes.jobString>Confection de gâteaux cervelle.</HMM_Make_BrainCakes.jobString>
+
+  <!-- EN: make murder buns -->
+  <HMM_Make_MurderBuns.label>faire des brioches sanglantes</HMM_Make_MurderBuns.label>
+  <HMM_Make_MurderBuns.description>Faire des brioches sanglantes à partir de sucre et de farine.</HMM_Make_MurderBuns.description>
+  <HMM_Make_MurderBuns.jobString>Confection de brioches sanglantes.</HMM_Make_MurderBuns.jobString>
+
+  <!-- EN: make candy corn -->
+  <HMM_Make_CandyCorn.label>faire des grains de maïs sucrés</HMM_Make_CandyCorn.label>
+  <HMM_Make_CandyCorn.description>Faire des grains de maïs sucrés à partir de sucre et de maïs.</HMM_Make_CandyCorn.description>
+  <HMM_Make_CandyCorn.jobString>Confection de grains de maïs sucrés.</HMM_Make_CandyCorn.jobString>
+
+</LanguageData>
