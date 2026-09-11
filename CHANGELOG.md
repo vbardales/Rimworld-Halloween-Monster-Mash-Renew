@@ -4,13 +4,14 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it
 in game.
 
-## [1.0.0] — unreleased
+## [1.0.0] — 2026-09-11
 
-On release: create the `v1.0.0` tag and the matching GitHub release.
+First release. Not yet on the Steam Workshop: this tags the source, and the Workshop item follows
+once the mod has been tried in a running game.
 
-First release. Killer_Diller's **[KD] Halloween Monster Mash**, uploaded 13 October 2020 and never
-updated, carried to 1.6. The original is not merely out of date: it declares no `LoadFolders.xml`
-and keeps every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
+Killer_Diller's **[KD] Halloween Monster Mash**, uploaded 13 October 2020 and never updated,
+carried to 1.6. The original is not merely out of date: it declares no `LoadFolders.xml` and keeps
+every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 
 ### Added
 
