@@ -1,4 +1,4 @@
-# Halloween Monster Mash 1.6
+# Halloween Monster Mash Renew
 
 **[KD] Halloween Monster Mash** (Killer_Diller), carried to RimWorld 1.6 — eleven masks, seven
 decorations, six Halloween sweets — and freed of the three Vanilla Expanded mods the original
@@ -77,7 +77,9 @@ vanilla torch and brazier underneath, not from the pumpkin. See `ATTRIBUTION.md`
   multipliers were meant to produce on cloth.
 - **`developmentalStageFilter`** — `Child, Adult`, which every vanilla hat carries and none of
   these did.
-- **The cooking recipes are conditioned on Vanilla Cooking Expanded** instead of assuming it.
+- **Two of the three declared dependencies are gone.** Vanilla Plants Expanded and the Vanilla
+  Expanded Framework are referenced nowhere in the original's defs. Vanilla Cooking Expanded is
+  genuinely used by all six recipes and stays declared.
 - **One recipe was labelled `make Bloodshot Brain Cakes`** — a copy-paste from the recipe above it.
   It makes brain cakes.
 - **Twenty-six near-identical defs folded onto three abstract bases** — `HMM_MaskBase`,
