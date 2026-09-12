@@ -102,7 +102,8 @@ Mod/Defs/ThingDefs_Misc/                masks, decorations, sweets
 Mod/Defs/RecipeDefs/                    the six cooking recipes
 Mod/Languages/French/DefInjected/       translation
 Mod/Textures/                           taken as-is from upstream, all seventy-three
-Art/                                    showcase sources; RimWorld never reads this folder
+Art/                                    showcase sources and the sheet that engraves it;
+                                        RimWorld never reads this folder
 ```
 
 ## Licence

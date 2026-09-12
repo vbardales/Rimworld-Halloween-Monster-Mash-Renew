@@ -14,7 +14,7 @@ workshop:
 remaining:
   - unverified: never seen running
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
-updated:      2026-09-12, on leaving the monorepo
+updated:      2026-09-12, showcase engraved
 ---
 
 # Halloween Monster Mash Renew — status
