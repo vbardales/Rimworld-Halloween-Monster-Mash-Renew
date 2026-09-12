@@ -15,14 +15,12 @@
     does not degrade quietly, it throws, and it takes its whole file with it.
 
     Changed against the 1.2 originals, all recorded in ATTRIBUTION.md:
-    - the six-fold copy-paste is folded into HMM_MakeCandyBase; every value is the author's
+    - the six-fold copy-paste is folded into HMM_MakeCandyBase; ingredient numbers are retained
     - labels lower-cased to the vanilla convention
     - HMM_Make_BrainCakes was labelled "make Bloodshot Brain Cakes", a copy-paste from the cake
       pops above it in the source file. It makes brain cakes.
 
-    Balance untouched: 450 work, cooking skill, ten sweets per batch, and the author's ingredient
-    counts - which are wildly uneven between recipes (4 eggs against 40 corn) and left that way,
-    because IngredientValueGetter_Nutrition means the counts are nutrition units, not item counts.
+    Work remains 450 and output remains ten sweets. Counts now mean items, not nutrition: four sugar plus 4 eggs, 4 chocolate, 25 fruit, 4 milk, 40 flour or 40 corn. This changes ingredient costs to address the suspected zero-nutrition sugar blocker.
   -->
 
   <RecipeDef Name="HMM_MakeCandyBase" Abstract="True">
@@ -32,7 +30,6 @@
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_CookMeal</soundWorking>
     <allowMixingIngredients>true</allowMixingIngredients>
-    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
     <recipeUsers>
       <li>ElectricStove</li>
       <li>FueledStove</li>

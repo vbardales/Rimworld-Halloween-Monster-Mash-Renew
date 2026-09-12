@@ -4,6 +4,16 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it
 in game.
 
+## [Unreleased]
+
+### Fixed
+
+- Six sweet recipes now count individual items instead of nutrition to address the suspected
+  zero-nutrition sugar blocker. Each batch requires 4 sugar plus 4 unfertilized eggs,
+  4 chocolate, 25 fruit, 4 raw animal products (such as milk), 40 flour or 40 corn,
+  respectively. Output remains 10 sweets and work remains 450. This changes ingredient
+  balance. Cooking and actual consumption still require in-game validation (TF-05/TF-06).
+
 ## [1.0.0] — 2026-09-11
 
 First release. Not yet on the Steam Workshop: this tags the source, and the Workshop item follows

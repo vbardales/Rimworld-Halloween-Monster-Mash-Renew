@@ -176,9 +176,7 @@ same deterioration rate of 8, same 0.1 nutrition, same `DesperateOnly` preferabi
 0.25 for coffin bars, 0.15 for the rest — and that is the whole point of eating one rather than
 another.
 
-**The ingredient counts look wrong and are not.** Four eggs against forty corn, twenty-five fruit
-against four sugar: with `IngredientValueGetter_Nutrition` those numbers are nutrition units, not
-item counts, so they are far closer together than they read. Left exactly as the author set them.
+**Recipe costs changed after 1.0.0.** Nutrition-based counting was removed to address the suspected zero-nutrition sugar blocker. The original numbers now count items: 4 sugar plus 4 eggs, 4 chocolate, 25 fruit, 4 raw animal products (such as milk), 40 flour or 40 corn. Work remains 450 and output ten sweets. This changes ingredient balance; in-game validation is pending.
 
 **No `tradeTags`.** No trader will ever carry these, and there is no other way to obtain them than
 to cook them. That is the author's choice and it is coherent — a seasonal thing you make, not a
