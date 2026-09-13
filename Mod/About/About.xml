@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Halloween Monster Mash Renew</name>
+  <name>Halloween Monster Mash Renew (unofficial)</name>
   <author>[KD] Killer_Diller - 1.6 port: nelim</author>
   <packageId>nelim.halloweenmonstermashrenew</packageId>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
   <url>https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew</url>
-  <description>Killer_Diller's "[KD] Halloween Monster Mash" carried to RimWorld 1.6 - eleven masks, seven decorations, six Halloween sweets - and freed of the three Vanilla Expanded mods the original required.
+  <description>UNOFFICIAL. This mod is published without the original author's explicit consent. If the original author contacts me to request its removal, I undertake to take it down promptly.
+
+Killer_Diller's "[KD] Halloween Monster Mash" carried to RimWorld 1.6 - eleven masks, seven decorations, six Halloween sweets - with two unused dependencies removed. Vanilla Cooking Expanded is still required.
 
 I am not the author of this mod. The artwork and the original idea are entirely Killer_Diller's; all I did was the work needed to make them run on 1.6. Credit goes to them; mistakes in the port are mine. If the original author comes back to it, or asks me to take this down, I will.
 
@@ -29,7 +31,7 @@ Requires Vanilla Cooking Expanded
 
 The six sweet recipes call for Vanilla Cooking Expanded's raw sugar, and three also want its flour or its fruit category, so it is a required dependency. Nothing else in the mod needs it: the masks and the decorations are plain vanilla content.
 
-The original declared three dependencies - Vanilla Cooking Expanded, Vanilla Plants Expanded and the Vanilla Expanded Framework. Only the first is used anywhere in its defs; the other two were declared in error, and are gone.
+The original declared three dependencies - Vanilla Cooking Expanded, Vanilla Plants Expanded and Vanilla Expanded Framework. Only Cooking Expanded is directly referenced by this mod's defs, so the other two direct declarations were removed. Cooking Expanded still requires its own dependencies, including Harmony and Vanilla Expanded Framework.
 
 What changed in the 1.6 port
 
@@ -44,21 +46,21 @@ The gargoyle, the lit jack-o-lantern, the cauldron and the candle are not here a
 
 The trade is worth stating: upstream, the lit jack-o-lantern and the candle were real buildings, refuellable, lighting a radius of ten, pushing heat, and serving as a flame meditation focus. As styles that behaviour comes from the vanilla torch and brazier underneath, not from the pumpkin.
 
-Everything keeps its original defNames, so a save that already used Halloween Monster Mash keeps its things. For the same reason, do not run both mods at once.
+Retained content keeps its original defNames to preserve item references. Existing-save compatibility still requires in-game validation; this is not a guarantee of migration from RimWorld 1.2. Do not run the original and this port at once.
 
-The balance is untouched, including the author's choice to let raiders and visitors spawn wearing the masks all year round, and their choice not to give the sweets any trade tags - no trader will ever carry them.
+Sweet recipes now count ingredient items rather than nutrition: each batch uses 4 sugar plus 4 eggs, 4 chocolate, 25 fruit, 4 raw animal products such as milk, 40 flour or 40 corn, respectively. This changes ingredient costs; output remains ten sweets. Raiders and visitors can still spawn wearing the masks all year round, and the sweets still have no trade tags.
 
-No DLC required. No Harmony required. Available in English and French.
+No DLC required. This mod has no assembly or direct Harmony integration; its required dependency Vanilla Cooking Expanded also requires Harmony and Vanilla Expanded Framework. Available in English and French.
 
 Requires Vanilla Cooking Expanded: https://steamcommunity.com/sharedfiles/filedetails/?id=2134308519
 
 Content mod: removing it mid-game destroys anything already built or crafted from it.
 
-Source, changelog and the full list of what the port changed: https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew
-
 The port work was done with the help of an AI assistant (Claude, by Anthropic). Thanks to Killer_Diller for the masks, the decorations and the sweets.
 
-If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.</description>
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+[url=https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>VanillaExpanded.VCookE</packageId>

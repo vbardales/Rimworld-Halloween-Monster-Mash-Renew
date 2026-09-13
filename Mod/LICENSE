@@ -26,8 +26,8 @@ SCOPE OF THE ABOVE
 The MIT licence above covers only what this port added:
 
   - the def rewrite: the shared HMM_MaskBase, HMM_PropBase, HMM_CandyBase and
-    HMM_MakeCandyBase, the corrected stats, the conditional loading of the
-    recipes, and the packaging
+    HMM_MakeCandyBase, the corrected stats, item-count recipe corrections,
+    and the packaging
   - the French translation
   - the repository documentation
 

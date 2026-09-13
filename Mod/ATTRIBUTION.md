@@ -36,7 +36,9 @@ the objects themselves no longer existed in any colony. This port is what makes 
 The original declares Vanilla Cooking Expanded, Vanilla Plants Expanded and the Vanilla Expanded
 Framework. Reading its four def files, **only the first is used anywhere**: the six recipes call
 for `VCE_RawSugar`, and three of them also want `VCE_Flour` or the `VCE_Fruit` category. Nothing
-references Vanilla Plants Expanded or the Framework. Those two were declared in error and are gone.
+references Vanilla Plants Expanded or the Framework. Those two direct declarations were removed.
+Vanilla Cooking Expanded itself requires Harmony and Vanilla Expanded Framework, so both remain
+transitive requirements of the full mod configuration.
 
 **Vanilla Cooking Expanded is declared as a dependency**, as upstream did. The six recipes sit in
 `Mod/Defs/RecipeDefs/` with the rest and name `VCE_` defs without a guard, which is safe because
@@ -169,7 +171,7 @@ settle.
 | `A bunch sweet gummies`, `made with nugget` | Fixed to `a bunch of sweet gummies` and `nougat`. |
 | Three dependencies for one used | See above: two dropped as unreferenced, Vanilla Cooking Expanded kept as a declared dependency. |
 
-**The balance is untouched, and it is deliberately unremarkable**: these six are vanilla
+**The sweets' item stats are unchanged, and deliberately unremarkable**: these six are vanilla
 `Chocolate` with a different sprite. Same 60 hit points, same market value of 3, same 0.075 mass,
 same deterioration rate of 8, same 0.1 nutrition, same `DesperateOnly` preferability, same
 `Gluttonous` joy kind, same `socialPropernessMatters`. Only the joy differs — 0.05 for candy corn,

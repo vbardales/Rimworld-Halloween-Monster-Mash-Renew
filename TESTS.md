@@ -1,230 +1,244 @@
 # Halloween Monster Mash Renew: what to check in game
 
-## Contrôles automatiques
+## Automated checks
 
-Depuis la racine du dépôt, avec PowerShell 7 :
+From the repository root, using PowerShell 7:
 
 ```powershell
 pwsh -NoProfile -File ../scripts/Check-XmlFields.ps1 -ModPath ./Mod
 pwsh -NoProfile -File ./scripts/Test-CandyRecipes.ps1
 ```
 
-Le premier utilise l'utilitaire partagé du dossier parent `rimworld/scripts` et les
-assemblages de RimWorld installés (chemin personnalisable avec `-Managed`). Il ne fait
-pas partie de ce dépôt. Le second est autonome et accepte `-ModPath` pour une autre copie.
-Il contrôle les six recettes, le comptage par objet, les ingrédients et leurs filtres,
-les quantités, les produits, le travail et les deux cuisinières. Un échec termine avec
-un code non nul.
+The first command uses the shared utility in the parent `rimworld/scripts` directory and
+installed RimWorld assemblies (override their path with `-Managed`). It is not included
+in this repository. The second is standalone and accepts `-ModPath` for another copy.
+It checks all six recipes, item counting, ingredients and their filters, quantities,
+products, work and both stoves. Failure returns a nonzero exit code.
 
-Résultats du 2026-09-12 : 5 fichiers sans champ XML inconnu pour RimWorld 1.6 ; six
-recettes conformes. Une copie temporaire réintroduisant le getter nutritionnel a été
-rejetée comme attendu. Ces contrôles ne remplacent pas une exécution en jeu.
+Results from 2026-09-12: 5 files with no unknown RimWorld 1.6 XML fields; all six recipes
+passed. A temporary copy with nutrition counting restored was rejected as expected.
+These checks do not replace an in-game run.
 
-## Campagne de tests fonctionnels
+## Functional test campaign
 
-Les scénarios ci-dessous sont à exécuter manuellement sur RimWorld 1.6. **Aucun résultat
-en jeu n'est acquis.** Les contrôles statiques et le diagnostic historique détaillés plus bas
-ne remplacent pas cette campagne. En particulier, le blocage du sucre décrit au scénario 5
-est une hypothèse documentée, non reproduite pendant la rédaction de ces scénarios.
+Run the scenarios below manually on RimWorld 1.6. **No in-game results have been established.**
+The static checks and historical diagnosis below do not replace this campaign. In particular,
+the sugar blockage described in historical scenario 5 is a documented hypothesis that was
+not reproduced while these scenarios were written.
 
-### Préparation
+### Preparation
 
-- Utiliser une colonie de test et une copie de toute sauvegarde existante.
-- Charger Core, Vanilla Cooking Expanded et ses propres dépendances, puis ce mod.
-  Désactiver le mod original. Installer le dossier `Mod/`, pas la racine du dépôt.
-- Activer le mode développeur pour préparer les stocks et consulter le journal.
-  Désactiver la construction instantanée pour mesurer les consommations et le travail.
-- Préparer un adulte disponible, capable de construire, fabriquer et cuisiner ; autoriser
-  ces travaux. Rendre les ingrédients accessibles, autorisés et dans le rayon des ordres.
-- Relever les versions exactes du jeu et des mods, la langue, les DLC et l'ordre de chargement.
-- Pour chaque cas : consigner `Non exécuté`, `Réussi`, `Échoué` ou `Bloqué`, le résultat
-  observé et une capture ou un extrait de `Player.log` en cas d'écart.
+- Use a test colony and a copy of any existing save.
+- Load Core, Vanilla Cooking Expanded and its dependencies (including Harmony and Vanilla
+  Expanded Framework), then this mod, respecting their required load order. Disable the
+  original mod. Install the `Mod/` directory, not the repository root.
+- Enable developer mode to prepare stocks and inspect the log. Disable instant construction
+  when measuring consumption and work.
+- Prepare an available adult capable of construction, crafting and cooking; enable these
+  jobs. Make ingredients reachable, allowed and within the bills' ingredient radius.
+- Record exact game/mod versions, language, DLC and load order.
+- For each case, record `Not run`, `Passed`, `Failed` or `Blocked`, the observed result,
+  and a screenshot or `Player.log` excerpt for any discrepancy.
 
-### TF-01 — Chargement et dépendance
+### TF-01 — Loading and dependency
 
-**Préconditions :** configuration de base ci-dessus, sans DLC ni Props as Style.
+**Preconditions:** the base configuration above, without DLC or Props as Style.
 
-1. Ouvrir la liste des mods et vérifier le nom, l'icône, la bannière et la dépendance VCE.
-2. Redémarrer le jeu avec cette configuration et créer la colonie de test.
-3. Consulter le journal, les menus de fabrication et l'onglet Divers.
-4. Dans une configuration séparée, désactiver VCE et vérifier l'avertissement de dépendance
-   dans la liste des mods ; rétablir ensuite la configuration de base avant de jouer.
+1. Open the mod list and check the name, icon, banner and VCE dependency.
+2. Restart with this configuration and create the test colony.
+3. Inspect the log, crafting menus and Misc tab.
+4. In a separate configuration, disable VCE and check the dependency warning in the mod list;
+   restore the base configuration before playing.
 
-**Attendu :** chargement sans erreur imputable à HMM, onze masques, sept décorations et six
-recettes disponibles aux ateliers correspondants. L'absence de VCE est signalée ; ce n'est
-pas une configuration de jeu supportée.
+**Expected:** no loading error attributable to HMM; eleven masks, seven decorations and six
+recipes available at the corresponding workstations. Missing VCE is reported; running without
+it is not a supported game configuration.
 
-### TF-02 — Fabrication des onze masques aux trois ateliers
+### TF-02 — Crafting eleven masks at three workstations
 
-**Préconditions :** aucune recherche ; emplacement de fabrication, établi de couture manuel
-et établi électrique alimenté ; au moins 990 tissus pour les 33 fabrications.
+**Preconditions:** no research; crafting spot, hand tailoring bench and powered electric
+tailoring bench; at least 990 cloth for all 33 crafts.
 
-1. À chaque atelier, vérifier les onze ordres : diable, clown, sorcière, Frankenstein,
-   momie, loup-garou, hockey, crâne, zombie, chat et pirate.
-2. Ajouter un ordre « fabriquer une fois » de chaque masque et laisser le colon travailler.
-3. Comparer le stock avant/après chaque fabrication et consulter la fiche de l'objet.
+1. At each workstation, check all eleven bills: devil, clown, witch, Frankenstein, mummy,
+   wolfman, hockey, skull, zombie, cat and pirate.
+2. Add a "do once" bill for each mask and let the colonist work.
+3. Compare stocks before/after each craft and inspect the item's information card.
 
-**Attendu :** un objet du modèle demandé par ordre, 30 tissus consommés, aucun choix de
-matériau ni recherche supplémentaire. Le travail nominal est 1400, pas une durée fixe
-en secondes ; la vitesse du colon et de l'atelier intervient. Aucun graphisme manquant.
+**Expected:** one item of the requested model per bill, 30 cloth consumed, no material choice
+or additional research. Nominal work is 1400, not a fixed duration in seconds; colonist and
+workstation speeds affect duration. No missing graphics.
 
-### TF-03 — Port, orientations et protection
+### TF-03 — Wearing, orientations and protection
 
-**Préconditions :** onze masques neufs à 100 % de durabilité, adulte sans autre couvre-chef.
+**Preconditions:** eleven new masks at 100% durability, an adult with no other headgear.
 
-1. Forcer le port de chaque masque, puis déplacer le colon au nord, à l'est, au sud et à
-   l'ouest pour observer ses quatre orientations ; régler l'affichage des couvre-chefs.
-2. Ouvrir la fiche du masque et relever les quatre statistiques de protection.
-3. Équiper un chapeau vanilla occupant `Overhead` et `UpperHead`, puis remettre le masque.
-4. Avec Biotech actif et un enfant disponible, répéter le port des onze masques.
+1. Force-wear each mask, then move the colonist north, east, south and west to observe all
+   four orientations; adjust headgear visibility as needed.
+2. Open each mask's information card and record the four protection stats.
+3. Equip a vanilla hat occupying `Overhead` and `UpperHead`, then equip the mask again.
+4. With Biotech active and a child available, repeat wearing all eleven masks.
 
-**Attendu :** rendu correct dans les quatre orientations ; remplacement du couvre-chef
-incompatible. Pour chaque masque neuf : armure tranchante 7,2 %, armure chaleur 3,6 %,
-isolation froid 1,8 °C et chaleur 0,9 °C. Port autorisé aux adultes et aux enfants.
-Sans Biotech, consigner la partie enfant comme non exécutée avec son motif.
+**Expected:** correct rendering in all orientations; incompatible headgear is replaced.
+For each new mask: sharp armor 7.2%, heat armor 3.6%, cold insulation 1.8 °C and heat
+insulation 0.9 °C. Adults and children can wear them. Without Biotech, record the child
+subcase as not run and explain why.
 
-### TF-04 — Construction et comportement des sept décorations
+### TF-04 — Building and behavior of seven decorations
 
-**Préconditions :** aucune recherche, 35 bois disponibles, constructeur et sol constructible.
+**Preconditions:** no research, 35 wood available, a builder and buildable ground.
 
-1. Dans Architecte → Divers, placer araignée, fantômes, chauves-souris, squelette,
-   faucheuse, arbre et citrouille non éclairée.
-2. Laisser construire chaque objet, puis relever le coût et les statistiques.
-3. Faire traverser un passage dont une décoration occupe la seule case de passage.
-4. Observer les objets de nuit et vérifier l'absence de commande de carburant ou d'énergie.
+1. Under Architect → Misc, place the spider, ghosts, bats, skeleton, reaper, tree and unlit pumpkin.
+2. Let each object be built, then record costs and stats.
+3. Have a colonist cross a passage whose only traversable tile contains a decoration.
+4. Observe the objects at night and check that they have no fuel or power controls.
 
-**Attendu :** sept objets distincts, 5 bois chacun, travail nominal 50, beauté 1,
-40 points de vie et empreinte d'une case. Passage possible, sans exiger une vitesse inchangée.
-Les objets sont des accessoires inertes ; la citrouille ne produit aucune lumière.
-Le dessin peut dépasser l'empreinte au sol. Les différences d'ombres décrites plus bas
-ne constituent pas un échec.
+**Expected:** seven distinct objects, 5 wood each, nominal work 50, beauty 1, 40 hit points
+and a one-cell footprint. Traversal is possible; do not require unchanged movement speed.
+The objects are inert props; the pumpkin produces no light. Artwork may extend beyond the
+footprint. The shadow differences described below are not failures.
 
-### TF-05 — Cuisson des six confiseries et validation du comptage par objet
+### TF-05 — Cooking six sweets and validating item counting
 
-**Préconditions :** cuisinière électrique alimentée puis cuisinière à bois alimentée ;
-cuisinier disponible ; sucre VCE et ingrédients partenaires en quantité suffisante selon
-les quantités d'objets du tableau. Vérifier aussi les filtres et le rayon des ordres.
+**Preconditions:** a powered electric stove, then a fueled wood stove; an available cook;
+VCE sugar and partner ingredients in the item quantities below. Also check bill filters
+and ingredient radius.
 
-| Recette / produit | Partenaire autorisé | Objets partenaires consommés | Objets sucre consommés | Sortie |
-|---|---|---:|---:|---:|
-| `HMM_Make_BloodshotCakePops` / `HMM_BloodshotCakePops` | œufs non fécondés | 4 | 4 | 10 |
-| `HMM_Make_CoffinBars` / `HMM_CoffinBars` | chocolat | 4 | 4 | 10 |
-| `HMM_Make_SpiderBites` / `HMM_SpiderBites` | catégorie `VCE_Fruit` | 25 | 4 | 10 |
-| `HMM_Make_BrainCakes` / `HMM_BrainCakes` | catégorie `AnimalProductRaw`, utiliser du lait | 4 | 4 | 10 |
-| `HMM_Make_MurderBuns` / `HMM_MurderBuns` | farine VCE | 40 | 4 | 10 |
-| `HMM_Make_CandyCorn` / `HMM_CandyCorn` | maïs brut | 40 | 4 | 10 |
+| Recipe / product | Allowed partner | Partner items consumed | Sugar items consumed | Output |
+| --- | --- | ---: | ---: | ---: |
+| `HMM_Make_BloodshotCakePops` / `HMM_BloodshotCakePops` | Unfertilized eggs | 4 | 4 | 10 |
+| `HMM_Make_CoffinBars` / `HMM_CoffinBars` | Chocolate | 4 | 4 | 10 |
+| `HMM_Make_SpiderBites` / `HMM_SpiderBites` | `VCE_Fruit` category | 25 | 4 | 10 |
+| `HMM_Make_BrainCakes` / `HMM_BrainCakes` | `AnimalProductRaw` category; use milk | 4 | 4 | 10 |
+| `HMM_Make_MurderBuns` / `HMM_MurderBuns` | VCE flour | 40 | 4 | 10 |
+| `HMM_Make_CandyCorn` / `HMM_CandyCorn` | Raw corn | 40 | 4 | 10 |
 
-Ces valeurs comptent désormais des objets, indépendamment de leur nutrition. Préparer exactement les quantités du tableau pour chaque fournée et vérifier leur consommation complète.
+These values now count items regardless of nutrition. Prepare exactly the listed quantities
+for each batch and check that all of them are consumed.
 
-1. Sur chaque cuisinière, ajouter un seul ordre « fabriquer une fois » pour chaque recette,
-   en procédant recette par recette pour identifier clairement les consommations.
-2. Vérifier que sucre et partenaire sont cochés dans les filtres de l'ordre.
-3. Demander au colon de cuisiner, observer le démarrage et conserver les messages du journal.
-4. Si l'ordre aboutit, relever les ingrédients consommés et compter le produit obtenu.
+1. At each stove, add one "do once" bill for each recipe, proceeding one recipe at a time
+   so consumption can be identified clearly.
+2. Check that sugar and the partner ingredient are enabled in the bill filters.
+3. Ask the colonist to cook, observe whether the job starts and retain log messages.
+4. If the bill completes, record consumed ingredients and count the resulting product.
 
-**Attendu fonctionnel :** chaque ordre démarre et produit dix unités du bon produit,
-avec un travail nominal de 450. Aucun avertissement de quantité invalide.
+**Functional expectation:** every bill starts and produces ten units of the correct product,
+with nominal work 450. No invalid-quantity warning.
 
-**Validation de la correction :** chaque fournée doit consommer exactement les quantités du tableau, dont 4 sucres même si leur nutrition est nulle. Relever la version de VCE, la nutrition du sucre et les consommations réelles. Un ordre bloqué malgré des conditions correctes, une consommation différente ou un avertissement de quantité invalide constitue un échec.
+**Fix validation:** each batch must consume exactly the listed quantities, including 4 sugar
+even if sugar has zero nutrition. Record VCE version, sugar nutrition and actual consumption.
+A blocked bill under correct conditions, different consumption or an invalid-quantity warning
+is a failure.
 
-### TF-06 — Ingrédients absents, interdits et reprise
+### TF-06 — Missing/excluded ingredients and resumption
 
-**Préconditions :** mêmes ateliers et ordres que TF-02 et TF-05.
+**Preconditions:** the same workstations and bills as TF-02 and TF-05.
 
-1. Pour un masque, ne laisser que 29 tissus accessibles ; demander sa fabrication.
-2. Ajouter le trentième tissu et demander de nouveau la fabrication.
-3. Pour chaque confiserie, retirer le sucre, puis retirer seulement le partenaire.
-4. Réintroduire les stocks, interdire le sucre dans le filtre de l'ordre, puis le réautoriser.
+1. For a mask, leave only 29 cloth accessible; request crafting.
+2. Add the thirtieth cloth and request crafting again.
+3. For each sweet, remove sugar, then remove only the partner ingredient.
+4. Restore the stocks, exclude sugar in the bill filter, then allow it again.
 
-**Attendu :** aucune fabrication ni consommation partielle quand les ingrédients requis
-manquent ou sont exclus. Le masque devient fabricable avec 30 tissus. La confiserie devrait
-reprendre quand tout est disponible ; si TF-05 échoue à cause du sucre, consigner cette
-dernière vérification comme bloquée par le même défaut, sans la déclarer réussie.
+**Expected:** no crafting or partial consumption when required ingredients are missing or
+excluded. The mask becomes craftable with 30 cloth. Sweet production should resume when
+everything is available; if TF-05 fails because of sugar, record this last check as blocked
+by the same defect, not passed.
 
-### TF-07 — Affichage, empilage et consommation des confiseries
+### TF-07 — Sweet graphics, stacking and consumption
 
-**Préconditions :** créer les produits en mode développeur pour rendre ce cas indépendant
-de TF-05 ; adulte pouvant manger, besoins de nourriture et de loisirs non saturés.
+**Preconditions:** spawn products in developer mode to keep this case independent of TF-05;
+an adult able to eat, with unsaturated food and recreation needs.
 
-1. Pour chacun des six produits, créer des piles de 1, 25 et 75 et observer les sprites.
-2. Faire transporter et fusionner deux piles du même produit sans dépasser 75 par pile.
-3. Consulter la fiche : nutrition 0,1 et loisir propre au produit.
-4. À état initial comparable, demander au colon de consommer chaque produit ; relever
-   la diminution du stock et l'évolution des besoins. Réinitialiser les besoins entre essais.
+1. For each of the six products, create stacks of 1, 25 and 75 and observe their sprites.
+2. Have two stacks of the same product hauled and merged without exceeding 75 per stack.
+3. Inspect the information card: nutrition 0.1 and product-specific recreation.
+4. From comparable initial conditions, ask the colonist to consume each product; record
+   stock reduction and need changes. Reset needs between trials.
 
-**Attendu :** textures valides aux trois tailles, empilage et transport possibles, produit
-consommable et besoins augmentés. Valeurs de loisir dans la définition : 0,25 pour les barres
-cercueil, 0,05 pour les bonbons maïs, 0,15 pour les quatre autres. Ne pas exiger que le besoin
-de loisirs augmente exactement de ces nombres : saturation et tolérance peuvent intervenir.
+**Expected:** valid textures at all three stack sizes; stacking and hauling work; products
+can be consumed and increase needs. Defined joy values: 0.25 for coffin bars, 0.05 for candy
+corn and 0.15 for the other four. Do not require the recreation need to rise by exactly
+these amounts: saturation and tolerance can affect it.
 
-### TF-08 — Traduction française et retour à l'anglais
+### TF-08 — French translation and return to English
 
-**Préconditions :** objets des cas précédents et ordres disponibles.
+**Preconditions:** the objects and bills from the previous cases are available.
 
-1. Passer en français et effectuer le redémarrage demandé par le jeu.
-2. Vérifier noms et descriptions des onze masques, sept décorations et six confiseries.
-3. Vérifier noms, descriptions et texte de travail des six recettes ; si la cuisson est
-   bloquée, relever séparément les textes de travail non observables.
-4. Repasser en anglais et vérifier les mêmes menus et fiches.
+1. Switch to French and restart if requested by the game.
+2. Check names and descriptions for eleven masks, seven decorations and six sweets.
+3. Check names, descriptions and work text for six recipes; if cooking is blocked, record
+   any work text that could not be observed separately.
+4. Switch back to English and check the same menus and information cards.
 
-**Attendu :** textes français complets, accents corrects, aucune clé brute ni mélange de langue
-dans les champs traduits ; retour aux textes anglais après changement de langue.
+**Expected:** complete French text, correct accents, no raw keys or mixed-language fallback
+in translated fields; English text returns after switching languages. Check clipping and
+formatting in both languages and retain any relevant log messages.
 
-### TF-09 — Sauvegarde et rechargement
+### TF-09 — Saving and reloading
 
-**Préconditions :** colon portant un masque, sept décorations construites, six confiseries
-créées et ordres de fabrication présents. Garder les mêmes mods et versions.
+**Preconditions:** a colonist wearing a mask, seven built decorations, six spawned sweets
+and crafting bills. Keep the same mods and versions.
 
-1. Noter les modèles, positions, quantités et durabilités, puis sauvegarder.
-2. Quitter le jeu, relancer et charger cette sauvegarde.
-3. Comparer l'état des objets, de l'équipement et des ordres ; reprendre transport et fabrication.
+1. Record models, positions, quantities and durability, then save.
+2. Quit, restart the game and load that save.
+3. Compare objects, equipment and bills; resume hauling and crafting.
 
-**Attendu :** aucun objet disparu ou remplacé, données conservées et actions encore possibles,
-sans nouvelle erreur HMM. Le défaut de cuisson, s'il est confirmé, reste suivi séparément.
-Ce test ne démontre pas la migration d'une ancienne sauvegarde 1.2.
+**Expected:** no missing or replaced objects, preserved data and working actions, with no
+new HMM error. Track any confirmed cooking defect separately. This subcase does not prove
+migration from an old 1.2 save.
 
-### TF-10 — Intégration optionnelle avec Props as Style
+**Existing-save subcase:** use a copy of a RimWorld 1.6 save made before these packaging
+changes, with HMM items/bills if available. Record its exact source mod revision and load order.
+Load the copy with this revision, compare the existing items/bills to the recorded baseline,
+craft a mask and a sweet, save to a new slot, restart and reload. Expect existing HMM data to
+survive and new content to work without HMM load/save errors. Never overwrite the source save.
+If no suitable save exists, record this subcase as unverified. Cross-version migration from
+1.2 is a separate claim and must not be inferred from this test.
 
-**Préconditions :** configuration séparée avec Props as Style et ses dépendances/DLC requis
-par la version installée. Relever leurs versions. Ce cas ne conditionne pas le test sans DLC.
+### TF-10 — Optional Props as Style integration
 
-1. Vérifier que le groupe de styles Halloween est proposé.
-2. Appliquer les quatre styles cités au scénario 7 aux bâtiments vanilla correspondants.
-3. Construire la petite sculpture, la lampe torche, le feu de camp et le brasero avec ces styles.
-4. Comparer leurs fonctions à celles des mêmes bâtiments sans style : carburant, lumière,
-   chaleur et cuisson lorsque le bâtiment vanilla propose cette fonction.
-5. Sauvegarder et recharger, puis vérifier les quatre apparences.
+**Preconditions:** a separate configuration with Props as Style and the dependencies/DLC
+required by its installed version. Record their versions. This case does not condition the
+base test without DLC.
 
-**Attendu :** gargouille, citrouille éclairée, chaudron et bougie correctement dessinés ;
-comportement du bâtiment vanilla conservé. La citrouille non éclairée HMM reste un objet
-distinct. Les quatre styles ne deviennent pas quatre constructions HMM supplémentaires.
-Si l'intégration n'est pas installée, consigner ce cas comme non exécuté avec son motif.
+1. Check that the Halloween style group is offered.
+2. Apply the four styles listed in historical scenario 7 to their corresponding vanilla buildings.
+3. Build the small sculpture, torch lamp, campfire and brazier using these styles.
+4. Compare their functions with the same buildings without styles: fuel, light, heat and
+   cooking wherever the vanilla building offers that function.
+5. Save and reload, then check all four appearances.
 
-### Fiche de résultats
+**Expected:** gargoyle, lit pumpkin, cauldron and candle render correctly; vanilla building
+behavior is preserved. The unlit HMM pumpkin remains a separate object. These four styles do
+not become four additional HMM constructions. If the integration is not installed, record
+this case as not run and explain why.
 
-| Cas | Statut initial | Observation / preuve |
-|---|---|---|
-| TF-01 | Non exécuté | |
-| TF-02 | Non exécuté | Détailler les 11 modèles × 3 ateliers |
-| TF-03 | Non exécuté | Détailler orientations, statistiques et partie enfant |
-| TF-04 | Non exécuté | Détailler les 7 décorations |
-| TF-05 | Non exécuté | Détailler les 6 recettes × 2 cuisinières |
-| TF-06 | Non exécuté | |
-| TF-07 | Non exécuté | Détailler les 6 produits |
-| TF-08 | Non exécuté | |
-| TF-09 | Non exécuté | |
-| TF-10 | Non exécuté | Configuration optionnelle |
+### Results sheet
 
-La recette du mod exige la réussite des cas applicables TF-01 à TF-09. Un blocage confirmé
-de TF-05 est un défaut fonctionnel de cuisson, même si les produits créés en mode développeur
-passent TF-07. Conserver le journal et une sauvegarde de reproduction pour chaque anomalie.
+| Case | Initial status | Observation / evidence |
+| --- | --- | --- |
+| TF-01 | Not run | |
+| TF-02 | Not run | Detail all 11 models × 3 workstations |
+| TF-03 | Not run | Detail orientations, stats and child subcase |
+| TF-04 | Not run | Detail all 7 decorations |
+| TF-05 | Not run | Detail all 6 recipes × 2 stoves |
+| TF-06 | Not run | |
+| TF-07 | Not run | Detail all 6 products |
+| TF-08 | Not run | |
+| TF-09 | Not run | Record new-colony reload and existing-save subcases separately |
+| TF-10 | Not run | Optional configuration |
+
+Acceptance requires passing the applicable TF-01–TF-09 cases. A confirmed TF-05 blockage
+is a cooking defect even if developer-spawned products pass TF-07. Keep the log and a
+reproduction save for each anomaly. Document justified exclusions for optional cases.
 
 ---
 
-## Notes techniques du brouillon initial
+## Historical technical notes from the initial draft
 
-Les notes suivantes sont conservées comme contexte historique. Leurs prédictions et références
-à des contrôles antérieurs n'ont pas été revérifiées pendant cette rédaction.
+The following notes are retained as historical context. Their predictions and references
+to earlier checks were not reverified while translating this document. The active campaign
+above takes precedence. In particular, the old "no Harmony" claim below is superseded:
+VCE requires Harmony and Vanilla Expanded Framework transitively.
 
 Five static checks pass on this mod, run on 2026-09-12:
 

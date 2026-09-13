@@ -8,6 +8,11 @@ in game.
 
 ### Fixed
 
+- Workshop preview overlay now distinguishes the Renew suffix, includes the unofficial tag
+  and 1.6 badge, and uses a checked shared palette. The illustration is unchanged.
+- Test documentation is now in English; existing-save checks are explicit and all in-game
+  results remain pending. Dependency and recipe-balance descriptions were clarified.
+
 - Six sweet recipes now count individual items instead of nutrition to address the suspected
   zero-nutrition sugar blocker. Each batch requires 4 sugar plus 4 unfertilized eggs,
   4 chocolate, 25 fruit, 4 raw animal products (such as milk), 40 flour or 40 corn,

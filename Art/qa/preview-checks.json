@@ -1,0 +1,111 @@
+{
+  "date": "2026-09-13T11:26:50.545Z",
+  "fonts": {
+    "h1": [
+      {
+        "familyName": "Segoe UI Semibold",
+        "postScriptName": "SegoeUI-Semibold",
+        "isCustomFont": false,
+        "glyphCount": 27
+      }
+    ],
+    ".suffix": [
+      {
+        "familyName": "Segoe UI Semibold",
+        "postScriptName": "SegoeUI-Semibold",
+        "isCustomFont": false,
+        "glyphCount": 5
+      }
+    ],
+    ".tag": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI",
+        "isCustomFont": false,
+        "glyphCount": 12
+      }
+    ],
+    ".summary": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI",
+        "isCustomFont": false,
+        "glyphCount": 56
+      }
+    ],
+    ".version": [
+      {
+        "familyName": "Segoe UI",
+        "postScriptName": "SegoeUI-Bold",
+        "isCustomFont": false,
+        "glyphCount": 3
+      }
+    ]
+  },
+  "palette": {
+    "veil": "#372518",
+    "inkPrimary": "#F2ECE1",
+    "inkSecondary": "#E9BB77",
+    "accent": "#EF654E",
+    "badgeInk": "#17120E"
+  },
+  "bytes": 522080,
+  "contrast": [
+    {
+      "selector": ".title-line",
+      "x": 50,
+      "y": 49,
+      "width": 190.984375,
+      "height": 53,
+      "color": "rgb(242, 236, 225)",
+      "minimum": 12.231
+    },
+    {
+      "selector": ".title-line",
+      "x": 50,
+      "y": 93,
+      "width": 261.09375,
+      "height": 53,
+      "color": "rgb(242, 236, 225)",
+      "minimum": 11.468
+    },
+    {
+      "selector": ".suffix",
+      "x": 322.09375,
+      "y": 108,
+      "width": 77.96875,
+      "height": 35,
+      "color": "rgb(233, 187, 119)",
+      "minimum": 5.835
+    },
+    {
+      "selector": ".tag",
+      "x": 50,
+      "y": 147,
+      "width": 113.875,
+      "height": 32,
+      "color": "rgb(233, 187, 119)",
+      "minimum": 8.165
+    },
+    {
+      "selector": ".summary",
+      "x": 50,
+      "y": 216.390625,
+      "width": 370,
+      "height": 28,
+      "color": "rgb(242, 236, 225)",
+      "minimum": 7.627
+    },
+    {
+      "selector": ".summary",
+      "x": 50,
+      "y": 246.828125,
+      "width": 169.484375,
+      "height": 28,
+      "color": "rgb(242, 236, 225)",
+      "minimum": 11.912
+    }
+  ],
+  "badgeContrast": 5.881214257567365,
+  "passed": true
+}

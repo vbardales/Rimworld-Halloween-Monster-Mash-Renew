@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- These keys live under VCE/ with the recipes they translate. A DefInjected key whose def
-       does not exist is a warning in the log, and the recipes only exist when Vanilla Cooking
-       Expanded is active. -->
+  <!-- These keys translate the recipes in Defs/RecipeDefs/Recipes_Candy.xml.
+       Both load from the mod root. Vanilla Cooking Expanded is a mandatory dependency. -->
 
   <!-- EN: make bloodshot cake pops -->
   <HMM_Make_BloodshotCakePops.label>faire des cake pops injectés de sang</HMM_Make_BloodshotCakePops.label>
