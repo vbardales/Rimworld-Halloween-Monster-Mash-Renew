@@ -1,0 +1,8 @@
+# Resolves ids in every pass and activates nothing. Vanilla Cooking Expanded is the mod's one hard
+# dependency and Vanilla Expanded Framework is the hard dependency of Vanilla Cooking Expanded; the
+# staging script copies only the tested mod's OWN direct dependencies, so the second has to be named
+# in each pass map below, in the order it must load. Ids read from the installed items' folders and
+# each About.xml on 2026-09-28.
+VanillaExpanded.VCookE                        2134308519
+OskarPotocki.VanillaFactionsExpanded.Core     2023507013
+VanillaExpanded.VPlantsE                      2134308522

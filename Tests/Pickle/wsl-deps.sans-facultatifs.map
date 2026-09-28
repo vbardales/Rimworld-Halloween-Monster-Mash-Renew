@@ -1,0 +1,7 @@
+# The minimal pass: Vanilla Cooking Expanded alone, with the Framework it needs loaded BEFORE it
+# (the staging order is the load order, not the loadAfter order). Vanilla Plants Expanded is NOT
+# here: the mod does not declare it, and this pass is what shows what that costs, see TESTING.md.
+# The optional LoadAudit tool is the only step source this suite needs beyond Pickle itself.
+OskarPotocki.VanillaFactionsExpanded.Core     2023507013
+VanillaExpanded.VCookE                        2134308519
+nelim.pickletools.loadaudit                   path:PickleTools/LoadAudit/Mod

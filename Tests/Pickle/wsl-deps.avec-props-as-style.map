@@ -1,0 +1,8 @@
+# The pass with Props as Style, whose four Halloween styles read their textures from this mod. Its
+# own dependencies (it names Ideology in its About.xml) were NOT read for this map: if the staging
+# stops on a missing id or dependency, the missing line belongs here.
+OskarPotocki.VanillaFactionsExpanded.Core     2023507013
+VanillaExpanded.VCookE                        2134308519
+nelim.propsasstyle                            path:PropsAsStyle/Mod
+nelim.pickletools.loadaudit                   path:PickleTools/LoadAudit/Mod
+nelim.pickletools.textureowner                path:PickleTools/TextureOwner/Mod

@@ -1,0 +1,6 @@
+# The pass with Vanilla Plants Expanded, which is where the VCE_Fruit category the spider bites recipe
+# names is defined. Framework first, then the two Vanilla Expanded mods, then the tool.
+OskarPotocki.VanillaFactionsExpanded.Core     2023507013
+VanillaExpanded.VCookE                        2134308519
+VanillaExpanded.VPlantsE                      2134308522
+nelim.pickletools.loadaudit                   path:PickleTools/LoadAudit/Mod
