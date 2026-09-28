@@ -10,22 +10,22 @@ remote:       https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew
 local_path:   C:\Users\nelim\Documents\rimworld\HalloweenMonsterMashRenew
 visibility:   public
 detached:     yes
-stage:        showcase
-workflow_stage: l10n
+stage:        done
+workflow_stage: done
 licence:      silent
 port_licence: MIT (port additions only; see LICENSE)
 licence_at:   upstream ships no LICENSE, and its Steam description says nothing about reuse
 upstream_repository: none; no source link on the Steam page, no .git in the download, no GitHub result (read 2026-09-28)
-dependencies: to check (Vanilla Plants Expanded is used through the VCE_Fruit category and is not declared)
+dependencies: declared: Vanilla Cooking Expanded; optional: Vanilla Plants Expanded (MayRequire on HMM_Make_SpiderBites + loadAfter, option B, 2026-09-28)
 showcase:     complete
-automated_tests: Test-CandyRecipes and Check-XmlFields, -ConfigErrors, -DefRefs, -DefInjected passed 2026-09-28 at 79fd997; Check-DefRefs is blind to ingredient-filter categories
+automated_tests: Test-CandyRecipes and Check-XmlFields, -ConfigErrors, -DefRefs (both dependency sets), -DefInjected passed 2026-09-28 at dd3224e; Check-DefInjected notes that the French keys of the guarded recipe are not in a gated folder
 pickle_suite: written 2026-09-28 (Tests/Pickle, 11 features, 57 scenarios, 5 passes of which 4 written), vocabulary checked offline, never run
 tested_on:
 workshop:     3806767867 (private, created 2026-09-23 by the 0.1.0 prepublication; not public, not tested)
 remaining:
-  - defect: HMM_Make_SpiderBites names the category VCE_Fruit, defined only by Vanilla Plants Expanded, which is not declared; owner to choose A (declare), B (guard with MayRequire) or C (change the recipe), see the audit of 2026-09-28
-  - defect: README, About.xml (already on the Steam page), ATTRIBUTION (both copies), the 1.0.0 changelog and two Defs comments say Vanilla Plants Expanded is unused; false, to correct with the fix
-  - defect: Check-DefRefs.ps1 does not resolve the categories of an ingredient filter (shared tool, outside this repository)
+  - unverified: the Steam page still carries the 0.1.0 description, which says Vanilla Plants Expanded is unused; corrected in About.xml at dd3224e, reaches Steam only through the CI's update_description or a hand edit
+  - unverified: French keys of HMM_Make_SpiderBites have no def to attach to without Vanilla Plants Expanded, and Check-DefInjected says they should sit in a gated folder; whether the game warns is unobserved (Pickle 01-load, pass sans-facultatifs); a gated folder means a LoadFolders.xml, which this mod dropped on purpose
+  - unverified: the MayRequire guard itself has never been loaded by the game
   - blocking (done -> tested): door 1, no scenario in @wip: MET, 0 of 57 written scenarios carry the tag (all eleven features were written on 2026-09-28 and none is set aside)
   - blocking (done -> tested): door 2, every conditional scenario has run: NOT MET, 0 of 6 conditional scenarios have run: 01-load (needs LoadAudit, passes 1 to 3), the spider bites cooking (needs Vanilla Plants Expanded, pass avec-vpe) and the four Props as Style texture checks (pass avec-props-as-style)
   - blocking (done -> tested): door 3, no manual test left to validate: NOT MET, TF-01 to TF-10 all unexecuted; 4 are written as Pickle and unrun (TF-01, 02, 04, 05), 1 is not applicable with its reason (TF-06), 5 are partly written and leave 6 open items (mask facings, the child subcase, sweet stacks at 1, 25 and 75, an older save holding HMM items, French menu layout, Props as Style's own styles)
@@ -35,7 +35,7 @@ remaining:
   - unverified: @review captures never opened, logs never read (mandatory for tested)
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
-updated:      2026-09-28, audit against AUDIT.md (blob e9a564da92): done falls back to showcase on an undeclared dependency; 0.1.0 recorded; Pickle suite written
+updated:      2026-09-28, option B applied at dd3224e (Plants Expanded optional) and re-audited against AUDIT.md: done; 0.1.0 recorded; Pickle suite written, never run
 ---
 
 # Halloween Monster Mash Renew — status
@@ -43,7 +43,25 @@ updated:      2026-09-28, audit against AUDIT.md (blob e9a564da92): done falls b
 Lives at the root of the mod, never inside `Mod/`, so the Workshop uploader never receives it.
 This thread maintains it.
 
-## Audit against AUDIT.md — 2026-09-28 (current decision)
+## Re-audit after option B — 2026-09-28 (current decision)
+
+**`done`.** The owner chose B. Commit `dd3224e`: `HMM_Make_SpiderBites` carries
+`MayRequire="VanillaExpanded.VPlantsE"`, `VanillaExpanded.VPlantsE` is in `loadAfter` and is not a
+dependency; README, `About.xml`, `ATTRIBUTION.md` (both copies, byte-identical), the changelog and the two Defs
+comments no longer say Plants Expanded is unused; `Test-CandyRecipes.ps1` now asserts the guard and the
+dependency list. `l10n -> preTest` passes; `preTest -> done` was already met (recipe test, XML checks, Pickle
+suite written with its manual scenarios dispositioned). Checks at `dd3224e` are in `docs/runs/history.md`.
+`Check-DefRefs` now resolves ingredient-filter categories: Cooking Expanded alone reports `VCE_Fruit`
+(expected, the recipe is guarded), Cooking Expanded plus Plants Expanded reports nothing.
+
+Not established, and not a claim: the guard has never been loaded by the game; the Steam page still carries the
+old description; `Check-DefInjected` notes that the French keys of the guarded recipe are not in a gated folder,
+and whether the game warns is unobserved. `tested` is far off: three doors, none run (below).
+
+The section that follows is the first audit of the day, on `79fd997`, kept as history: its transition table
+was true of that revision and its "next transition" is what this re-audit did.
+
+## Audit against AUDIT.md — 2026-09-28, first pass (superseded by the re-audit above)
 
 Audited revision `79fd997` (Mod/ unchanged since `2d5e253`, which is what the `0.1.0` upload sent), plus
 the files this audit adds, committed on top of it afterwards: `TESTING.md`, `Tests/Pickle/`, `docs/`, the `Repository:` line of
