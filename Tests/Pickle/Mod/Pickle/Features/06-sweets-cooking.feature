@@ -46,9 +46,9 @@ Feature: a colonist cooks the sweets from item counts
       | HMM_Make_MurderBuns        | HMM_MurderBuns        | VCE_Flour              | 60     |
       | HMM_Make_CandyCorn         | HMM_CandyCorn         | RawCorn                | 60     |
 
-  # The sixth recipe wants the VCE_Fruit category, which Vanilla Plants Expanded defines. In a pass without
-  # it the category does not exist and the recipe cannot be filled: that is the defect, seen by 01-load, not
-  # a scenario that should be red. So it runs only where the category is, and a skip elsewhere is not a pass.
+  # The sixth recipe wants the VCE_Fruit category, which Vanilla Plants Expanded defines, and is guarded by
+  # MayRequire: without Plants Expanded the recipe does not exist. So it runs only where the mod is, and a
+  # skip elsewhere is not a pass.
   @requires:VanillaExpanded.VPlantsE @timeout:300
   Scenario: spider bites make ten sweets from twenty-five fruit and four sugar
     Given 40 "VCE_RawApple" is spawned at the stockpile

@@ -2,7 +2,9 @@
 <LanguageData>
 
   <!-- These keys translate the recipes in Defs/RecipeDefs/Recipes_Candy.xml.
-       Both load from the mod root. Vanilla Cooking Expanded is a mandatory dependency. -->
+       Both load from the mod root. Vanilla Cooking Expanded is a mandatory dependency.
+       HMM_Make_SpiderBites exists only with Vanilla Plants Expanded (MayRequire); without it
+       its three keys below have no def to attach to and the game may warn. -->
 
   <!-- EN: make bloodshot cake pops -->
   <HMM_Make_BloodshotCakePops.label>faire des cake pops injectés de sang</HMM_Make_BloodshotCakePops.label>

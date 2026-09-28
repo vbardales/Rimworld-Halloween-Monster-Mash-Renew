@@ -23,7 +23,7 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
   results remain pending. Dependency and recipe-balance descriptions were clarified.
 - Six sweet recipes now count individual items instead of nutrition to address the suspected
   zero-nutrition sugar blocker. Each batch requires 4 sugar plus 4 unfertilized eggs,
-  4 chocolate, 25 fruit, 4 raw animal products (such as milk), 40 flour or 40 corn,
+  4 chocolate, 25 fruit (Plants Expanded's), 4 raw animal products (such as milk), 40 flour or 40 corn,
   respectively. Output remains 10 sweets and work remains 450. This changes ingredient
   balance. Cooking and actual consumption still require in-game validation (TF-05/TF-06).
 
@@ -52,10 +52,12 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
   0.9. Adding `stuffCategories` instead would have tinted the painted artwork with the colour of
   the cloth.
 - `developmentalStageFilter` set to `Child, Adult` on every mask, as vanilla headgear does.
-- **Two of the three declared dependencies are gone.** The six recipes genuinely need Vanilla
-  Cooking Expanded — its sugar, and its flour and fruit for three of them — so it stays declared.
-  Vanilla Plants Expanded and the Vanilla Expanded Framework are referenced nowhere in the
-  original's defs and are not carried over.
+- **Dependencies sorted.** The six recipes genuinely need Vanilla Cooking Expanded — its sugar,
+  and its flour for one — so it stays declared. The spider bites recipe also needs the `VCE_Fruit`
+  category, which Vanilla Plants Expanded defines (not Cooking Expanded): that recipe now carries
+  `MayRequire="VanillaExpanded.VPlantsE"` and Plants Expanded is in `loadAfter`, so it is optional
+  and only that recipe depends on it. Without it, the other five recipes load. The Vanilla
+  Expanded Framework is referenced nowhere in this mod's defs and is not carried over.
 - `HMM_Make_BrainCakes` was labelled `make Bloodshot Brain Cakes`, a copy-paste from the cake pops
   recipe above it in the source file. It makes brain cakes.
 - Twenty-six near-identical defs folded onto `HMM_MaskBase`, `HMM_PropBase` and `HMM_CandyBase`,
@@ -66,9 +68,9 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 
 ### Removed
 
-- **Two of the three Vanilla Expanded dependencies.** Vanilla Plants Expanded and the Vanilla
-  Expanded Framework are referenced nowhere in the original's defs; they were declared in error.
-  The third, Vanilla Cooking Expanded, is genuinely used and stays declared.
+- **The Vanilla Expanded Framework as a direct dependency.** No def of this mod references it; it
+  was declared in error. Vanilla Cooking Expanded, genuinely used, stays declared, and Vanilla
+  Plants Expanded is optional (see Changed).
 - **Four decorations, as buildings.** The gargoyle, the lit jack-o-lantern, the cauldron and the
   candle are shipped as textures only; Props as Style dresses `SculptureSmall`, `TorchLamp`,
   `Campfire` and `Brazier` in them. This loses the refuellable light, the heat and the meditation

@@ -5,12 +5,13 @@
     Six Halloween sweets from [KD] Halloween Monster Mash, carried to 1.6.
 
     Their recipes are in Defs/RecipeDefs/Recipes_Candy.xml and call for Vanilla Cooking Expanded's
-    sugar, flour and fruit. VCE is a declared dependency of this mod, so those defs are always
-    present - see About.xml.
+    sugar and flour, and for the VCE_Fruit category, which Vanilla Plants Expanded defines. VCE is
+    a declared dependency of this mod, so its defs are always present - see About.xml. Plants
+    Expanded is not: the spider bites recipe is guarded with MayRequire and needs it.
 
     Upstream declared three dependencies: Vanilla Cooking Expanded, Vanilla Plants Expanded and
-    the Vanilla Expanded Framework. Only the first is used anywhere in its defs; the other two
-    were declared in error and are not carried over.
+    the Vanilla Expanded Framework. Cooking Expanded and Plants Expanded are both used by its
+    recipes; the Framework is not, and is not carried over. Here Plants Expanded is optional.
 
     The author's balance is untouched. These are Chocolate with a different sprite: same 60 hit
     points, same market value of 3, same mass, same deterioration, same 0.1 nutrition, same
@@ -24,7 +25,7 @@
 
     Left alone deliberately: no tradeTags, so no trader will ever carry these. That is the
     author's choice and it is defensible - they are a thing you make for a season, not a
-    commodity - but it does mean a colony without Vanilla Cooking Expanded will never see one.
+    commodity - but it does mean a colony cannot get spider bites without Vanilla Plants Expanded.
   -->
 
   <ThingDef Name="HMM_CandyBase" ParentName="ResourceBase" Abstract="True">

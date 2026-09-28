@@ -34,6 +34,9 @@ foreach ($case in $expected) {
     Assert-Recipe ($defs.Count -eq 1) "Missing or duplicate recipe: $name"
     $recipe = $defs[0]
     Assert-Recipe ($recipe.GetAttribute('ParentName') -eq 'HMM_MakeCandyBase') "$name must inherit the candy base."
+    # VCE_Fruit is defined by Vanilla Plants Expanded, which the mod does not require: only that recipe is guarded.
+    $guard = if ($name -eq 'SpiderBites') { 'VanillaExpanded.VPlantsE' } else { '' }
+    Assert-Recipe ($recipe.GetAttribute('MayRequire') -eq $guard) "$name MayRequire must be '$guard'."
     Assert-Recipe ($recipe.SelectNodes('workAmount|recipeUsers').Count -eq 0) "$name overrides work or stoves."
     Assert-Recipe ($recipe.SelectNodes('ingredients/li').Count -eq 2) "$name must require two ingredients."
     foreach ($ingredient in @(@('thingDefs', 'VCE_RawSugar', 4), @($kind, $partner, $count))) {
@@ -48,4 +51,9 @@ foreach ($case in $expected) {
     $products = $recipe.SelectNodes('products/*')
     Assert-Recipe ($products.Count -eq 1 -and $products[0].Name -eq "HMM_$name" -and $products[0].InnerText -eq '10') "$name must produce ten matching sweets."
 }
-Write-Output 'PASS: six candy recipes; item counting, ingredients, fixed filters, products, work and stoves.'
+[xml]$about = Get-Content (Join-Path $ModPath 'About/About.xml') -Raw
+$deps = @($about.ModMetaData.modDependencies.li.packageId)
+Assert-Recipe ($deps -contains 'VanillaExpanded.VCookE') 'Vanilla Cooking Expanded must stay a declared dependency.'
+Assert-Recipe ($deps -notcontains 'VanillaExpanded.VPlantsE') 'Vanilla Plants Expanded must stay optional (MayRequire), not a dependency.'
+Assert-Recipe (@($about.ModMetaData.loadAfter.li) -contains 'VanillaExpanded.VPlantsE') 'Vanilla Plants Expanded must be in loadAfter.'
+Write-Output 'PASS: six candy recipes; item counting, ingredients, fixed filters, products, work, stoves, and the optional Plants Expanded guard.'

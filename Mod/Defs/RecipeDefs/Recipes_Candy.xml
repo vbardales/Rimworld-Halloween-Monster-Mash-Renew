@@ -4,15 +4,22 @@
   <!--
     The six sweet recipes.
 
-    THEY NAME VCE_ DEFS WITHOUT A GUARD, and that is correct here: Vanilla Cooking Expanded is a
-    declared dependency of this mod, so its defs are always present. All six call for
-    VCE_RawSugar; three also want VCE_Flour or the VCE_Fruit category.
+    FIVE OF THE SIX NAME VCE_ DEFS WITHOUT A GUARD, and that is correct here: Vanilla Cooking
+    Expanded is a declared dependency of this mod, so its defs are always present. All six call
+    for VCE_RawSugar; one also wants VCE_Flour.
+
+    HMM_Make_SpiderBites IS GUARDED. Its VCE_Fruit category is not Cooking Expanded's: it is
+    defined by Vanilla Plants Expanded (VanillaExpanded.VPlantsE), which this mod does not
+    require. The recipe carries MayRequire="VanillaExpanded.VPlantsE", so without Plants Expanded
+    it is dropped before its filter is resolved, and the other five recipes are unaffected. The
+    spider bites item still exists; only the way to cook it is missing. Plants Expanded is in
+    loadAfter, so its category is defined when the recipe is read.
 
     This was once isolated in a VCE/ folder rooted by LoadFolders.xml, so the mod would run
     without Vanilla Cooking Expanded and merely lose the recipes. That was dropped in favour of a
-    plain dependency. If it is ever reinstated, the reason it was a folder and not a per-def
-    MayRequire still holds: a RecipeDef whose ingredient filter names a thing that does not exist
-    does not degrade quietly, it throws, and it takes its whole file with it.
+    plain dependency. A RecipeDef whose ingredient filter names a thing that does not exist does
+    not degrade quietly, it throws: MayRequire must be on the RecipeDef itself, as it is here,
+    and not on the filter's entries.
 
     Changed against the 1.2 originals, all recorded in ATTRIBUTION.md:
     - the six-fold copy-paste is folded into HMM_MakeCandyBase; ingredient numbers are retained
@@ -111,7 +118,7 @@
     </products>
   </RecipeDef>
 
-  <RecipeDef ParentName="HMM_MakeCandyBase">
+  <RecipeDef ParentName="HMM_MakeCandyBase" MayRequire="VanillaExpanded.VPlantsE">
     <defName>HMM_Make_SpiderBites</defName>
     <label>make spider bites</label>
     <description>Make spider bites out of sugar and fruit.</description>

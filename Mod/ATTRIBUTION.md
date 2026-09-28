@@ -39,15 +39,25 @@ the objects themselves no longer existed in any colony. This port is what makes 
 ## The three dependencies, and what became of them
 
 The original declares Vanilla Cooking Expanded, Vanilla Plants Expanded and the Vanilla Expanded
-Framework. Reading its four def files, **only the first is used anywhere**: the six recipes call
-for `VCE_RawSugar`, and three of them also want `VCE_Flour` or the `VCE_Fruit` category. Nothing
-references Vanilla Plants Expanded or the Framework. Those two direct declarations were removed.
+Framework. Reading its four def files, **two are used**: the six recipes call for `VCE_RawSugar`, one also
+wants `VCE_Flour` (both Vanilla Cooking Expanded's), and the spider bites recipe wants the
+`VCE_Fruit` category, which is **Vanilla Plants Expanded's** (`ThingCategoryDefs`, 1.1 to 1.6) and
+appears in no file of Cooking Expanded except patches guarded on Plants Expanded. Neither mod
+depends on the other. Nothing references the Framework, so its direct declaration was removed.
 Vanilla Cooking Expanded itself requires Harmony and Vanilla Expanded Framework, so both remain
 transitive requirements of the full mod configuration.
 
-**Vanilla Cooking Expanded is declared as a dependency**, as upstream did. The six recipes sit in
-`Mod/Defs/RecipeDefs/` with the rest and name `VCE_` defs without a guard, which is safe because
-those defs are always present.
+An earlier version of this document, and of the README, the description and the changelog, said
+that Plants Expanded was referenced nowhere. That was wrong, found on 2026-09-28 while writing the
+test plan; the description had already reached the Steam page with the `0.1.0` upload.
+
+**Vanilla Cooking Expanded is declared as a dependency**, as upstream did. Five of the six recipes
+sit in `Mod/Defs/RecipeDefs/` and name `VCE_` defs without a guard, which is safe because those
+defs are always present. **Vanilla Plants Expanded is optional**: `HMM_Make_SpiderBites` carries
+`MayRequire="VanillaExpanded.VPlantsE"` and Plants Expanded is in `loadAfter`. Without it that
+recipe is absent and the other five are unaffected; the spider bites item still exists. Declaring
+it as a dependency would have made everyone download it for one recipe of six. The French
+`DefInjected` keys of that recipe have no def to attach to when it is absent.
 
 An earlier build of this port isolated them instead: the recipes lived in `Mod/VCE/`, rooted by
 `LoadFolders.xml` on `IfModActive="VanillaExpanded.VCookE"`, so the mod ran without Vanilla
@@ -57,7 +67,9 @@ record in case it is ever reinstated:
 
 - It was conditioned **as a folder, not def by def**. A `RecipeDef` whose ingredient filter names
   a thing that does not exist does not degrade quietly — it throws, and takes its whole file with
-  it. `MayRequire` on the individual defs would not have been equivalent.
+  it. `MayRequire` on the individual defs is not equivalent for the five Cooking Expanded recipes;
+  it is what the spider bites recipe uses for Plants Expanded, on the `RecipeDef` itself, so it
+  is dropped before its filter is read.
 - The alternative considered and rejected was to rewrite the six recipes in vanilla ingredients.
   That would have invented balance the author never wrote.
 
@@ -174,7 +186,7 @@ settle.
 | `HMM_Make_BrainCakes` labelled `make Bloodshot Brain Cakes` | Fixed to `make brain cakes`. A copy-paste from the cake pops recipe directly above it in the source file. |
 | Title-case labels | Lower-cased. |
 | `A bunch sweet gummies`, `made with nugget` | Fixed to `a bunch of sweet gummies` and `nougat`. |
-| Three dependencies for one used | See above: two dropped as unreferenced, Vanilla Cooking Expanded kept as a declared dependency. |
+| Three dependencies, two used | See above: the Framework's declaration dropped as unreferenced, Vanilla Cooking Expanded kept as a declared dependency, Vanilla Plants Expanded made optional with `MayRequire`. |
 
 **The sweets' item stats are unchanged, and deliberately unremarkable**: these six are vanilla
 `Chocolate` with a different sprite. Same 60 hit points, same market value of 3, same 0.075 mass,
@@ -183,7 +195,7 @@ same deterioration rate of 8, same 0.1 nutrition, same `DesperateOnly` preferabi
 0.25 for coffin bars, 0.15 for the rest — and that is the whole point of eating one rather than
 another.
 
-**Recipe costs changed after 1.0.0.** Nutrition-based counting was removed to address the suspected zero-nutrition sugar blocker. The original numbers now count items: 4 sugar plus 4 eggs, 4 chocolate, 25 fruit, 4 raw animal products (such as milk), 40 flour or 40 corn. Work remains 450 and output ten sweets. This changes ingredient balance; in-game validation is pending.
+**Recipe costs changed after 1.0.0.** Nutrition-based counting was removed to address the suspected zero-nutrition sugar blocker. The original numbers now count items: 4 sugar plus 4 eggs, 4 chocolate, 25 fruit (Plants Expanded's), 4 raw animal products (such as milk), 40 flour or 40 corn. Work remains 450 and output ten sweets. This changes ingredient balance; in-game validation is pending.
 
 **No `tradeTags`.** No trader will ever carry these, and there is no other way to obtain them than
 to cook them. That is the author's choice and it is coherent — a seasonal thing you make, not a

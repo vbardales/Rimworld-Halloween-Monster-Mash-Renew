@@ -16,7 +16,8 @@ Written on 2026-09-28 against `AUDIT.md` (blob `e9a564da92`, read whole) and the
 ## Passes a full validation needs
 
 The mod has one hard dependency, Vanilla Cooking Expanded, and two integrations: Vanilla Plants Expanded
-(where the `VCE_Fruit` category lives, see `STATUS.md`) and Props as Style (which reads four textures).
+(where the `VCE_Fruit` category lives; the spider bites recipe is guarded by `MayRequire`, see `STATUS.md`)
+and Props as Style (which reads four textures).
 Neither integration excludes the other, but each is its own pass because each mounts a different mod.
 
 1. **sans-facultatifs, English**: `-DepMap wsl-deps.sans-facultatifs.map`, filter `'<suite>,!@lang-fr'`.
@@ -44,7 +45,7 @@ automated and green, or listed here as not applicable with its reason, or listed
 
 | # | Scenario | Disposition |
 |---|---|---|
-| TF-01 | Loading and dependency | Pickle `01-load`, passes 1 to 3. Expected red in pass 1 until the `VCE_Fruit` defect is settled. The "VCE disabled" subcase is not applicable: the game's own dependency warning, not this mod's code. |
+| TF-01 | Loading and dependency | Pickle `01-load`, passes 1 to 3. Must be green in pass 1: the `VCE_Fruit` recipe is guarded, and a red there means the guard fails. The French keys of the absent recipe may log a warning: read it. The "VCE disabled" subcase is not applicable: the game's own dependency warning, not this mod's code. |
 | TF-02 | Crafting eleven masks at three workstations | Pickle `04`: one full craft at the crafting spot, and the two tailoring benches by adding the bill. **Not** eleven masks times three benches: they share one `recipeUsers` list, and the offline XML checks show it. |
 | TF-03 | Wearing, orientations, protection | Pickle `02` (the four stats the game computes, all eleven masks) and `03` (worn, drawn, `@review`). The **four facings are open**: no step turns a pawn; the 44 texture files are a file contract checked offline. The child subcase needs Biotech and is **open**: the fixture's colonists are adults. |
 | TF-04 | Seven decorations | Pickle `05` (built, drawn, `@review`). Crossing a tile is not applicable: `passability` is a def field the game's own pathing reads. |

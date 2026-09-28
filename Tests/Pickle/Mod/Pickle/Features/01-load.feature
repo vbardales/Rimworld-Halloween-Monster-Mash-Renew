@@ -3,10 +3,11 @@
 # that as `Could not resolve cross-reference` at startup, before any scenario begins. LoadAudit reads the
 # log from the start of the game, so this is the scenario that sees it.
 #
-# Expected RED in the sans-facultatifs pass today: `HMM_Make_SpiderBites` names the category `VCE_Fruit`,
-# which Vanilla Plants Expanded defines and Vanilla Cooking Expanded does not (STATUS.md, 2026-09-28).
-# It goes green when the mod stops naming a category its declared dependencies do not provide, and
-# stays green in the avec-vpe pass, which is where the category exists.
+# `HMM_Make_SpiderBites` names the category `VCE_Fruit`, which Vanilla Plants Expanded defines and Vanilla
+# Cooking Expanded does not. The recipe carries MayRequire="VanillaExpanded.VPlantsE" (2026-09-28, option B),
+# so this must be GREEN in the sans-facultatifs pass, where the category does not exist, and in the avec-vpe
+# pass, where it does. Red in the first means the guard does not work. Not yet observed in a game. One thing
+# to read on the first run: the French keys of the recipe, absent without Plants Expanded, may log a warning.
 @requires:nelim.pickletools.loadaudit
 Feature: the mod loads without a message that belongs to it
 

@@ -3,8 +3,9 @@
 UNOFFICIAL. This mod is published without the original author's explicit consent. If the original author contacts me to request its removal, I undertake to take it down promptly.
 
 **[KD] Halloween Monster Mash** (Killer_Diller), carried to RimWorld 1.6 — eleven masks, seven
-decorations and six Halloween sweets. Vanilla Cooking Expanded remains required; two unused
-direct dependency declarations were removed.
+decorations and six Halloween sweets. Vanilla Cooking Expanded remains required; Vanilla Plants
+Expanded became optional (it only adds the spider bites recipe); one unused direct dependency
+declaration, the Vanilla Expanded Framework, was removed.
 
 **I am not the author of this mod.** The artwork and the original idea are entirely
 Killer_Diller's — all I did was the work needed to make them run on 1.6. Credit goes to them;
@@ -48,8 +49,8 @@ Content mod: removing it mid-save destroys anything already built or crafted fro
 
 ## Requires Vanilla Cooking Expanded
 
-All six recipes call for `VCE_RawSugar`, and three also want `VCE_Flour` or the `VCE_Fruit`
-category, so [Vanilla Cooking Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2134308519)
+All six recipes call for `VCE_RawSugar`, and one also wants `VCE_Flour`, so
+[Vanilla Cooking Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2134308519)
 is a declared dependency.
 
 Only the sweets need it — the masks and the decorations are plain vanilla content. An earlier
@@ -57,9 +58,19 @@ build isolated the recipes in a `Mod/VCE/` folder rooted by `LoadFolders.xml`, s
 without Vanilla Cooking Expanded and merely lost them; that was dropped in favour of a plain
 dependency.
 
-The original declared three dependencies. Only Vanilla Cooking Expanded is referenced anywhere in
-its defs. The direct declarations for Vanilla Plants Expanded and Vanilla Expanded Framework
-were removed; the Framework is still required transitively by Vanilla Cooking Expanded.
+## Optional: Vanilla Plants Expanded
+
+The `VCE_Fruit` category that the spider bites recipe asks for is defined by
+[Vanilla Plants Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2134308522), not
+by Cooking Expanded (neither mod depends on the other). The recipe carries
+`MayRequire="VanillaExpanded.VPlantsE"`, and Plants Expanded is in `loadAfter`: without it that
+one recipe is absent and nothing else changes; with it, the recipe works as in the original. The
+spider bites item exists either way.
+
+The original declared three dependencies: Cooking Expanded (required here), Plants Expanded
+(optional here) and the Vanilla Expanded Framework. Only the Framework's direct declaration was
+removed, since no def of this mod references it; it is still required transitively by Vanilla
+Cooking Expanded.
 
 ## Four decorations are missing on purpose
 
@@ -81,9 +92,10 @@ vanilla torch and brazier underneath, not from the pumpkin. See `ATTRIBUTION.md`
   multipliers were meant to produce on cloth.
 - **`developmentalStageFilter`** — `Child, Adult`, which every vanilla hat carries and none of
   these did.
-- **Two unused direct dependency declarations were removed.** Vanilla Plants Expanded and
-  Vanilla Expanded Framework are not referenced by this mod's defs. Vanilla Cooking Expanded
-  is used by all six recipes and stays declared; its own dependencies still apply.
+- **Dependencies sorted.** Vanilla Cooking Expanded is used by all six recipes and stays
+  declared; its own dependencies still apply. Vanilla Plants Expanded is used by one recipe
+  only and is optional (`MayRequire`). The Vanilla Expanded Framework is not referenced by this
+  mod's defs, so its direct declaration was removed.
 - **One recipe was labelled `make Bloodshot Brain Cakes`** — a copy-paste from the recipe above it.
   It makes brain cakes.
 - **Repeated defs folded onto shared bases** — `HMM_MaskBase`, `HMM_PropBase`, `HMM_CandyBase`,
@@ -96,7 +108,7 @@ Save compatibility still requires the checks in `TESTS.md`; unchanged identifier
 not establish migration from RimWorld 1.2. Do not load the original and this port together.
 
 Recipe costs changed after 1.0.0: counts now mean individual items rather than nutrition.
-Each batch uses 4 sugar plus 4 eggs, 4 chocolate, 25 fruit, 4 raw animal products (such as milk),
+Each batch uses 4 sugar plus 4 eggs, 4 chocolate, 25 fruit (Plants Expanded's), 4 raw animal products (such as milk),
 40 flour or 40 corn, respectively. Output remains ten sweets and work remains 450.
 Actual cooking and consumption are awaiting in-game validation.
 
