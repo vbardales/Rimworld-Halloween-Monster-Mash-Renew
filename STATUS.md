@@ -25,7 +25,6 @@ workshop:     3806767867 (private, created 2026-09-23 by the 0.1.0 prepublicatio
 remaining:
   - defect: HMM_Make_SpiderBites names the category VCE_Fruit, defined only by Vanilla Plants Expanded, which is not declared; owner to choose A (declare), B (guard with MayRequire) or C (change the recipe), see the audit of 2026-09-28
   - defect: README, About.xml (already on the Steam page), ATTRIBUTION (both copies), the 1.0.0 changelog and two Defs comments say Vanilla Plants Expanded is unused; false, to correct with the fix
-  - defect: a v1.0.0 tag and GitHub release made by hand on 2026-09-11 name a version Steam never received; to remove before the first publish (owner's call)
   - defect: Check-DefRefs.ps1 does not resolve the categories of an ingredient filter (shared tool, outside this repository)
   - blocking (done -> tested): door 1, no scenario in @wip: MET, 0 of 57 written scenarios carry the tag (all eleven features were written on 2026-09-28 and none is set aside)
   - blocking (done -> tested): door 2, every conditional scenario has run: NOT MET, 0 of 6 conditional scenarios have run: 01-load (needs LoadAudit, passes 1 to 3), the spider bites cooking (needs Vanilla Plants Expanded, pass avec-vpe) and the four Props as Style texture checks (pass avec-props-as-style)
@@ -124,7 +123,7 @@ B follows `AUDIT.md`: a hard dependency is for what is technically required, the
 
 ### Not part of the mod, worth knowing
 
-- **A `v1.0.0` tag and a GitHub release exist**, made by hand on 2026-09-11 on `7674151`, marked Latest. Steam
+- **(Removed on 2026-09-28, on the owner's word.) A `v1.0.0` tag and a GitHub release existed**, made by hand on 2026-09-11 on `7674151`, marked Latest. Steam
   has only ever received `0.1.0`. `PUBLISHING.md` says the CI creates tag and release after a successful upload
   and the manual workflow refuses a tag that exists, so **both have to go before the first publish**. Not
   touched: it is a public action on the owner's repository.

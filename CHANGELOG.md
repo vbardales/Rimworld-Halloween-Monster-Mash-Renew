@@ -8,8 +8,8 @@ in game.
 
 First release proper, and not yet sent to the Steam Workshop: the item exists, created by
 the `0.1.0` below, and `1.0.0` is what follows once the mod has been tried in a running game. A
-`v1.0.0` tag and GitHub release were made by hand on 2026-09-11, before any upload; they name a
-version Steam has never received (see `STATUS.md`).
+`v1.0.0` tag and GitHub release were made by hand on 2026-09-11, before any upload, and removed on
+2026-09-28: the CI creates them after a successful upload.
 
 Killer_Diller's **[KD] Halloween Monster Mash**, uploaded 13 October 2020 and never updated,
 carried to 1.6. The original is not merely out of date: it declares no `LoadFolders.xml` and keeps
