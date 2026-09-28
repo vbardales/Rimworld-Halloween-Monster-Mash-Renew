@@ -6,6 +6,11 @@
 - **Source:** Steam Workshop `2257175849`, last supported version 1.2, uploaded 13 October 2020 and
   never updated since — https://steamcommunity.com/sharedfiles/filedetails/?id=2257175849
   The page is still online. The mod is abandoned, not withdrawn.
+- **Repository:** none. Nothing on the Steam page links to a source repository (no GitHub, GitLab
+  or Bitbucket link in the page or its description, read on 2026-09-28), the downloaded item holds
+  no `.git`, and GitHub searches for the mod name and the author name find nothing. This port
+  therefore starts from the Workshop download, not from a fork, and there is no upstream to send
+  a pull request to. If the author publishes one, the port should be rebased onto it.
 - **Reused here:** the eleven masks, seven of the eleven decorations, and the six sweets with their
   six recipes — their defs and all seventy-three textures. Four decorations are shipped as
   **textures only**: the gargoyle, the lit jack-o-lantern, the cauldron and the candle are rebuilt
