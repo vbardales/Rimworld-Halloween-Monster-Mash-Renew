@@ -4,29 +4,28 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it
 in game.
 
-## [Unreleased]
+## [1.0.0] — unreleased
 
-### Fixed
+First release proper, and not yet sent to the Steam Workshop: the item exists, created by
+the `0.1.0` below, and `1.0.0` is what follows once the mod has been tried in a running game. A
+`v1.0.0` tag and GitHub release were made by hand on 2026-09-11, before any upload; they name a
+version Steam has never received (see `STATUS.md`).
+
+Killer_Diller's **[KD] Halloween Monster Mash**, uploaded 13 October 2020 and never updated,
+carried to 1.6. The original is not merely out of date: it declares no `LoadFolders.xml` and keeps
+every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
+
+### Fixed after the 2026-09-11 hand tag
 
 - Workshop preview overlay now distinguishes the Renew suffix, includes the unofficial tag
   and 1.6 badge, and uses a checked shared palette. The illustration is unchanged.
 - Test documentation is now in English; existing-save checks are explicit and all in-game
   results remain pending. Dependency and recipe-balance descriptions were clarified.
-
 - Six sweet recipes now count individual items instead of nutrition to address the suspected
   zero-nutrition sugar blocker. Each batch requires 4 sugar plus 4 unfertilized eggs,
   4 chocolate, 25 fruit, 4 raw animal products (such as milk), 40 flour or 40 corn,
   respectively. Output remains 10 sweets and work remains 450. This changes ingredient
   balance. Cooking and actual consumption still require in-game validation (TF-05/TF-06).
-
-## [1.0.0] — 2026-09-11
-
-First release. Not yet on the Steam Workshop: this tags the source, and the Workshop item follows
-once the mod has been tried in a running game.
-
-Killer_Diller's **[KD] Halloween Monster Mash**, uploaded 13 October 2020 and never updated,
-carried to 1.6. The original is not merely out of date: it declares no `LoadFolders.xml` and keeps
-every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 
 ### Added
 
@@ -77,3 +76,16 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 - `costStuffCount`, inert without `stuffCategories`. The `costList` of 30 cloth is what the mod
   always actually charged, and it is unchanged.
 - `<thingCategories Inherit="False">`, identical to what `HatMakeableBase` already sets.
+
+## [0.1.0] — 2026-09-23
+
+Creation of a `PublishedFileId.txt`.
+
+A first upload whose only purpose was to create the Workshop item (private, as Steam creates every
+item) and obtain its `Mod/About/PublishedFileId.txt`, which holds `3806767867`. It is not a tested
+version and does not say the mod is public.
+
+It sent `Mod/` as it stood at commit `2d5e253` and nothing else: the defs, the textures and the
+French translation described under `1.0.0`, unchanged since. The game or the upload also wrote a
+`.dds` beside each of the seventy-three PNGs; git ignores them and they are not part of the
+source.
