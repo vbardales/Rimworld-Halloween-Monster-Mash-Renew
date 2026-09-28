@@ -6,6 +6,7 @@
 *.md    text
 *.props text
 *.sh    text eol=lf
+*.map   text eol=lf
 *.svg   text
 
 # Binaries: neither normalised nor diffed as text.
