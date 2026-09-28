@@ -27,6 +27,12 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
   respectively. Output remains 10 sweets and work remains 450. This changes ingredient
   balance. Cooking and actual consumption still require in-game validation (TF-05/TF-06).
 
+### Changed before the first public release
+
+- **The packageId is now `nelim.halloweenmonstermash`** (it was `nelim.halloweenmonstermashrenew`, as the
+  `0.1.0` upload sent it). The Workshop item is private and untested, so no install holds the old id; anything
+  that names it (a `loadAfter`, a `LoadFolders.xml` gate) has to follow.
+
 ### Added
 
 - **The eleven masks** — devil, clown, witch, Frankenstein, mummy, wolfman, hockey, skull, zombie,

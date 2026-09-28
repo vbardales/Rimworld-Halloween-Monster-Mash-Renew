@@ -9,7 +9,7 @@
 Feature: Props as Style finds the textures it reads in this mod
 
   Scenario Outline: <path> is answered by this mod
-    Then Nelim's Pickle Tools: the texture "<path>" is answered by the mod "nelim.halloweenmonstermashrenew"
+    Then Nelim's Pickle Tools: the texture "<path>" is answered by the mod "nelim.halloweenmonstermash"
 
     Examples:
       | path                                    |

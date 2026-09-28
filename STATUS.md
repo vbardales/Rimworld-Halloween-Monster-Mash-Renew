@@ -4,7 +4,7 @@ translation_en: complete
 translation_fr: complete
 settings_audit: not_applicable
 mod:          Halloween Monster Mash Renew (unofficial)
-packageId:    nelim.halloweenmonstermashrenew
+packageId:    nelim.halloweenmonstermash
 repo:         Rimworld-Halloween-Monster-Mash-Renew
 remote:       https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew.git
 local_path:   C:\Users\nelim\Documents\rimworld\HalloweenMonsterMashRenew
@@ -53,6 +53,14 @@ dependency list. `l10n -> preTest` passes; `preTest -> done` was already met (re
 suite written with its manual scenarios dispositioned). Checks at `dd3224e` are in `docs/runs/history.md`.
 `Check-DefRefs` now resolves ingredient-filter categories: Cooking Expanded alone reports `VCE_Fruit`
 (expected, the recipe is guarded), Cooking Expanded plus Plants Expanded reports nothing.
+
+**packageId, on the owner's word the same day:** `nelim.halloweenmonstermashrenew` became
+`nelim.halloweenmonstermash`, in line with `PUBLISHING.md` (2026-09-27: no `renew` in a packageId that is not yet
+published). The item `3806767867` is private and untested, so nobody's `ModsConfig.xml` holds the old id; the
+`0.1.0` upload sent it, but only into that private item. The Pickle companion followed
+(`nelim.halloweenmonstermash.pickletests`, its dependency and `loadAfter`, `01-load`, `09`). **Props as Style's
+Halloween folder is gated on the old id (read 2026-09-13) and is in another repository: its gate has to change
+too, or the four styles vanish.** Not touched from here. The display name keeps `Renew`.
 
 Not established, and not a claim: the guard has never been loaded by the game; the Steam page still carries the
 old description; `Check-DefInjected` notes that the French keys of the guarded recipe are not in a gated folder,
@@ -119,7 +127,7 @@ B follows `AUDIT.md`: a hard dependency is for what is technically required, the
 | `dansMonoRepo -> horsMonoRepo` | **Validated.** Standalone repository at `C:\Users\nelim\Documents\rimworld\HalloweenMonsterMashRenew`, `origin` at `vbardales/Rimworld-Halloween-Monster-Mash-Renew`, public, first commit pushed, no remote in the monorepo (normal). English `README`, `ATTRIBUTION`, `LICENSE`, `CHANGELOG`; the distributed `LICENSE` and `ATTRIBUTION.md` are byte-identical to the root copies (blob hashes compared today). Start from the original's repository: **there is none**, recorded in `ATTRIBUTION.md`, see below. |
 | `-> ModIcon generated` | **Validated.** `Mod/About/ModIcon.png` 128 x 128, 18,865 bytes, a mascot with a wink and a witch's hat that stay readable at 32 px (looked at today). Not generated or touched by this audit. |
 | `-> Preview generated` | **Validated.** `Mod/About/Preview.png` 896 x 504, 522,080 bytes, under 1 MB, SHA-256 unchanged from 2026-09-13. |
-| `-> preOptions` | **Validated.** English description with the unofficial notice; `<name>` ends in ` (unofficial)`; the description ends with `[url=https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew]Source code on GitHub[/url]` (checked today); `Art/preview-palette.json` present. The packageId keeps `renew`: it was sent with the `0.1.0` upload, so it is frozen (`PUBLISHING.md`, 2026-09-27). |
+| `-> preOptions` | **Validated.** English description with the unofficial notice; `<name>` ends in ` (unofficial)`; the description ends with `[url=https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew]Source code on GitHub[/url]` (checked today); `Art/preview-palette.json` present. At this audit the packageId kept `renew` as frozen by the `0.1.0` upload; the owner then had it removed (see the re-audit above). |
 | `-> options` | **Not applicable, justified.** No code, no settings, no page, no shortcut in the source inventory. `settings_audit: not_applicable` stands (2026-09-13, unchanged). |
 | `-> l10n` | **Validated** against the current `TRANSLATIONS.md`. 66 owned fields, 66 French entries, `Check-DefInjected` 66 keys 0 errors (rerun today). The plural rule of 2026-09-25 has nothing to apply to: the mod shows no count through a key. |
 | `-> preTest` | **Defect.** The undeclared dependency above. Vanilla Cooking Expanded is declared and used; `VCE_RawSugar` and `VCE_Flour` resolve in it. |

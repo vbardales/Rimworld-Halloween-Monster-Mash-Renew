@@ -13,4 +13,4 @@ Feature: the mod loads without a message that belongs to it
 
   Scenario: nothing in the log comes from the mod once a colony is loaded
     Given the save "test-colony" is loaded
-    Then Nelim's Pickle Tools: the load of the mod "nelim.halloweenmonstermashrenew" is clean
+    Then Nelim's Pickle Tools: the load of the mod "nelim.halloweenmonstermash" is clean
