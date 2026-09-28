@@ -13,3 +13,4 @@ superseded revision proves nothing about the current one. No run in a game has t
 2026-09-28 79fd997 offline Check-XmlClasses.ps1 NOT RUN: mandatory -TypeLists not supplied and the mod names no class (0 Class= attributes, no worker, comp or driver element)
 2026-09-28 79fd997 offline Tests/Pickle/Check-Steps.ps1 PASS 11 features, 85 step lines against Pickle 212 patterns (GitHub main, not the staged build) and PickleTools 100; negative control 4 of 4 faults reported
 2026-09-28 79fd997 offline Check-TypeRefs.ps1 PASS 5 XML files, 77 element names searched, 0 type references beyond RimWorld and Unity, no unguarded third-party type
+2026-09-28 a3901f7 offline Tests/Pickle/Check-Steps.ps1 reworked after review, PASS 11 features, 85 step lines, 0 problems; new negative controls: a second outline with its own columns is accepted, a missing column, an Examples: with no table and an undefined step are each reported, "running mods" matches the optional "mod(s)" row

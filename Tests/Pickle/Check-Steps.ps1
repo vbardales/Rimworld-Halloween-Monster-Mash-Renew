@@ -54,6 +54,11 @@ function ConvertTo-Regex([string]$expression) {
                 default  { [void]$out.Append('.+?') }
             }
             $i = $j + 1
+        } elseif ($e[$i] -eq '(' -and $i -gt 0 -and [char]::IsLetter($e[$i - 1]) -and $e.Substring($i) -match '^\(([A-Za-z]+)\)') {
+            # Cucumber optional text, as in "mod(s)": the letters may be there or not.
+            # A parenthesis after a space or holding a {parameter}, as in "({int}, {int})", stays literal.
+            [void]$out.Append('(?:' + [regex]::Escape($Matches[1]) + ')?')
+            $i += $Matches[0].Length
         } else {
             [void]$out.Append([regex]::Escape([string]$e[$i]))
             $i++
@@ -80,16 +85,16 @@ foreach ($p in @($PickleCatalogue, $ToolsCatalogue)) {
 $bad = 0; $steps = 0; $files = 0
 foreach ($file in Get-ChildItem $Features -Filter *.feature | Sort-Object Name) {
     $files++
-    $lines = Get-Content $file.FullName -Encoding UTF8
-    $inOutline = $false; $columns = @()
+    $lines = @(Get-Content $file.FullName -Encoding UTF8)
+    $outlineText = New-Object System.Collections.Generic.List[string]
+    $inOutline = $false
     for ($n = 0; $n -lt $lines.Count; $n++) {
         $t = $lines[$n].Trim()
-        if ($t -match '^Scenario Outline:') { $inOutline = $true }
-        elseif ($t -match '^Scenario:')     { $inOutline = $false }
-        if ($t -match '^Examples:') {
-            $header = $lines[$n + 1].Trim().Trim('|').Split('|') | ForEach-Object { $_.Trim() }
-            $columns = $header
+        if ($t -match '^(Scenario Outline|Scenario):') {
+            $inOutline = $t.StartsWith('Scenario Outline')
+            $outlineText.Clear()
         }
+        if ($inOutline -and $t -notmatch '^#' -and $t -notmatch '^Examples:') { $outlineText.Add($t) }
         if ($t -match '^(Given|When|Then|And|But)\s+(.+)$') {
             $steps++
             $text = $Matches[2]
@@ -99,15 +104,19 @@ foreach ($file in Get-ChildItem $Features -Filter *.feature | Sort-Object Name) 
             foreach ($rx in $patterns) { if ($text -match $rx) { $ok = $true; break } }
             if (-not $ok) { $bad++; Write-Output ("UNDEFINED  {0}:{1}  {2}" -f $file.Name, ($n + 1), $t) }
         }
-    }
-    # placeholders against the columns of the file's Examples table
-    $text = ($lines | Where-Object { $_ -notmatch '^\s*#' }) -join "`n"
-    $exIdx = $text.IndexOf('Examples:')
-    if ($exIdx -ge 0) {
-        $head = ($text.Substring($exIdx) -split "`n")[1].Trim().Trim('|').Split('|') | ForEach-Object { $_.Trim() }
-        $used = [regex]::Matches($text.Substring(0, $exIdx), '<([^>]+)>') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
-        foreach ($u in $used) {
-            if ($head -notcontains $u) { $bad++; Write-Output ("PLACEHOLDER {0}: <{1}> has no Examples column" -f $file.Name, $u) }
+        if ($inOutline -and $t -match '^Examples:') {
+            # the header row is the next non-blank, non-comment line; an Examples: with none is reported, not a crash
+            $h = $n + 1
+            while ($h -lt $lines.Count -and ($lines[$h].Trim() -eq '' -or $lines[$h].Trim().StartsWith('#'))) { $h++ }
+            if ($h -ge $lines.Count -or -not $lines[$h].Trim().StartsWith('|')) {
+                $bad++; Write-Output ("NO EXAMPLES {0}:{1}  Examples: has no table" -f $file.Name, ($n + 1))
+                continue
+            }
+            $head = $lines[$h].Trim().Trim('|').Split('|') | ForEach-Object { $_.Trim() }
+            $used = [regex]::Matches(($outlineText -join "`n"), '<([^>]+)>') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
+            foreach ($u in $used) {
+                if ($head -notcontains $u) { $bad++; Write-Output ("PLACEHOLDER {0}:{1}  <{2}> has no Examples column" -f $file.Name, ($n + 1), $u) }
+            }
         }
     }
 }
