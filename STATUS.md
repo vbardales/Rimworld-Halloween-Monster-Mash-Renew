@@ -6,21 +6,34 @@ settings_audit: not_applicable
 mod:          Halloween Monster Mash Renew (unofficial)
 packageId:    nelim.halloweenmonstermashrenew
 repo:         Rimworld-Halloween-Monster-Mash-Renew
+remote:       https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew.git
+local_path:   C:\Users\nelim\Documents\rimworld\HalloweenMonsterMashRenew
 visibility:   public
 detached:     yes
-stage:        done
+stage:        showcase
+workflow_stage: l10n
 licence:      silent
 port_licence: MIT (port additions only; see LICENSE)
 licence_at:   upstream ships no LICENSE, and its Steam description says nothing about reuse
-dependencies: declared
+upstream_repository: none; no source link on the Steam page, no .git in the download, no GitHub result (read 2026-09-28)
+dependencies: to check (Vanilla Plants Expanded is used through the VCE_Fruit category and is not declared)
 showcase:     complete
+automated_tests: Test-CandyRecipes and Check-XmlFields, -ConfigErrors, -DefRefs, -DefInjected passed 2026-09-28 at 79fd997; Check-DefRefs is blind to ingredient-filter categories
+pickle_suite: written 2026-09-28 (Tests/Pickle, 11 features, 57 scenarios, 5 passes of which 4 written), vocabulary checked offline, never run
 tested_on:
-workshop:
+workshop:     3806767867 (private, created 2026-09-23 by the 0.1.0 prepublication; not public, not tested)
 remaining:
-  - unverified: execute TF-01 through TF-10 in game; validate sugar correction with TF-05 and TF-06
-  - unverified: record FR/EN interface and log checks, new-colony reload and TF-09 existing-save subcase; justify optional exclusions
+  - defect: HMM_Make_SpiderBites names the category VCE_Fruit, defined only by Vanilla Plants Expanded, which is not declared; owner to choose A (declare), B (guard with MayRequire) or C (change the recipe), see the audit of 2026-09-28
+  - defect: README, About.xml (already on the Steam page), ATTRIBUTION (both copies), the 1.0.0 changelog and two Defs comments say Vanilla Plants Expanded is unused; false, to correct with the fix
+  - defect: a v1.0.0 tag and GitHub release made by hand on 2026-09-11 name a version Steam never received; to remove before the first publish (owner's call)
+  - defect: Check-DefRefs.ps1 does not resolve the categories of an ingredient filter (shared tool, outside this repository)
+  - unverified: nothing has run in a game; passes sans-facultatifs (English, French), avec-vpe and avec-props-as-style are all pending (mandatory for tested)
+  - unverified: no pass yet for the "do not load with the original" warning, to observe once then assert (mandatory for tested)
+  - unverified: open items of TESTING.md: mask facings, the child subcase, sweet stacks at 1, 25 and 75, an older save holding HMM items, French menu layout, Props as Style's own styles (mandatory for tested)
+  - unverified: @review captures never opened, logs never read (mandatory for tested)
+  - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
-updated:      2026-09-13, documentation and preview defects fixed and verified; done, awaiting in-game validation
+updated:      2026-09-28, audit against AUDIT.md (blob e9a564da92): done falls back to showcase on an undeclared dependency; 0.1.0 recorded; Pickle suite written
 ---
 
 # Halloween Monster Mash Renew — status
@@ -28,7 +41,102 @@ updated:      2026-09-13, documentation and preview defects fixed and verified; 
 Lives at the root of the mod, never inside `Mod/`, so the Workshop uploader never receives it.
 This thread maintains it.
 
-## Current result after fixes — 2026-09-13
+## Audit against AUDIT.md — 2026-09-28 (current decision)
+
+Audited revision `79fd997` (Mod/ unchanged since `2d5e253`, which is what the `0.1.0` upload sent), plus
+the files this audit adds, committed on top of it afterwards: `TESTING.md`, `Tests/Pickle/`, `docs/`, the `Repository:` line of
+`ATTRIBUTION.md` (both copies) and the ignore rules. Documents read, and their versions, are in
+`docs/PROTOCOLS-READ.md`. No RimWorld was launched and no Pickle run was submitted.
+
+**Previous stage: `done` (2026-09-13). Retained stage: `l10n`, written `stage: showcase`.** The code is
+`showcase` because the retained state lies between `Preview générée` and `l10n` inclusive; the detail is
+`workflow_stage: l10n`. The first transition that fails is `l10n -> preTest`: a dependency the mod uses is
+not declared. The three transitions after it are reported below and none of them fixes that.
+
+### The defect that fixes the stage
+
+`HMM_Make_SpiderBites` names the thing category `VCE_Fruit`, twice: in its ingredient filter and in its
+`fixedIngredientFilter` (`Mod/Defs/RecipeDefs/Recipes_Candy.xml`). **`VCE_Fruit` is not defined by Vanilla
+Cooking Expanded.** It is defined by **Vanilla Plants Expanded** (2134308522, `VanillaExpanded.VPlantsE`), in
+`Defs/ThingCategoryDefs/ThingCategories.xml` of every version folder from 1.1 to 1.6 ("raw fruits", parent
+`PlantFoodRaw`), and the fruits that belong to it (`VCE_RawApple` and the others) are Plants Expanded's too. In
+Cooking Expanded's three version folders the name appears in three files only, all of them patches for Plants
+Expanded (`1.6/Mods/VanillaPlantsExpanded/Patches/...`, loaded `IfModActive="VanillaExpanded.VPlantsE"`).
+Neither mod depends on the other: both declare Harmony and the Vanilla Expanded Framework, nothing more.
+
+The port declares Vanilla Cooking Expanded alone. Its own documents say the other two upstream dependencies
+"are referenced nowhere in the original's defs"; that is false for Plants Expanded, and it is why the port
+dropped it. **Not observed in game, derived from the files:** without Plants Expanded the game logs an
+unresolved cross-reference for the category and the sixth recipe has nothing it can accept; with it, the
+recipe works as the original's did, since the original declared it.
+
+Statements that are now known to be wrong: `README.md` (two places), the `<description>` of `About.xml`
+(**already on the Steam page**, sent when the `0.1.0` upload created the item; only the CI's
+`update_description` or a hand edit changes it), `ATTRIBUTION.md` and its copy in `Mod/`, the `Removed` entry
+of the `1.0.0` changelog, and the comments in `Recipes_Candy.xml` and `Candy.xml`. The 2026-09-13 audit's line
+"VCE_RawSugar, VCE_Flour and VCE_Fruit resolve" was not true either.
+
+**Why no offline check saw it.** `Check-DefRefs.ps1` does not resolve the `<categories>` of an ingredient
+filter: replacing `VCE_Fruit` by `VCE_Bogus` in a scratch copy still reports "no unresolved reference". Direct
+resolution of the four categories the recipes name (a `grep` of the game, Cooking Expanded and Plants
+Expanded) is what found it, while writing `TESTING.md`. The Pickle step `the load of the mod ... is clean` reads
+the log from startup and would show it (`Tests/Pickle/.../01-load.feature`, expected red today).
+
+**Ways out, not applied: an audit fixes nothing, and this is a choice about the mod.**
+
+| | What it does | Cost |
+|---|---|---|
+| A | Declare Plants Expanded in `modDependencies` and `loadAfter`, as the original did | Everyone who installs the mod downloads Plants Expanded for one recipe of six |
+| B (recommended) | Guard the sixth recipe with `MayRequire="VanillaExpanded.VPlantsE"`, add Plants Expanded to `loadAfter`, correct the documents | Spider bites can only be cooked with Plants Expanded; a French `DefInjected` entry for a recipe absent without it may log a warning, to check |
+| C | Point the recipe at a category Cooking Expanded or the game does define | Changes the author's design; not recommended |
+
+B follows `AUDIT.md`: a hard dependency is for what is technically required, the rest is `loadAfter`.
+
+### Transitions, in order
+
+| Transition | Result |
+|---|---|
+| `dansMonoRepo -> horsMonoRepo` | **Validated.** Standalone repository at `C:\Users\nelim\Documents\rimworld\HalloweenMonsterMashRenew`, `origin` at `vbardales/Rimworld-Halloween-Monster-Mash-Renew`, public, first commit pushed, no remote in the monorepo (normal). English `README`, `ATTRIBUTION`, `LICENSE`, `CHANGELOG`; the distributed `LICENSE` and `ATTRIBUTION.md` are byte-identical to the root copies (blob hashes compared today). Start from the original's repository: **there is none**, recorded in `ATTRIBUTION.md`, see below. |
+| `-> ModIcon generated` | **Validated.** `Mod/About/ModIcon.png` 128 x 128, 18,865 bytes, a mascot with a wink and a witch's hat that stay readable at 32 px (looked at today). Not generated or touched by this audit. |
+| `-> Preview generated` | **Validated.** `Mod/About/Preview.png` 896 x 504, 522,080 bytes, under 1 MB, SHA-256 unchanged from 2026-09-13. |
+| `-> preOptions` | **Validated.** English description with the unofficial notice; `<name>` ends in ` (unofficial)`; the description ends with `[url=https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew]Source code on GitHub[/url]` (checked today); `Art/preview-palette.json` present. The packageId keeps `renew`: it was sent with the `0.1.0` upload, so it is frozen (`PUBLISHING.md`, 2026-09-27). |
+| `-> options` | **Not applicable, justified.** No code, no settings, no page, no shortcut in the source inventory. `settings_audit: not_applicable` stands (2026-09-13, unchanged). |
+| `-> l10n` | **Validated** against the current `TRANSLATIONS.md`. 66 owned fields, 66 French entries, `Check-DefInjected` 66 keys 0 errors (rerun today). The plural rule of 2026-09-25 has nothing to apply to: the mod shows no count through a key. |
+| `-> preTest` | **Defect.** The undeclared dependency above. Vanilla Cooking Expanded is declared and used; `VCE_RawSugar` and `VCE_Flour` resolve in it. |
+| `-> done` | **Now met, and not the blocker.** Recipe test and XML checks rerun green (`docs/runs/history.md`). Pickle: the audit found `Tests/Pickle/` **absent and unjustified**, which by itself would have retained `preTest`; it was written the same day (11 features, 57 scenarios, `Tests/Pickle/README.md`), its vocabulary checked offline (`Check-Steps.ps1`, negative control 4 of 4). **Never run, and not required to run for `done`.** Manual scenarios are dispositioned in `TESTING.md`. |
+| `-> tested` | **Not verified.** Nothing has run in a game. What it needs is in `TESTING.md`, "What `tested` needs". |
+
+### Housekeeping done at the owner's request, same day
+
+- **0.1.0.** `Mod/About/PublishedFileId.txt` (`3806767867`, written 2026-09-23 16:44) committed with the
+  `CHANGELOG.md` entry `## [0.1.0]`, "Creation of a `PublishedFileId.txt`", and `1.0.0` left `unreleased`
+  above it (commit `Add published Workshop file ID for 0.1.0`). `.dds` files were **never tracked**: 73 of
+  them sit beside the PNGs (written 2026-09-23 14:13, by the game or the upload) and are now ignored.
+- **Evidence.** No test evidence exists in git or on disk. `Tests/Pickle/Evidence/` and `evidence/` are
+  ignored; what to keep, how to minify it and what to delete is in `TESTING.md`, "Evidence". The one tracked
+  near-duplicate, `Art/qa/Preview-candidate.png` (byte-identical to the delivered preview, rewritten by every
+  run of `scripts/Render-Preview.cjs`), was removed and ignored; the two files this file cites are kept.
+- **Original's repository.** None: no source link on the Steam page (read 2026-09-28), no `.git` in the
+  downloaded item, and no GitHub result for the mod or the author. Nothing to fork or send a pull request to.
+
+### Not part of the mod, worth knowing
+
+- **A `v1.0.0` tag and a GitHub release exist**, made by hand on 2026-09-11 on `7674151`, marked Latest. Steam
+  has only ever received `0.1.0`. `PUBLISHING.md` says the CI creates tag and release after a successful upload
+  and the manual workflow refuses a tag that exists, so **both have to go before the first publish**. Not
+  touched: it is a public action on the owner's repository.
+- **`Check-DefRefs.ps1` should resolve filter categories**, see above.
+- No `PUBLICATION.md`, so no description source, no change note, no thank-you drafts: all `prepublished`
+  work, not started.
+
+### Next transition
+
+`l10n -> preTest` needs the owner's choice between A, B and C, then: the declaration or the guard, the
+five documents corrected, `About.xml` and `Recipes_Candy.xml` updated, `ATTRIBUTION.md` re-synced into
+`Mod/`, the offline checks rerun, and a new audit. With the suite already written, that audit can reach
+`done` directly. Everything past `done` is in game.
+
+## Decision after fixes — 2026-09-13 (replaced on 2026-09-28 by the audit above; kept as history)
 
 **`dansMonoRepo` -> `done`.** All cumulative gates through `done` are now established.
 `done` means ready for final functional validation in game; it does not mean `tested`.
@@ -249,7 +357,7 @@ Prioritize TF-05 and TF-06 to validate cooking, exact consumption on both stoves
 restrictions and resumption. Record exact game/mod versions, observations and Player.log in
 the TESTS.md results table. Fill tested_on only after an actual game run.
 
-## What the four unreadable fields mean here
+## What the four unreadable fields meant (replaced on 2026-09-28; `stage` is now `showcase`)
 
 - **`stage: done`** — complete and untested. The run in game is not a manufacturing step; it is
   said by `tested_on` and `workshop`.
