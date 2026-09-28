@@ -15,6 +15,7 @@ workflow_stage: done
 licence:      silent
 port_licence: MIT (port additions only; see LICENSE)
 licence_at:   upstream ships no LICENSE, and its Steam description says nothing about reuse
+upstream_mod_remotes: N/A
 upstream_repository: none; no source link on the Steam page, no .git in the download, no GitHub result (read 2026-09-28)
 dependencies: declared: Vanilla Cooking Expanded; optional: Vanilla Plants Expanded (MayRequire on HMM_Make_SpiderBites + loadAfter, option B, 2026-09-28)
 showcase:     complete
