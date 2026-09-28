@@ -12,3 +12,21 @@ desktop.ini
 
 # Editor and assistant droppings
 .claude/
+
+# Game textures. The game (or the Workshop upload) writes a .dds beside every PNG in Mod/Textures:
+# seventy-three of them, 26 MB against the PNGs' few hundred kilobytes. Steam takes Mod/ as it stands
+# on disk, so they travel with an upload whatever git does; git does not carry them. If one is ever
+# wanted in the history, force-add it deliberately.
+*.dds
+
+# Windows Explorer folder icons belong in Art/, outside Mod/. Mod/desktop.ini is ignored above and
+# its target is ..\Art\Preview.ico; an icon dropped inside Mod/ would be shipped to every player.
+Mod/**/*.ico
+
+# Test evidence stays on disk, never in git: screenshots and Player.log grow without limit.
+# What deserves versioning is one text line per run in docs/runs/, cited by STATUS.md.
+Tests/Pickle/Evidence/
+evidence/
+
+# Written by scripts/Render-Preview.cjs on every run: a byte-for-byte copy of Mod/About/Preview.png.
+Art/qa/Preview-candidate.png
