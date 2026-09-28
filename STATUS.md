@@ -27,6 +27,9 @@ remaining:
   - defect: README, About.xml (already on the Steam page), ATTRIBUTION (both copies), the 1.0.0 changelog and two Defs comments say Vanilla Plants Expanded is unused; false, to correct with the fix
   - defect: a v1.0.0 tag and GitHub release made by hand on 2026-09-11 name a version Steam never received; to remove before the first publish (owner's call)
   - defect: Check-DefRefs.ps1 does not resolve the categories of an ingredient filter (shared tool, outside this repository)
+  - blocking (done -> tested): door 1, no scenario in @wip: MET, 0 of 57 written scenarios carry the tag (all eleven features were written on 2026-09-28 and none is set aside)
+  - blocking (done -> tested): door 2, every conditional scenario has run: NOT MET, 0 of 6 conditional scenarios have run: 01-load (needs LoadAudit, passes 1 to 3), the spider bites cooking (needs Vanilla Plants Expanded, pass avec-vpe) and the four Props as Style texture checks (pass avec-props-as-style)
+  - blocking (done -> tested): door 3, no manual test left to validate: NOT MET, TF-01 to TF-10 all unexecuted; 4 are written as Pickle and unrun (TF-01, 02, 04, 05), 1 is not applicable with its reason (TF-06), 5 are partly written and leave 6 open items (mask facings, the child subcase, sweet stacks at 1, 25 and 75, an older save holding HMM items, French menu layout, Props as Style's own styles)
   - unverified: nothing has run in a game; passes sans-facultatifs (English, French), avec-vpe and avec-props-as-style are all pending (mandatory for tested)
   - unverified: no pass yet for the "do not load with the original" warning, to observe once then assert (mandatory for tested)
   - unverified: open items of TESTING.md: mask facings, the child subcase, sweet stacks at 1, 25 and 75, an older save holding HMM items, French menu layout, Props as Style's own styles (mandatory for tested)

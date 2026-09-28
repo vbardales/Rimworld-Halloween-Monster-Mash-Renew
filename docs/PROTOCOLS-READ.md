@@ -39,3 +39,14 @@ created on this date; `Tests/Pickle/` was created on this date.
 
 The Ticket Dispatcher keeps its own list in its `docs/DOCS_READ.md`. Not read this session, as not asked for:
 `PickleTools/Elsewhere/`, `PickleTools/Release/README.md`, `PickleTools/Upstream/`.
+
+## Not useful here, and what should make me reread it
+
+| Document | Reread when |
+|---|---|
+| `scripts/SEARCHING.md` | a question needs the whole corpus (who else declares a defName, a class, a texture path). Even then, ask first: the owner banned every search on 2026-09-17 because of her plan, and that includes a pipe into grep. |
+| `STYLE_RIMWORLD.md` | a Preview or ModIcon is regenerated, resized or checked at 32 px, or an Explorer icon is remade. Lines 211-339 were not reread this time. |
+| `Rimworld-Release-Admin/docs/OPERATIONS.md` | anything touches a workflow, a tag, a release, a dry-run or a Steam secret: the `prepublished` step, and the removal of the hand-made `v1.0.0`. |
+| `WORKSHOP_COMMENTS.md` | thank-you comments are drafted, at `prepublished`. |
+| `MOD_SETTINGS.md`, `TRANSLATIONS.md` | the mod gains code, a setting, a Keyed string or a displayed count. The XML-only, no-text-through-a-key case is settled. |
+| `PickleTools/Headless/README.md` (the unread parts) | before the first run is submitted. |
