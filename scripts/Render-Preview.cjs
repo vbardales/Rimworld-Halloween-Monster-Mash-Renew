@@ -27,7 +27,8 @@ const ratio = (a, b) => (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
     const assets = {
       '/Preview-text.html': 'text/html',
       '/preview-palette.json': 'application/json',
-      '/Preview-source.png': 'image/png'
+      '/Preview-source.png': 'image/png',
+      '/ModIcon-cutout.png': 'image/png'
     };
     await page.route('**/*', async route => {
       const url = new URL(route.request().url());
