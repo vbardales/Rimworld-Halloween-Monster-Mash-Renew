@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-29T12:51:48.203Z",
+  "date": "2026-09-29T14:41:24.115Z",
   "fonts": {
     "h1": [
       {
@@ -49,7 +49,7 @@
     "accent": "#EF654E",
     "badgeInk": "#17120E"
   },
-  "bytes": 546184,
+  "bytes": 538446,
   "contrast": [
     {
       "selector": ".title-line",
