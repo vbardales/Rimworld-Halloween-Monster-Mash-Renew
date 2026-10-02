@@ -50,3 +50,22 @@ The Ticket Dispatcher keeps its own list in its `docs/DOCS_READ.md`. Not read th
 | `WORKSHOP_COMMENTS.md` | thank-you comments are drafted, at `prepublished`. |
 | `MOD_SETTINGS.md`, `TRANSLATIONS.md` | the mod gains code, a setting, a Keyed string or a displayed count. The XML-only, no-text-through-a-key case is settled. |
 | `PickleTools/Headless/README.md` (the unread parts) | before the first run is submitted. |
+
+## Update 2026-10-02 (audit session)
+
+Hashes taken in the collection root as above (`git hash-object`, first ten characters). Only the documents whose
+hash moved were considered; the rest are unchanged since the table above and were not reread.
+
+| Document | New version | Read this time | What changed for this mod |
+|---|---|---|---|
+| `AUDIT.md` | `daab030ccf`, 2026-10-02 15:14 | Full | `tested` doors (no `@wip`, every `@requires` run, no manual test left), pass order (new and red first, non-regression last), evidence on disk only, WSL cleanup at sleep time. Nothing here moves `done`. |
+| `PUBLISHING.md` | `e29afeb827`, 2026-10-02 15:56 | Lines 119-131 (images, gallery, Preview rules) plus a keyword scan | Gallery folder starts with `0-` = copy of Preview (`Art/Gallery/`, prepublished work); Preview carries the ModIcon in a corner (already done, 3e9ea0e). The rest unread. |
+| `TRANSLATIONS.md` | `7b4d9a23bd`, 2026-10-02 09:51 | Lines 148-185 (review file) | `FRENCH_REVIEW.md` starts with the display name and is produced by `scripts/Make-FrenchReview.ps1`: done, local cjs removed. |
+| `AGENTS.md` | `44dddcbc8f`, 2026-09-29 09:11 | Full (21 lines, seen in the task prompt) | Evidence retention, publication by CI: unchanged in effect. |
+| `STYLE_RIMWORLD.md` | `773961397c`, 2026-10-02 15:08 | Not reread | Reread only if the Preview or ModIcon is regenerated. |
+| `WORKSHOP_COMMENTS.md` | `cdd3381ba9`, 2026-09-29 | Not reread | Needed at `prepublished`. |
+| `PickleTools/README.md`, `PickleTools/Authoring/README.md`, `PickleTools/docs/steps.md` | `1d28b27e67`, `75329decf2`, `8639a06971` | Not reread | Reread before the Pickle suite is next edited or `Check-Steps.ps1` is rerun against the new step tables. |
+
+Unchanged and not reread: `MOD_SETTINGS.md` (`a61cd54192`), `scripts/SEARCHING.md`, `PickleTools/Headless/README.md`,
+`OPERATIONS.md`, `WELCOME.md`, `SUBMIT.md`. Still not useful here: `SEARCHING.md`, `MOD_SETTINGS.md` (no settings),
+`STYLE_RIMWORLD.md` until an image is regenerated.

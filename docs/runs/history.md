@@ -19,3 +19,4 @@ superseded revision proves nothing about the current one. No run in a game has t
 2026-09-28 dd3224e offline Check-ConfigErrors.ps1 PASS (offline subset of the game's rules, not a Unity run)
 2026-09-28 dd3224e offline Check-DefRefs.ps1 with Cooking Expanded alone: VCE_Fruit UNRESOLVED (expected, the recipe is guarded); with Cooking Expanded and Plants Expanded (-AlsoScan both): no unresolved reference. The tool now resolves ingredient-filter categories, unlike at 79fd997
 2026-09-28 dd3224e offline Check-DefInjected.ps1 66 keys 0 errors, plus a note: HMM_Make_SpiderBites depends on VanillaExpanded.VPlantsE and "its translation must sit in a folder gated on the same mod" (open, observe in game: 01-load in the sans-facultatifs pass)
+2026-10-02 c260070 audit against AUDIT.md daab030ccf: stage done kept; nothing ran in a game; FRENCH_REVIEW.md regenerated with Make-FrenchReview.ps1 (display name first); local Generate-FrenchReview.cjs removed
