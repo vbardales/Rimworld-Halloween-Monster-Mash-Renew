@@ -31,7 +31,7 @@
 
   <!-- EN: skull mask -->
   <HMM_Mask_Skull.label>masque de crâne</HMM_Mask_Skull.label>
-  <HMM_Mask_Skull.description>Un masque de crâne en tissu, comme on en porte pour le Dia de los Muertos. Protège médiocrement du froid et des coups.</HMM_Mask_Skull.description>
+  <HMM_Mask_Skull.description>Un masque de crâne en tissu, comme on en porte pour le Día de los Muertos. Protège médiocrement du froid et des coups.</HMM_Mask_Skull.description>
 
   <!-- EN: zombie mask -->
   <HMM_Mask_Zombie.label>masque de zombie</HMM_Mask_Zombie.label>

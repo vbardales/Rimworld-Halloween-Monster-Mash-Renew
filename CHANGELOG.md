@@ -67,7 +67,7 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 - `HMM_Make_BrainCakes` was labelled `make Bloodshot Brain Cakes`, a copy-paste from the cake pops
   recipe above it in the source file. It makes brain cakes.
 - Twenty-six near-identical defs folded onto `HMM_MaskBase`, `HMM_PropBase` and `HMM_CandyBase`,
-  and the six recipes onto `HMM_MakeCandyBase`. Every value is the author's.
+  and the six recipes onto `HMM_MakeCandyBase`. This consolidation introduces no additional balance changes.
 - Labels lower-cased to the vanilla convention throughout; `Jackolantern` spelled `jack-o-lantern`.
 - Typos fixed in six mask descriptions, two sweet descriptions (`a bunch sweet gummies`,
   `made with nugget`), and two decoration descriptions missing a full stop.
@@ -94,6 +94,6 @@ item) and obtain its `Mod/About/PublishedFileId.txt`, which holds `3806767867`. 
 version and does not say the mod is public.
 
 It sent `Mod/` as it stood at commit `2d5e253` and nothing else: the defs, the textures and the
-French translation described under `1.0.0`, unchanged since. The game or the upload also wrote a
+French translation described under `1.0.0`, as they stood at the time of that upload. The game or the upload also wrote a
 `.dds` beside each of the seventy-three PNGs; git ignores them and they are not part of the
 source.

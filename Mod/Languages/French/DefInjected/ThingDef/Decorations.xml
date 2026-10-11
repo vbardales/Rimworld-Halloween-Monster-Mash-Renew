@@ -7,7 +7,7 @@
 
   <!-- EN: ghosts -->
   <HMM_Ghosts.label>fantômes</HMM_Ghosts.label>
-  <HMM_Ghosts.description>Des fantômes de décoration, taillés dans de vieux draps blancs.</HMM_Ghosts.description>
+  <HMM_Ghosts.description>Des fantômes de décoration, taillés dans de draps blancs.</HMM_Ghosts.description>
 
   <!-- EN: bats -->
   <HMM_Bats.label>chauves-souris</HMM_Bats.label>
@@ -15,7 +15,7 @@
 
   <!-- EN: skeleton -->
   <HMM_Skeleton.label>squelette</HMM_Skeleton.label>
-  <HMM_Skeleton.description>Un squelette humain complet, tenu debout par un pied.</HMM_Skeleton.description>
+  <HMM_Skeleton.description>Un squelette humain complet, maintenu debout sur un support.</HMM_Skeleton.description>
 
   <!-- EN: reaper -->
   <HMM_Reaper.label>faucheuse</HMM_Reaper.label>
