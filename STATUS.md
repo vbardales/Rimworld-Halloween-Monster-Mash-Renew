@@ -51,6 +51,7 @@ setupRepo to l10n acquired, detail in `docs/runs/status-history-to-2026-10-02.md
 7.b and 7.c rerun 2026-10-11, green: `Test-CandyRecipes`, `Check-XmlFields`, `Check-DefInjected` (66 keys, 0 errors; note on the guarded recipe stays), `Check-DefRefs` (only `VCE_Fruit` unresolved without Plants Expanded: expected, the recipe is guarded). 7.d Pickle suite written, never run.
 French review: Virginie, 2026-10-11, on 576cafd: no pawn agreement; six corrections applied (cake pops eyes, brain cakes and murder buns number, ghosts, skeleton, Día de los Muertos) plus two CHANGELOG fixes; `translation_fr: complete`.
 Done today: shared `Render-Preview.cjs` replaces the local copy (deleted, README updated); history of this file folded into `docs/runs/status-history-to-2026-10-02.md`.
+Pickle 2026-10-12: sans-facultatifs EN 49 passed, 0 failed, 5 skipped (`docs/runs/history.md`); `01-load` green (guard works without VPE). FR, avec-vpe and avec-props-as-style tickets queued.
 Open: `Tests/Pickle/Check-Steps.ps1` verdict (PickleTools session); `Mod/About/ModIcon.png` and `Preview.png` carry uncommitted regenerated images (Preview work). Scenarios now in `TEST_SCENARIOS.md`. Next: initial Pickle ticket (nothing has ever run).
 
 ## Why `licence: silent`
