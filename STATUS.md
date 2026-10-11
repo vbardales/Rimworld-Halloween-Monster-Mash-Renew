@@ -10,8 +10,7 @@ remote:       https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew
 local_path:   C:\Users\nelim\Documents\rimworld\HalloweenMonsterMashRenew
 visibility:   public
 detached:     yes
-stage:        done
-workflow_stage: done
+workflow_stage: writeTests[1.0.0]
 licence:      silent
 port_licence: MIT (port additions only; see LICENSE)
 licence_at:   upstream ships no LICENSE, and its Steam description says nothing about reuse
@@ -37,7 +36,8 @@ remaining:
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
   - unverified: French review by Virginie (TRANSLATIONS.md section 3, 2026-09-30 rule); FRENCH_REVIEW.md generated at 60099e5 for her to read, no row flagged doubtful, no gender-agreement switch applies (no French text here agrees with a pawn); `translation_fr` stays `unchecked` until she reviews and records the line herself
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
-updated:      2026-10-02, audit against AUDIT.md: done confirmed; docs reread; FRENCH_REVIEW.md regenerated; nothing has run in a game
+updated:      2026-10-11, audit AUDIT.md: back to writeTests[1.0.0] (7.g: translation_fr unchecked, Virginie French review pending); nothing has run in a game
+protocols_read_sha: 5dd27148e2bce1a728b6607c369ad31308c6ca53
 ---
 
 # Halloween Monster Mash Renew — status
@@ -449,3 +449,7 @@ no licence but a living source, `forbidden` a written refusal, `original` owing 
 
 One remote, `origin`, at https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew.
 Detached from the `Documents/rimworld` monorepo on 2026-09-12.
+
+## Preview source migration — 2026-10-03
+
+Preview generation now uses the shared renderer with `Art/Preview.config.json`. Canonical sources and publishable outputs were preserved; transient QA belongs in ignored `Art/.render/`.
