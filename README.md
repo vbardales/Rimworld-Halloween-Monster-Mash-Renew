@@ -134,9 +134,8 @@ MIT for the port work; the artwork is Killer_Diller's and carries no licence. Se
 
 ## Rebuilding the preview
 
-The existing illustration is preserved in `Art/Preview-source.png`. Edit the composition in
-`Art/Preview-text.html` and its single palette source, `Art/preview-palette.json`, then run
-`node scripts/Render-Preview.cjs` with `playwright` and `sharp` available on Node's module path.
+The existing illustration is preserved in `Art/Preview-source.png`. Edit the composition in `Art/Preview.config.json`, then run
+`node ../scripts/Render-Preview.cjs` (shared renderer) with `playwright` and `sharp` available on Node's module path.
 Set `CHROME_PATH` to a Chromium browser executable if no Playwright browser is installed.
 The renderer uses local assets only, verifies Segoe UI, layout, supported version and contrast,
 and installs `Mod/About/Preview.png` only after its checks pass. Inspect the full image and
