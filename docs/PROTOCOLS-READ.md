@@ -32,7 +32,7 @@ when read, so their blob is the working copy, not that commit.
 | `Rimworld-Ticket-Dispatcher/docs/SUBMIT.md` | `7ab5e437d4`, 2026-09-26 18:18, log `d07b2b8` | Full | Useful | Every option of `Submit-PickleRun.ps1`, `-EvidenceDir` semantics, exit codes. |
 
 Repository files read on 2026-09-28: `STATUS.md`, `README.md`, `CHANGELOG.md`, `ATTRIBUTION.md` (opening),
-`TESTS.md` (the campaign, lines 1-236), `Mod/About/About.xml`, the four Defs files, the recipes and the
+`TEST_SCENARIOS.md` (the campaign, lines 1-236), `Mod/About/About.xml`, the four Defs files, the recipes and the
 French DefInjected samples, `scripts/Test-CandyRecipes.ps1` (opening), `.gitignore`. Not present in this
 repository: `PUBLICATION.md`, `BACKLOG.md`, `NOTES.md`, `BUGS.md`. `docs/runs/history.md` and `TESTING.md` were
 created on this date; `Tests/Pickle/` was created on this date.

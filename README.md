@@ -104,7 +104,7 @@ vanilla torch and brazier underneath, not from the pumpkin. See `ATTRIBUTION.md`
 - **Labels lower-cased** to the vanilla convention, and a handful of typos fixed.
 
 The retained defNames are unchanged to preserve item references in existing saves.
-Save compatibility still requires the checks in `TESTS.md`; unchanged identifiers alone do
+Save compatibility still requires the checks in `TEST_SCENARIOS.md`; unchanged identifiers alone do
 not establish migration from RimWorld 1.2. Do not load the original and this port together.
 
 Recipe costs changed after 1.0.0: counts now mean individual items rather than nutrition.

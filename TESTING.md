@@ -40,7 +40,7 @@ French are not claimed.
 
 ## The ten manual scenarios, and where each one went
 
-`TESTS.md` keeps the detailed description. For `tested`, none may remain a manual check to tick: each is
+`TEST_SCENARIOS.md` keeps the detailed description. For `tested`, none may remain a manual check to tick: each is
 automated and green, or listed here as not applicable with its reason, or listed as **open**.
 
 | # | Scenario | Disposition |
