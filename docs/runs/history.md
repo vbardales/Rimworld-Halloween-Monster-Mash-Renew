@@ -26,3 +26,6 @@ superseded revision proves nothing about the current one. No run in a game has t
 
 ## 2026-10-12, Pickle pass sans-facultatifs (French), ticket 20261012-001720-902-0dea
 Not a verdict: exit 3, `exitReason: watchdog-timeout`, the game stalled at the end of a recipe scenario. 36 scenarios played, 36 passed, 0 failed; the French label scenarios (`@lang-fr`, `08-labels-fr`) never ran, nor CandyCorn and MurderBuns cooking. The cooking scenarios lengthened (32 s, 88 s, 147 s) before the stop. Rerun small: `@lang-fr` only (ticket label "FR labels only").
+
+## 2026-10-12, Pickle pass avec-vpe, ticket 20261012-001721-927-40b9
+54 scenarios, 50 passed, 0 failed, 4 skipped (the four Props as Style textures, other pass), exitReason passed. The spider bites cooking scenario passed (20.5 s) with Plants Expanded loaded: the guarded recipe works, 0 `VCE_Fruit` errors in Player.log.
