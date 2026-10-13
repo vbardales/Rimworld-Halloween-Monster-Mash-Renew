@@ -29,3 +29,6 @@ Not a verdict: exit 3, `exitReason: watchdog-timeout`, the game stalled at the e
 
 ## 2026-10-12, Pickle pass avec-vpe, ticket 20261012-001721-927-40b9
 54 scenarios, 50 passed, 0 failed, 4 skipped (the four Props as Style textures, other pass), exitReason passed. The spider bites cooking scenario passed (20.5 s) with Plants Expanded loaded: the guarded recipe works, 0 `VCE_Fruit` errors in Player.log.
+
+## 2026-10-13, offline reruns at 41743a9
+Test-CandyRecipes PASS; Check-XmlFields PASS (5 files, no unknown 1.6 field); Check-ConfigErrors PASS (34 of 34 defs, 26 rules); Check-DefRefs no unresolved reference or parent (blind to ingredient-filter categories, as before); Check-DefInjected 66 keys, 0 errors (note on the guarded recipe stays). Only documents changed since the 2026-10-11 reruns, no code.

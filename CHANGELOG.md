@@ -4,7 +4,7 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display it
 in game.
 
-## [1.0.0] — unreleased
+## [1.0.0] - unreleased
 
 First release proper, and not yet sent to the Steam Workshop: the item exists, created by
 the `0.1.0` below, and `1.0.0` is what follows once the mod has been tried in a running game. A
@@ -35,21 +35,21 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 
 ### Added
 
-- **The eleven masks** — devil, clown, witch, Frankenstein, mummy, wolfman, hockey, skull, zombie,
-  cat, pirate hat — with their original defNames and their forty-four textures.
-- **Seven decorations** — fake spider, ghosts, bats, skeleton, reaper, haunted tree, unlit carved
-  pumpkin — with their original defNames.
-- **Six sweets and their six recipes** — bloodshot cake pops, coffin bars, spider bites, brain
+- **The eleven masks**: devil, clown, witch, Frankenstein, mummy, wolfman, hockey, skull, zombie,
+  cat, pirate hat, with their original defNames and their forty-four textures.
+- **Seven decorations**: fake spider, ghosts, bats, skeleton, reaper, haunted tree, unlit carved
+  pumpkin, with their original defNames.
+- **Six sweets and their six recipes**: bloodshot cake pops, coffin bars, spider bites, brain
   cakes, murder buns, candy corn.
 - All seventy-three textures, including the four decorations this mod does not build (gargoyle,
   lit jack-o-lantern, cauldron, candle), which Props as Style reads from here.
-- Vanilla Cooking Expanded declared as a dependency, as upstream did — but as the only one.
+- Vanilla Cooking Expanded declared as a dependency, as upstream did, but as the only one.
 - French translation of everything. The original shipped none.
 
 ### Changed
 
 - **The masks protect for the first time.** Each declared `costStuffCount` and the three
-  `StuffEffectMultiplier*` stats of a vanilla cloth hat, but no `stuffCategories` — and none of
+  `StuffEffectMultiplier*` stats of a vanilla cloth hat, but no `stuffCategories`, and none of
   `HatMakeableBase`, `ApparelMakeableBase`, `ApparelBase` or `ApparelNoQualityBase` declares any
   either. `MadeFromStuff` was false, so all four lines were inert; with no `ArmorRating_*` or
   `Insulation_*` set in their place, protection was zero against eleven descriptions promising
@@ -58,8 +58,8 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
   0.9. Adding `stuffCategories` instead would have tinted the painted artwork with the colour of
   the cloth.
 - `developmentalStageFilter` set to `Child, Adult` on every mask, as vanilla headgear does.
-- **Dependencies sorted.** The six recipes genuinely need Vanilla Cooking Expanded — its sugar,
-  and its flour for one — so it stays declared. The spider bites recipe also needs the `VCE_Fruit`
+- **Dependencies sorted.** The six recipes genuinely need Vanilla Cooking Expanded: its sugar,
+  and its flour for one, so it stays declared. The spider bites recipe also needs the `VCE_Fruit`
   category, which Vanilla Plants Expanded defines (not Cooking Expanded): that recipe now carries
   `MayRequire="VanillaExpanded.VPlantsE"` and Plants Expanded is in `loadAfter`, so it is optional
   and only that recipe depends on it. Without it, the other five recipes load. The Vanilla
@@ -80,12 +80,12 @@ every def in a `1.2/` folder, so in 1.6 not one of its defs loads.
 - **Four decorations, as buildings.** The gargoyle, the lit jack-o-lantern, the cauldron and the
   candle are shipped as textures only; Props as Style dresses `SculptureSmall`, `TorchLamp`,
   `Campfire` and `Brazier` in them. This loses the refuellable light, the heat and the meditation
-  focus the last two had as buildings — the vanilla defs underneath provide their own.
+  focus the last two had as buildings; the vanilla defs underneath provide their own.
 - `costStuffCount`, inert without `stuffCategories`. The `costList` of 30 cloth is what the mod
   always actually charged, and it is unchanged.
 - `<thingCategories Inherit="False">`, identical to what `HatMakeableBase` already sets.
 
-## [0.1.0] — 2026-09-23
+## [0.1.0] - 2026-09-23
 
 Creation of a `PublishedFileId.txt`.
 

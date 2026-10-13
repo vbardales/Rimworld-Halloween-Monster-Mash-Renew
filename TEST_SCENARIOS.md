@@ -40,7 +40,7 @@ not reproduced while these scenarios were written.
 - For each case, record `Not run`, `Passed`, `Failed` or `Blocked`, the observed result,
   and a screenshot or `Player.log` excerpt for any discrepancy.
 
-### TF-01 — Loading and dependency
+### TF-01 - Loading and dependency
 
 **Preconditions:** the base configuration above, without DLC or Props as Style.
 
@@ -54,7 +54,7 @@ not reproduced while these scenarios were written.
 recipes available at the corresponding workstations. Missing VCE is reported; running without
 it is not a supported game configuration.
 
-### TF-02 — Crafting eleven masks at three workstations
+### TF-02 - Crafting eleven masks at three workstations
 
 **Preconditions:** no research; crafting spot, hand tailoring bench and powered electric
 tailoring bench; at least 990 cloth for all 33 crafts.
@@ -68,7 +68,7 @@ tailoring bench; at least 990 cloth for all 33 crafts.
 or additional research. Nominal work is 1400, not a fixed duration in seconds; colonist and
 workstation speeds affect duration. No missing graphics.
 
-### TF-03 — Wearing, orientations and protection
+### TF-03 - Wearing, orientations and protection
 
 **Preconditions:** eleven new masks at 100% durability, an adult with no other headgear.
 
@@ -83,7 +83,7 @@ For each new mask: sharp armor 7.2%, heat armor 3.6%, cold insulation 1.8 °C an
 insulation 0.9 °C. Adults and children can wear them. Without Biotech, record the child
 subcase as not run and explain why.
 
-### TF-04 — Building and behavior of seven decorations
+### TF-04 - Building and behavior of seven decorations
 
 **Preconditions:** no research, 35 wood available, a builder and buildable ground.
 
@@ -97,7 +97,7 @@ and a one-cell footprint. Traversal is possible; do not require unchanged moveme
 The objects are inert props; the pumpkin produces no light. Artwork may extend beyond the
 footprint. The shadow differences described below are not failures.
 
-### TF-05 — Cooking six sweets and validating item counting
+### TF-05 - Cooking six sweets and validating item counting
 
 **Preconditions:** a powered electric stove, then a fueled wood stove; an available cook;
 VCE sugar and partner ingredients in the item quantities below. Also check bill filters
@@ -129,7 +129,7 @@ even if sugar has zero nutrition. Record VCE version, sugar nutrition and actual
 A blocked bill under correct conditions, different consumption or an invalid-quantity warning
 is a failure.
 
-### TF-06 — Missing/excluded ingredients and resumption
+### TF-06 - Missing/excluded ingredients and resumption
 
 **Preconditions:** the same workstations and bills as TF-02 and TF-05.
 
@@ -143,7 +143,7 @@ excluded. The mask becomes craftable with 30 cloth. Sweet production should resu
 everything is available; if TF-05 fails because of sugar, record this last check as blocked
 by the same defect, not passed.
 
-### TF-07 — Sweet graphics, stacking and consumption
+### TF-07 - Sweet graphics, stacking and consumption
 
 **Preconditions:** spawn products in developer mode to keep this case independent of TF-05;
 an adult able to eat, with unsaturated food and recreation needs.
@@ -159,7 +159,7 @@ can be consumed and increase needs. Defined joy values: 0.25 for coffin bars, 0.
 corn and 0.15 for the other four. Do not require the recreation need to rise by exactly
 these amounts: saturation and tolerance can affect it.
 
-### TF-08 — French translation and return to English
+### TF-08 - French translation and return to English
 
 **Preconditions:** the objects and bills from the previous cases are available.
 
@@ -173,7 +173,7 @@ these amounts: saturation and tolerance can affect it.
 in translated fields; English text returns after switching languages. Check clipping and
 formatting in both languages and retain any relevant log messages.
 
-### TF-09 — Saving and reloading
+### TF-09 - Saving and reloading
 
 **Preconditions:** a colonist wearing a mask, seven built decorations, six spawned sweets
 and crafting bills. Keep the same mods and versions.
@@ -194,7 +194,7 @@ survive and new content to work without HMM load/save errors. Never overwrite th
 If no suitable save exists, record this subcase as unverified. Cross-version migration from
 1.2 is a separate claim and must not be inferred from this test.
 
-### TF-10 — Optional Props as Style integration
+### TF-10 - Optional Props as Style integration
 
 **Preconditions:** a separate configuration with Props as Style and the dependencies/DLC
 required by its installed version. Record their versions. This case does not condition the
@@ -254,7 +254,7 @@ None of them can load the game, and none of them looks at whether a recipe can e
 Historical scenario 5 describes the suspected failure before the item-count correction.
 Use TF-05 and TF-06 above to validate the corrected recipes in game.
 
-The mod has never run. Junction `HalloweenMonsterMashRenew/Mod` into `RimWorld/Mods` — the `Mod`
+The mod has never run. Junction `HalloweenMonsterMashRenew/Mod` into `RimWorld/Mods`, the `Mod`
 folder, not the repository root; the junction already exists. Play with dev mode on and keep the
 log:
 
@@ -280,7 +280,7 @@ scenario below rests on.
 
 ## 2. The eleven masks are made and worn
 
-Build a crafting spot. All eleven bills should be there with no research done at all — the mod
+Build a crafting spot. All eleven bills should be there with no research done at all, the mod
 overrides `recipeUsers` to add `CraftingSpot` to the two tailoring benches, and neither
 `ApparelMakeableBase` nor `HatMakeableBase` carries a research prerequisite.
 
@@ -322,7 +322,7 @@ did not take.
 
 **One thing the changelog says loosely.** It calls the multipliers "the vanilla hat block, copied".
 Each of the three numbers is a vanilla hat's number, but no single vanilla hat in 1.6 combines
-0.2 armour with 0.1 cold and 0.05 heat — the hats at 0.1 cold all give more heat, and the two that
+0.2 armour with 0.1 cold and 0.05 heat, the hats at 0.1 cold all give more heat, and the two that
 give 0.05 heat give 0.05 cold. Nothing to fix in the defs; the sentence is what overstates.
 
 ## 4. The seven decorations build
@@ -331,7 +331,7 @@ Architect → **Misc**. Seven entries: fake spider, ghosts, bats, skeleton, reap
 jack-o-lantern. Five wood each, 50 work, no research, no power, no material choice.
 
 **Expect:** each one built and drawn, `Beauty 1` on its information card, pawns walking through it
-rather than around it — `passability` is `PassThroughOnly` at 30 % fill.
+rather than around it, `passability` is `PassThroughOnly` at 30 % fill.
 
 **Fails if:** a pink box, or a missing entry. Eleven decoration textures ship; only seven have a
 `ThingDef`, and that is scenario 7.
@@ -360,7 +360,7 @@ Tried to set ThingCount stack count to -2147483648. thing=Sugar...
 ```
 
 **Why, read off `Assembly-CSharp.dll` rather than assumed.** All six recipes ask for their
-ingredients by nutrition, not by item count — `IngredientValueGetter_Nutrition`, which the author
+ingredients by nutrition, not by item count, `IngredientValueGetter_Nutrition`, which the author
 wrote and the port carried unchanged. That getter returns an ingredient's `Nutrition` stat, and
 zero for anything that is not a nutrition-giving ingestible. **Vanilla Cooking Expanded's sugar has
 `Nutrition` 0.** It is a condiment: it feeds nobody and it is `NeverForNutrition`.
@@ -396,7 +396,7 @@ already far outside anything vanilla cooks:
 | candy corn | raw corn | 40 nutrition | 800 corn | 4 |
 
 A vanilla simple meal costs 0.5 nutrition and returns 0.9. A batch of candy corn would cost 44 and
-return ten sweets worth 0.1 each, so 1.0 — eighty-eight simple meals of food for one tenth of one
+return ten sweets worth 0.1 each, so 1.0, eighty-eight simple meals of food for one tenth of one
 meal back. Whatever is decided about the sugar line, these numbers deserve a sentence in the
 changelog, because nothing else in the repository relates them to a vanilla recipe.
 
@@ -420,7 +420,7 @@ path` in the log and a bad graphic on screen. Three sprites each, at one, at a m
 at a full stack of 75.
 
 **Not a fault:** no trader will ever carry one. The sweets have no `tradeTags`, which is the
-author's choice. The masks do trade — `ApparelMakeableBase` gives them the `Clothing` tag.
+author's choice. The masks do trade, `ApparelMakeableBase` gives them the `Clothing` tag.
 
 ## 7. The four missing decorations, as styles
 
@@ -435,7 +435,7 @@ four styles read textures out of this mod's `Textures` folder.
 | `PAS_Halloween_Brazier` | brazier | `Decorations/Candle/Candle` |
 
 **Expect:** the halloween style group offered, and each of the four vanilla buildings drawn in the
-Halloween artwork while keeping its own behaviour — the torch lamp still refuels and lights, the
+Halloween artwork while keeping its own behaviour, the torch lamp still refuels and lights, the
 brazier still pushes heat.
 
 **Fails if:** a pink box on any of the four. That is the coupling to check: the textures live here
@@ -450,7 +450,7 @@ this style.
 
 Switch the language to French and look at the same objects.
 
-**Expect:** every label and description translated — eleven masks, seven decorations, six sweets,
+**Expect:** every label and description translated, eleven masks, seven decorations, six sweets,
 six recipes. Sixty-six keys, all of them checked against the defs.
 
 **Fails if:** a raw key appears in place of a label.
