@@ -30,3 +30,4 @@ evidence/
 
 # Written by scripts/Render-Preview.cjs on every run: a byte-for-byte copy of Mod/About/Preview.png.
 Art/qa/Preview-candidate.png
+Art/.render/
