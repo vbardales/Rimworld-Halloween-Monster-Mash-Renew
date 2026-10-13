@@ -36,7 +36,7 @@ remaining:
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
 updated:      2026-10-11, audit AUDIT.md: playTests[1.0.0] entered (7.a to 7.i met); nothing has run in a game
-protocols_read_sha: d4560b58cd4ed59f5b0ba68212c8fd092ba06d70
+protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 ---
 
 # Halloween Monster Mash Renew — status
