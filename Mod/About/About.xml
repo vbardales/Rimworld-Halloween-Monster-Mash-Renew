@@ -9,15 +9,15 @@
   <url>https://github.com/vbardales/Rimworld-Halloween-Monster-Mash-Renew</url>
   <description>UNOFFICIAL. This mod is published without the original author's explicit consent. If the original author contacts me to request its removal, I undertake to take it down promptly.
 
-Killer_Diller's "[KD] Halloween Monster Mash" carried to RimWorld 1.6 - eleven masks, seven decorations, six Halloween sweets - with one unused dependency removed and one made optional. Vanilla Cooking Expanded is still required; Vanilla Plants Expanded is optional and only adds the spider bites recipe.
+Killer_Diller's "[KD] Halloween Monster Mash" carried to the latest RimWorld version - eleven masks, seven decorations, six Halloween sweets - with one unused dependency removed and one made optional. Vanilla Cooking Expanded is still required; Vanilla Plants Expanded is optional and only adds the spider bites recipe.
 
-I am not the author of this mod. The artwork and the original idea are entirely Killer_Diller's; all I did was the work needed to make them run on 1.6. Credit goes to them; mistakes in the port are mine. If the original author comes back to it, or asks me to take this down, I will.
+I am not the author of this mod. The artwork and the original idea are entirely Killer_Diller's; all I did was the work needed to make them run on the latest RimWorld version. Credit goes to them; mistakes in the port are mine. If the original author comes back to it, or asks me to take this down, I will.
 
 Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2257175849
 
 Why this exists
 
-The original stops at 1.2, and it stops in a way that is worth explaining, because it is the whole reason this port exists. It declares no LoadFolders.xml and keeps every def in a folder named 1.2/. RimWorld 1.6 reads only the root, so not one of its defs loads. The mod is not merely out of date: in 1.6 it is inert, and it has been since 2021.
+The original stops at 1.2, and it stops in a way that is worth explaining, because it is the whole reason this port exists. It declares no LoadFolders.xml and keeps every def in a folder named 1.2/. The latest RimWorld version reads only the root, so not one of its defs loads. The mod is not merely out of date: in the latest RimWorld version it is inert, and it has been since 2021.
 
 What it adds
 
@@ -37,7 +37,7 @@ The spider bites recipe asks for the fruit category that Vanilla Plants Expanded
 
 The original declared three dependencies - Vanilla Cooking Expanded, Vanilla Plants Expanded and Vanilla Expanded Framework. Cooking Expanded is required here, Plants Expanded became optional, and the Framework is not referenced by this mod's defs, so its direct declaration was removed. Cooking Expanded still requires its own dependencies, including Harmony and Vanilla Expanded Framework.
 
-What changed in the 1.6 port
+What changed in the port
 
 - The masks now actually protect. The originals declared a stuff cost and three stuff-effect multipliers without ever declaring what stuff they were made of, so all four lines did nothing and the "mediocre protection against cold and damage" in every description was exactly zero. The multipliers are the vanilla hat block, copied, so they are replaced here by the flat values they were meant to produce on cloth.
 - Every mask carries the child-and-adult filter that vanilla headgear has and these did not.
