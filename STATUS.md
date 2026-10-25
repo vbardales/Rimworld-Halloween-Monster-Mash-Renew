@@ -36,7 +36,7 @@ remaining:
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
 updated:      2026-10-13, audit AUDIT.md 1 to 7 rechecked against files and reruns (em dashes removed from the mod documents); Pickle tickets ca18 (FR labels) and 7c14 (avec-props-as-style) queued
-protocols_read_sha: 5cc8e00c60a9d22d822c755f5f8a77413bdec8b3
+protocols_read_sha: 65f1477c389ca6e741af05b7745aa30f6b26b595
 ---
 
 # Halloween Monster Mash Renew - status
