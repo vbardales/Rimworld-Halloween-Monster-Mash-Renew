@@ -2,9 +2,9 @@
 
 Development only, never published, kept outside `Mod/`. Written on 2026-09-28 against Pickle's own step
 catalogue (fetched from GitHub main that day, **not established as the version staged in the WSL**),
-PickleTools' catalogue and the shared authoring guide. **None of it has been run.** The suite has no C#
-steps: everything it says is Pickle's own vocabulary, plus two optional PickleTools companions
-(`LoadAudit`, `TextureOwner`).
+PickleTools' catalogue and the shared authoring guide. First run 2026-10-12 (`docs/runs/history.md`); `03b-mask-facings` (2026-10-25) has not run. The suite has no C#
+steps: everything it says is Pickle's own vocabulary, plus three optional PickleTools companions
+(`LoadAudit`, `TextureOwner`, `ColonistRace`).
 
 `Check-Steps.ps1` checks the vocabulary offline, so a run is not lost to an undefined step:
 

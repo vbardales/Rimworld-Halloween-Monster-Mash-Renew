@@ -24,15 +24,14 @@ tested_on:
 workshop:     3806767867 (private, created 2026-09-23 by the 0.1.0 prepublication; not public, not tested)
 remaining:
   - unverified: the Steam page still carries the 0.1.0 description, which says Vanilla Plants Expanded is unused; corrected in About.xml at dd3224e, reaches Steam only through the CI's update_description or a hand edit
-  - unverified: French keys of HMM_Make_SpiderBites have no def to attach to without Vanilla Plants Expanded, and Check-DefInjected says they should sit in a gated folder; whether the game warns is unobserved (Pickle 01-load, pass sans-facultatifs); a gated folder means a LoadFolders.xml, which this mod dropped on purpose
-  - unverified: the MayRequire guard itself has never been loaded by the game
-  - blocking (done -> tested): door 1, no scenario in @wip: MET, 0 of 57 written scenarios carry the tag (all eleven features were written on 2026-09-28 and none is set aside)
-  - blocking (done -> tested): door 2, every conditional scenario has run: NOT MET, 0 of 6 conditional scenarios have run: 01-load (needs LoadAudit, passes 1 to 3), the spider bites cooking (needs Vanilla Plants Expanded, pass avec-vpe) and the four Props as Style texture checks (pass avec-props-as-style)
-  - blocking (done -> tested): door 3, no manual test left to validate: NOT MET, TF-01 to TF-10 all unexecuted; 4 are written as Pickle and unrun (TF-01, 02, 04, 05), 1 is not applicable with its reason (TF-06), 5 are partly written and leave 6 open items (mask facings, the child subcase, sweet stacks at 1, 25 and 75, an older save holding HMM items, French menu layout, Props as Style's own styles)
-  - unverified: nothing has run in a game; passes sans-facultatifs (English, French), avec-vpe and avec-props-as-style are all pending (mandatory for tested)
+  - unverified: French keys of HMM_Make_SpiderBites have no def to attach to without Vanilla Plants Expanded; Check-DefInjected says they should sit in a gated folder (a LoadFolders.xml, which this mod dropped on purpose); 01-load passed without VPE, the game logged nothing from the mod, so the warning is not observed
+  - blocking (done -> tested): door 1, no scenario in @wip: MET, 0 of 61 written scenarios carry the tag
+  - blocking (done -> tested): door 2, every conditional scenario has run: per docs/runs/history.md all six ran green on 2026-10-12 to 2026-10-14 (01-load, spider bites cooking with VPE, four Props as Style textures); NOT MET until the new 03b-mask-facings (4 scenarios, needs the colonistrace companion, written 2026-10-25) has run
+  - blocking (done -> tested): door 3, no manual test left to validate: NOT MET; TF-01, 02, 04, 05 are Pickle and ran green, TF-06 not applicable; open: mask facings (03b written, unrun), the child subcase (needs Biotech), sweet stacks at 1, 25 and 75 (no step places a stack at a known cell), an older save holding HMM items, French menu layout, Props as Style's own styles (its repository)
+  - unverified: French pass: the full sans-facultatifs French run stalled (watchdog, 36 of 54 played); only the 3 08-labels-fr scenarios have passed in French
   - unverified: no pass yet for the "do not load with the original" warning, to observe once then assert (mandatory for tested)
-  - unverified: open items of TESTING.md: mask facings, the child subcase, sweet stacks at 1, 25 and 75, an older save holding HMM items, French menu layout, Props as Style's own styles (mandatory for tested)
   - unverified: @review captures never opened, logs never read (mandatory for tested)
+  - unverified: code review (code_review_sha), then the 1.7 diagnostic pass after a green 1.6 playTests (tested_1_7 empty)
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
 updated:      2026-10-25, Preview regenerated from the panel/icon config (9b1233c) and validated by the owner; FRENCH_REVIEW regenerated; session code HMM

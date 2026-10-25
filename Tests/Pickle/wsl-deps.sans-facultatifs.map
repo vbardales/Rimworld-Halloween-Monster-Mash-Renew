@@ -2,7 +2,8 @@
 # (the staging order is the load order, not the loadAfter order). Vanilla Plants Expanded is NOT
 # here: it is optional (the spider bites recipe is guarded by MayRequire), and this pass shows the mod
 # loads clean without it, see TESTING.md.
-# The optional LoadAudit tool is the only step source this suite needs beyond Pickle itself.
+# The optional LoadAudit and ColonistRace tools are the only step sources this suite needs beyond Pickle itself.
 OskarPotocki.VanillaFactionsExpanded.Core     2023507013
 VanillaExpanded.VCookE                        2134308519
 nelim.pickletools.loadaudit                   path:PickleTools/LoadAudit/Mod
+nelim.pickletools.colonistrace                path:PickleTools/ColonistRace/Mod

@@ -1,7 +1,7 @@
 # Testing
 
 How this mod is tested, which passes it needs, where each manual scenario went and what evidence is kept.
-Nothing in a running game has been done yet: every in-game line below is `unverified`, not a pass.
+First in-game passes ran on 2026-10-12 to 2026-10-14 (sans-facultatifs English, avec-vpe, avec-props-as-style; counts in `docs/runs/history.md`). `03b-mask-facings` is written and not yet run.
 Written on 2026-09-28 against `AUDIT.md` (blob `e9a564da92`, read whole) and the shared authoring guide.
 
 ## Layers
@@ -47,7 +47,7 @@ automated and green, or listed here as not applicable with its reason, or listed
 |---|---|---|
 | TF-01 | Loading and dependency | Pickle `01-load`, passes 1 to 3. Must be green in pass 1: the `VCE_Fruit` recipe is guarded, and a red there means the guard fails. The French keys of the absent recipe may log a warning: read it. The "VCE disabled" subcase is not applicable: the game's own dependency warning, not this mod's code. |
 | TF-02 | Crafting eleven masks at three workstations | Pickle `04`: one full craft at the crafting spot, and the two tailoring benches by adding the bill. **Not** eleven masks times three benches: they share one `recipeUsers` list, and the offline XML checks show it. |
-| TF-03 | Wearing, orientations, protection | Pickle `02` (the four stats the game computes, all eleven masks) and `03` (worn, drawn, `@review`). The **four facings are open**: no step turns a pawn; the 44 texture files are a file contract checked offline. The child subcase needs Biotech and is **open**: the fixture's colonists are adults. |
+| TF-03 | Wearing, orientations, protection | Pickle `02` (the four stats the game computes, all eleven masks) and `03` (worn, drawn, `@review`). The four facings: `03b` (devil mask, north, east, south, west, `@review`, needs the `colonistrace` companion; written 2026-10-25, not yet run); the 44 texture files stay a file contract checked offline. The child subcase needs Biotech and is **open**: the fixture's colonists are adults. |
 | TF-04 | Seven decorations | Pickle `05` (built, drawn, `@review`). Crossing a tile is not applicable: `passability` is a def field the game's own pathing reads. |
 | TF-05 | Cooking six sweets | Pickle `06`, five recipes in passes 1 and 3, the sixth in pass 3 only. Needs the colonist-refuels-the-stove assumption, see the README. |
 | TF-06 | Missing or excluded ingredients | **Not applicable**: a bill that lacks an ingredient does not start is the game's own bill logic, not this mod's. What the mod owns is that the ingredients are the right ones, and `06` shows it fills. The 29-cloth case is the same argument. |
