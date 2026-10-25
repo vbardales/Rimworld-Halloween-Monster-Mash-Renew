@@ -1,21 +1,17 @@
 {
-  "title": "Halloween Monster Mash Renew",
-  "titleSize": 40,
-  "titleParts": [
-    { "text": "Halloween", "scale": 1 },
-    { "text": "Monster Mash", "scale": 1, "breakBefore": true },
-    { "text": "Renew", "scale": 0.65, "font": "ui", "color": "secondary" }
-  ],
-  "suffix": "",
-  "tag": "(unofficial)",
-  "copyLines": ["Eleven masks, seven decorations and six Halloween sweets."],
-  "modIconSource": "ModIcon-source.png",
-  "layout": "panel",
-  "panelAnchor": "top-left",
+  "panel": {
+    "title": "Halloween Monster Mash Renew",
+    "titleSize": 40,
+    "titleParts": [
+      { "text": "Halloween", "scale": 1 },
+      { "text": "Monster Mash", "scale": 1, "breakBefore": true },
+      { "text": "Renew", "scale": 0.65, "font": "ui", "color": "secondary" }
+    ],
+    "tag": "(unofficial)",
+    "copyLines": ["Eleven masks, seven decorations and six Halloween sweets."]
+  },
   "backgroundFile": "Preview-source.png",
-  "backgroundPosition": "center",
-  "backgroundSize": "cover",
-  "echo": { "file": "echo-preview.png", "mode": "alpha", "preSized": true, "color": "var(--accent)", "width": 260, "height": 260, "opacity": 1, "veil": false, "panelTop": 40, "panelRight": 1, "panelWidth": 30, "flipX": true },
-  "iconBadge": { "file": "ModIcon-source.png", "corner": "bottom-left", "translate": "-12.5%,12.5%", "width": 220, "outline": false, "veil": "radial", "veilSize": 275, "veilLeft": -55, "veilBottom": -61 },
+  "echo": { "file": "echo-preview.png", "color": "var(--accent)", "width": 260, "height": 260 },
+  "icon": { "file": "ModIcon-source.png" },
   "palette": { "veil": "#372518", "inkPrimary": "#F2ECE1", "inkSecondary": "#E9BB77", "accent": "#EF654E", "badgeInk": "#17120E" }
 }
