@@ -20,7 +20,7 @@ dependencies: declared: Vanilla Cooking Expanded; optional: Vanilla Plants Expan
 showcase:     complete
 automated_tests: Test-CandyRecipes and Check-XmlFields, -ConfigErrors, -DefRefs, -DefInjected rerun green 2026-10-13 at 41743a9 (66 keys, 34 defs, 0 errors); Check-DefInjected notes that the French keys of the guarded recipe are not in a gated folder; Check-DefRefs is blind to ingredient-filter categories
 pickle_suite: written 2026-09-28 (Tests/Pickle, 11 features, 57 scenarios, 5 passes of which 4 written), vocabulary checked offline, never run
-tested_on:
+tested_on:    2026-10-25 (RimWorld 1.6, Pickle in WSL; Mod/ behavior unchanged since 41743a9, only images at 9b1233c and docs after; English sans-facultatifs initial 49 of 54, avec-vpe 50 of 54, avec-props-as-style 4 of 4, 03b-mask-facings ticket 2f08 4 of 4, French only partial: fr-labels 49 of 57 with the 3 English labels red by design; captures of 03b opened 2026-10-31; nothing played by a person)
 workshop:     3806767867 (private, created 2026-09-23 by the 0.1.0 prepublication; not public, not tested)
 remaining:
   - unverified: the Steam page still carries the 0.1.0 description, which says Vanilla Plants Expanded is unused; corrected in About.xml at dd3224e, reaches Steam only through the CI's update_description or a hand edit
@@ -31,8 +31,10 @@ remaining:
   - unverified: French pass: the full sans-facultatifs French run stalled (watchdog, 36 of 54 played); only the 3 08-labels-fr scenarios have passed in French
   - unverified: no pass yet for the "do not load with the original" warning, to observe once then assert (mandatory for tested)
   - unverified: @review captures never opened, logs never read (mandatory for tested)
-  - unverified: code review (code_review_sha), then the 1.7 diagnostic pass after a green 1.6 playTests (tested_1_7 empty)
+  - code review 8.m done 2026-10-31 (Opus sub-agent, whole Mod/ since the first commit): no blocking defect; fixed the About.xml sentence on the mask slot and the French "des draps" typo (3cf315d); open, low: brain cakes take the whole AnimalProductRaw category (eggs, fertilized eggs) while the recipe says sugar and milk, to settle in game or with the owner; French text changed, so Virginie reads the one corrected word in FRENCH_REVIEW.md
+  - unverified: the 1.7 diagnostic pass after a green 1.6 playTests (tested_1_7 empty)
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
+code_review_sha: 3cf315d0934d7d5aa963e5ceaee4f9598c999a25
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
 updated:      2026-10-31, replay-audit: first open 8.c/8.d/8.k/8.l/8.m at playTests, stage unchanged; 03b-mask-facings green (ticket 2f08); session code HMM
 protocols_read_sha: 7fb78fd9e3344d46a904df6458038a34c7f8ff3d
