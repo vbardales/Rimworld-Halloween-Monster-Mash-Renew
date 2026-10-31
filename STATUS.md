@@ -31,10 +31,10 @@ remaining:
   - unverified: French pass: the full sans-facultatifs French run stalled (watchdog, 36 of 54 played); only the 3 08-labels-fr scenarios have passed in French
   - unverified: no pass yet for the "do not load with the original" warning, to observe once then assert (mandatory for tested)
   - unverified: @review captures never opened, logs never read (mandatory for tested)
-  - code review 8.m done 2026-10-31 (Opus sub-agent, whole Mod/ since the first commit): no blocking defect; fixed the About.xml sentence on the mask slot and the French "des draps" typo (3cf315d); open, low: brain cakes take the whole AnimalProductRaw category (eggs, fertilized eggs) while the recipe says sugar and milk, to settle in game or with the owner; French text changed, so Virginie reads the one corrected word in FRENCH_REVIEW.md
+  - code review 8.m done 2026-10-31 (Opus sub-agent, whole Mod/ since the first commit): no blocking defect; fixed the About.xml sentence on the mask slot and the French "des draps" typo (3cf315d); open, low: brain cakes take the whole AnimalProductRaw category (eggs, fertilized eggs) while the recipe says sugar and milk, to settle in game or with the owner; ChatGPT review of FRENCH_REVIEW.md 2026-10-31 (page 1 of 1): applied the hockey mask word order and the candy corn "préparation" (with "Elle comble" agreement), diff read, review sha moved to 750734e (revue du diff: texte français seul); declined as faithful to the English: "vous donne l air" in ten mask descriptions and "votre âme" on the reaper; French text changed since Virginie review of 2026-10-11, so she reads "des draps blancs", the hockey mask and the candy corn lines in FRENCH_REVIEW.md
   - unverified: the 1.7 diagnostic pass after a green 1.6 playTests (tested_1_7 empty)
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
-code_review_sha: 3cf315d0934d7d5aa963e5ceaee4f9598c999a25
+code_review_sha: 750734e518a6e4045420a3e763702ad8ff15d4d8
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
 updated:      2026-10-31, replay-audit: first open 8.c/8.d/8.k/8.l/8.m at playTests, stage unchanged; 03b-mask-facings green (ticket 2f08); session code HMM
 protocols_read_sha: 7fb78fd9e3344d46a904df6458038a34c7f8ff3d
