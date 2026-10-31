@@ -26,7 +26,7 @@ remaining:
   - unverified: the Steam page still carries the 0.1.0 description, which says Vanilla Plants Expanded is unused; corrected in About.xml at dd3224e, reaches Steam only through the CI's update_description or a hand edit
   - unverified: French keys of HMM_Make_SpiderBites have no def to attach to without Vanilla Plants Expanded; Check-DefInjected says they should sit in a gated folder (a LoadFolders.xml, which this mod dropped on purpose); 01-load passed without VPE, the game logged nothing from the mod, so the warning is not observed
   - blocking (done -> tested): door 1, no scenario in @wip: MET, 0 of 61 written scenarios carry the tag
-  - blocking (done -> tested): door 2, every conditional scenario has run: per docs/runs/history.md all six ran green on 2026-10-12 to 2026-10-14 (01-load, spider bites cooking with VPE, four Props as Style textures); NOT MET until the new 03b-mask-facings (4 scenarios, needs the colonistrace companion, written 2026-10-25) has run
+  - blocking (done -> tested): door 2, every conditional scenario has run: per docs/runs/history.md all six ran green on 2026-10-12 to 2026-10-14 (01-load, spider bites cooking with VPE, four Props as Style textures); MET by 03b-mask-facings: ticket 2f08 (sans-facultatifs, 2026-10-25), 4 of 4 passed, exitReason passed, report in Tests/Pickle/Inbox/facings still to be minified into Tests/Pickle/Evidence and logged in docs/runs/history.md; its 4 manual screenshots (@review) still to be opened (8.d)
   - blocking (done -> tested): door 3, no manual test left to validate: NOT MET; TF-01, 02, 04, 05 are Pickle and ran green, TF-06 not applicable; open: mask facings (03b written, unrun), the child subcase (needs Biotech), sweet stacks at 1, 25 and 75 (no step places a stack at a known cell), an older save holding HMM items, French menu layout, Props as Style's own styles (its repository)
   - unverified: French pass: the full sans-facultatifs French run stalled (watchdog, 36 of 54 played); only the 3 08-labels-fr scenarios have passed in French
   - unverified: no pass yet for the "do not load with the original" warning, to observe once then assert (mandatory for tested)
@@ -34,7 +34,7 @@ remaining:
   - unverified: code review (code_review_sha), then the 1.7 diagnostic pass after a green 1.6 playTests (tested_1_7 empty)
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
-updated:      2026-10-25, Preview regenerated from the panel/icon config (9b1233c) and validated by the owner; FRENCH_REVIEW regenerated; session code HMM
+updated:      2026-10-31, replay-audit: first open 8.c/8.d/8.k/8.l/8.m at playTests, stage unchanged; 03b-mask-facings green (ticket 2f08); session code HMM
 protocols_read_sha: 7fb78fd9e3344d46a904df6458038a34c7f8ff3d
 ---
 
