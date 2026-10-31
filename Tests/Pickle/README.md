@@ -48,7 +48,7 @@ is `-Filter '<suite>,!@lang-fr'` (or `!@lang-en`), which the launcher treats as 
 | sans-facultatifs, French | the same, `-Language French -Filter '<suite>,!@lang-en'` | The French labels the game resolved | the same |
 | avec-vpe | `-DepMap wsl-deps.avec-vpe.map -Filter '<suite>,!@lang-fr'` | The category `VCE_Fruit` exists, so the sixth recipe can be cooked and the load is clean | `09` |
 | avec-props-as-style | `-DepMap wsl-deps.avec-props-as-style.map -Filter '09-props-as-style-textures'` | This mod answers for the four textures Props as Style reads | none |
-| incompat-original | **not written**, see `TESTING.md` | Whether "do not load the original with this port" is still true | |
+| incompat-original | `-DepMap wsl-deps.incompat-original.map -Filter '11-incompat-original'` (written 2026-11-01, unrun) | Whether "do not load the original with this port" is still true | |
 
 The maps name Vanilla Expanded Framework before Vanilla Cooking Expanded because the staging copies only
 the tested mod's own direct dependencies and its order is the load order. **Not read for the last map:**

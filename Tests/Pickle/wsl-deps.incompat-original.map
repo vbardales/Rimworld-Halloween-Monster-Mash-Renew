@@ -1,0 +1,9 @@
+# The original mod mounted beside this port, to observe once what "do not load the original with this port"
+# really does. The original (KD.HalloweenMonsterMash) declares Vanilla Cooking Expanded, Vanilla Plants
+# Expanded and Vanilla Expanded Framework. Framework first, then the two Vanilla Expanded mods, then the
+# original, then the tool; the tested mod is staged last.
+OskarPotocki.VanillaFactionsExpanded.Core     2023507013
+VanillaExpanded.VCookE                        2134308519
+VanillaExpanded.VPlantsE                      2134308522
+KD.HalloweenMonsterMash                       2257175849
+nelim.pickletools.loadaudit                   path:PickleTools/LoadAudit/Mod
