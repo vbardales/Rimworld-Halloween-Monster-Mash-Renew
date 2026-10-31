@@ -37,3 +37,6 @@ Test-CandyRecipes PASS; Check-XmlFields PASS (5 files, no unknown 1.6 field); Ch
 - `fr-labels` (ticket 20261012-043155-552-d4a5, 2026-10-12): wrong filter, played 57 scenarios in a French game. 49 passed, 3 failed, 5 skipped, exitReason failed. The 3 failures are the English-label scenarios (expected red in French). The 3 `08-labels-fr` scenarios (HMM_Mask_Devil, HMM_CoffinBars, HMM_Make_CoffinBars) passed: the game resolves those French keys. `08-labels-fr` covers 3 labels of 66 texts, no description.
 - `fr-labels-1` (2026-10-13): the 3 English-label scenarios alone, 3 passed.
 - `avec-props-as-style` (`initial-avec-props-as-style` and `avec-props-as-style`, 2026-10-12 and 2026-10-14): 4 scenarios, 4 passed, exitReason passed.
+
+## 2026-10-25, Pickle pass facings (sans-facultatifs, English), ticket 2f08, run read 2026-10-31
+4 scenarios (03b-mask-facings), 4 passed, 0 failed, 0 skipped, exitReason passed, 1 attempt each. The four manual screenshots were opened: devil mask seen from behind (north, horns and no face), in profile (east and west, eye on the facing side) and from the front (south, both eyes). Player.log was removed by the minify before it was read: the log check (8.i) is not covered by this run. Kept minified in Tests/Pickle/Evidence/facings.
