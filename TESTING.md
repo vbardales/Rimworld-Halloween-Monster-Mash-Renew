@@ -10,7 +10,7 @@ Written on 2026-09-28 against `AUDIT.md` (blob `e9a564da92`, read whole) and the
 |---|---|---|---|
 | Recipe contract | `scripts/Test-CandyRecipes.ps1` | offline | Six recipes, item counting (no nutrition getter), ingredients and fixed filters, products, work, both stoves. |
 | Shared XML checkers | `../scripts/Check-*.ps1` | offline | Fields, config errors, def references, `Class=`, type references, DefInjected keys. **`Check-DefRefs` does not resolve the `<categories>` of an ingredient filter**, see `STATUS.md`. |
-| Step vocabulary | `Tests/Pickle/Check-Steps.ps1` | offline | Every step of the suite exists in Pickle's and PickleTools' catalogues. |
+| Step vocabulary | `scripts/Check-Steps.ps1` (shared) | offline | Every step of the suite exists in Pickle's and PickleTools' catalogues. |
 | Pickle | `Tests/Pickle/` | in game | The load, the game-computed values, cooking, drawing, save and reload. See `Tests/Pickle/README.md`. |
 
 ## Passes a full validation needs

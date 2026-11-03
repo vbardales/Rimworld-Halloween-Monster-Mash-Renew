@@ -6,11 +6,10 @@ PickleTools' catalogue and the shared authoring guide. First run 2026-10-12 (`do
 steps: everything it says is Pickle's own vocabulary, plus three optional PickleTools companions
 (`LoadAudit`, `TextureOwner`, `ColonistRace`).
 
-`Check-Steps.ps1` checks the vocabulary offline, so a run is not lost to an undefined step:
+The shared `scripts/Check-Steps.ps1` checks the vocabulary offline, so a run is not lost to an undefined step:
 
 ```powershell
-gh api repos/RimWorks/Rimworld-Pickle/contents/Docs/steps.md --jq .content | base64 -d > $env:TEMP\pickle-steps.md
-powershell -File Tests/Pickle/Check-Steps.ps1 -PickleCatalogue $env:TEMP\pickle-steps.md
+powershell.exe -ExecutionPolicy Bypass -File ../scripts/Check-Steps.ps1 -ModRoot .
 ```
 
 Result on 2026-09-28: 11 features, 85 step lines, 0 problems; a
