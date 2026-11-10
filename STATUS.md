@@ -36,7 +36,7 @@ remaining:
   - unverified: 1.0.0 needs the prepublished-stage work (PUBLICATION.md with the description source and change note, thank-you drafts, gallery, dry-run of the exact SHA) before any publish
 code_review_sha: 750734e518a6e4045420a3e763702ad8ff15d4d8
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
-updated:      2026-11-10, resume: protocols read at d4d50edc, incompat-original read and parked, Preview regenerated; session code HMM
+updated:      2026-11-10, resume: protocols read at d4d50edc, incompat-original parked, Preview restored to the committed PNG (renderer default echo differs from the old 260 px echo, Virginie told); gallery empty, no Preview prompt yet; session code HMM
 protocols_read_sha: d4d50edc8aa6bde503de8b2ab898b17f12223644
 ---
 
