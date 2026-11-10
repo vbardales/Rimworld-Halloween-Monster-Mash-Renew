@@ -74,3 +74,10 @@ Detached from the `Documents/rimworld` monorepo on 2026-09-12.
 ## Preview source migration - 2026-10-03
 
 Preview generation now uses the shared renderer with `Art/Preview.config.json`. Canonical sources and publishable outputs were preserved; transient QA belongs in ignored `Art/.render/`.
+
+## Translation audit
+
+Where the translations live: English is the source side, carried by the Def values themselves (`label`, `description`, recipe and job strings in `Mod/Defs/`); no Keyed text, no code. French ships in `Mod/Languages/French/DefInjected/` (`RecipeDef/Recipes_Candy.xml`, `ThingDef/Candy.xml`, `ThingDef/Decorations.xml`, `ThingDef/Masks.xml`), 66 keys, 0 missing against English (`Check-Translations`, `Check-DefInjected`, 2026-11-10). Known note: the French keys of the guarded `HMM_Make_SpiderBites` have no def to attach to without Vanilla Plants Expanded and sit in the ungated folder (no `LoadFolders.xml`, dropped on purpose); the game logged nothing from the mod without it.
+
+- Virginie, 2026-10-11, revision 576cafd: no pawn agreement needed; six corrections applied (cake pops eyes, brain cakes and murder buns number, ghosts, skeleton, Dia de los Muertos) plus two CHANGELOG fixes.
+- Virginie, 2026-10-31, revision 750734e: read "des draps blancs", the hockey mask and the candy corn lines in `FRENCH_REVIEW.md` (now `TRANSLATION_REVIEW.md`) and validated the French review; ChatGPT review of the same day applied (hockey mask word order, candy corn "préparation" with "Elle comble" agreement), declined as faithful to the English: "vous donne l'air" in ten mask descriptions and "votre âme" on the reaper.
