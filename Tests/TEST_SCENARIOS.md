@@ -6,12 +6,12 @@ From the repository root, using PowerShell 7:
 
 ```powershell
 pwsh -NoProfile -File ../scripts/Check-XmlFields.ps1 -ModPath ./Mod
-pwsh -NoProfile -File ./scripts/Test-CandyRecipes.ps1
+pwsh -NoProfile -File ./Tests/Rule-OwnValues.ps1 -ModRoot .
 ```
 
 The first command uses the shared utility in the parent `rimworld/scripts` directory and
 installed RimWorld assemblies (override their path with `-Managed`). It is not included
-in this repository. The second is standalone and accepts `-ModPath` for another copy.
+in this repository. The second is the mod's own rule file (it replaced `scripts/Test-CandyRecipes.ps1`) and takes `-ModRoot`.
 It checks all six recipes, item counting, ingredients and their filters, quantities,
 products, work and both stoves. Failure returns a nonzero exit code.
 
