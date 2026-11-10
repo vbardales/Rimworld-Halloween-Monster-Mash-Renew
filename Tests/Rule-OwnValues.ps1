@@ -1,4 +1,5 @@
 param([Parameter(Mandatory)][string]$ModRoot, [string]$SharedDir)
+# Replaces-Shared: DefRefs
 
 # Own values and facts of this port's content: the six candy recipes (base, work, stoves, ingredients, fixed filters, products,
 # the Plants Expanded guard on the spider bites) and the dependency contract of About.xml (Cooking Expanded hard, Plants Expanded
@@ -71,6 +72,16 @@ It 'Dependencies: Cooking Expanded hard, Plants Expanded optional and loaded aft
     if ($deps -notcontains 'VanillaExpanded.VCookE') { 'Vanilla Cooking Expanded must stay a declared dependency.' }
     if ($deps -contains 'VanillaExpanded.VPlantsE') { 'Vanilla Plants Expanded must stay optional (MayRequire), not a dependency.' }
     if (@($about.ModMetaData.loadAfter.li) -notcontains 'VanillaExpanded.VPlantsE') { 'Vanilla Plants Expanded must be in loadAfter.' }
+}
+
+It 'Every def reference resolves, Plants Expanded scanned for the guarded VCE_Fruit category' {
+    # Check-DefRefs runs here (Replaces-Shared) because the guarded spider bites recipe names a category that only Vanilla Plants
+    # Expanded defines. Without that mod installed the check is skipped loudly, never passed.
+    $vpe = 'C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2134308522'
+    if (-not $SharedDir) { 'SharedDir not given: cannot run Check-DefRefs'; return }
+    if (-not (Test-Path -LiteralPath $vpe)) { Write-Output 'SKIP Check-DefRefs: Vanilla Plants Expanded (2134308522) not installed here'; return }
+    $out = & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $SharedDir 'Check-DefRefs.ps1') -ModPath $mod -AlsoScan @($vpe) -Brief 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) { 'Check-DefRefs failed: ' + $out.Trim() }
 }
 
 if ($script:findings.Count) { $script:findings | ForEach-Object { Write-Output $_ }; exit 1 }

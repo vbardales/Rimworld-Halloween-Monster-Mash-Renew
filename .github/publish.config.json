@@ -1,0 +1,14 @@
+{
+  "templateStamp": "ed4669c0a5bf",
+  "workshopId": "3806767867",
+  "packageId": "nelim.halloweenmonstermash",
+  "releaseTitle": "Halloween Monster Mash Renew {version}",
+  "requirePaths": [
+    "Defs"
+  ],
+  "forbidPaths": [
+    "Assemblies"
+  ],
+  "previewFile": "About/Preview.png",
+  "galleryDir": "Art/Gallery"
+}
