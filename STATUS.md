@@ -39,7 +39,7 @@ remaining:
 code_review_sha: 750734e518a6e4045420a3e763702ad8ff15d4d8
 session:      4d536aaf-96f0-461c-b97c-4a62e7d1e98b
 updated:      2026-11-10, replay-audit: stage playTests unchanged, first open 8.c; 1.7 diagnostic ticket e505 queued (owner order); session code HMM
-protocols_read_sha: d4d50edc8aa6bde503de8b2ab898b17f12223644
+protocols_read_sha: 355ead251709e5b8cd51ba404e8d9d490a8253c4
 ---
 
 # Halloween Monster Mash Renew - status
