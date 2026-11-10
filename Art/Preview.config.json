@@ -1,17 +1,20 @@
 {
   "panel": {
-    "title": "Halloween Monster Mash Renew",
-    "titleSize": 40,
+    "title": "Halloween Monster Mash Renew (unofficial)",
     "titleParts": [
-      { "text": "Halloween", "scale": 1 },
-      { "text": "Monster Mash", "scale": 1, "breakBefore": true },
-      { "text": "Renew", "scale": 0.65, "font": "ui", "color": "secondary" }
+      { "text": "Halloween Monster Mash" },
+      { "text": "Renew (unofficial)", "suffix": true }
     ],
-    "tag": "(unofficial)",
-    "copyLines": ["Eleven masks, seven decorations and six Halloween sweets."]
+    "description": "Eleven masks, seven decorations and six Halloween sweets."
   },
-  "backgroundFile": "Preview-source.png",
+  "background": { "file": "Preview-source.png" },
   "echo": { "file": "echo-preview.png" },
   "icon": { "file": "ModIcon-source.png" },
-  "palette": { "veil": "#372518", "inkPrimary": "#F2ECE1", "inkSecondary": "#E9BB77", "accent": "#EF654E", "badgeInk": "#17120E" }
+  "palette": {
+    "veil": "#372518",
+    "inkPrimary": "#F2ECE1",
+    "inkSecondary": "#E9BB77",
+    "accent": "#EF654E",
+    "badgeInk": "#17120E"
+  }
 }
