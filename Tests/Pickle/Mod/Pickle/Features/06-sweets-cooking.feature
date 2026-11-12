@@ -32,8 +32,7 @@ Feature: a colonist cooks the sweets from item counts
   Scenario Outline: <recipe> makes ten sweets and takes all four sugar
     Given <amount> "<partner>" is spawned at the stockpile
     When I add bill "<recipe>" to the "FueledStove" at (146, 155)
-    And game speed is ultrafast
-    And I wait for bill "<recipe>" to finish
+    And Nelim's Pickle Tools: the bill "<recipe>" on the building "FueledStove" at (146, 155) is done within 2700 ticks
     Then 10 "<product>" exist
     And no "VCE_RawSugar" exists
     And no errors were logged
@@ -53,8 +52,7 @@ Feature: a colonist cooks the sweets from item counts
   Scenario: spider bites make ten sweets from twenty-five fruit and four sugar
     Given 40 "VCE_RawApple" is spawned at the stockpile
     When I add bill "HMM_Make_SpiderBites" to the "FueledStove" at (146, 155)
-    And game speed is ultrafast
-    And I wait for bill "HMM_Make_SpiderBites" to finish
+    And Nelim's Pickle Tools: the bill "HMM_Make_SpiderBites" on the building "FueledStove" at (146, 155) is done within 2700 ticks
     Then 10 "HMM_SpiderBites" exist
     And no "VCE_RawSugar" exists
     And no errors were logged

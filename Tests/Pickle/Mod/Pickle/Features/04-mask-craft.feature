@@ -18,8 +18,7 @@ Feature: a mask is made at a workstation
     And a "CraftingSpot" is built at (146, 155)
     And 30 "Cloth" is spawned at the stockpile
     And I add bill "Make_HMM_Mask_Devil" to the "CraftingSpot"
-    And game speed is ultrafast
-    And I wait for bill "Make_HMM_Mask_Devil" to finish
+    And Nelim's Pickle Tools: the bill "Make_HMM_Mask_Devil" on the building "CraftingSpot" at (146, 155) is done within 2700 ticks
     Then a "HMM_Mask_Devil" exists
     And no errors were logged
 
